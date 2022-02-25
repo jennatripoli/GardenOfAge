@@ -1,13 +1,2 @@
-﻿  Bullet.cpp
-  EventNuke.cpp
-  Explosion.cpp
-  game.cpp
-  GameOver.cpp
-  GameStart.cpp
-  Hero.cpp
-  Points.cpp
-  Reticle.cpp
-  Saucer.cpp
-  Star.cpp
-  Generating Code...
+﻿  Character.cpp
   GardenOfAge.vcxproj -> C:\Users\jenna\Documents\GitHub\GardenOfAge\GardenOfAge\x64\Debug\GardenOfAge.exe

@@ -1,37 +1,28 @@
-12:26:03    0 ****************************************************
-12:26:03    0 ** Dragonfly version 4.16 **
-12:26:03    0 ** Game engine started **
-12:26:03    0 ****************************************************
-12:26:04    1 GameManager::run(): Can't keep up! frame_time 33 ms, split 43 ms
-12:26:04   21 GameManager::run(): Can't keep up! frame_time 33 ms, split 44 ms
-12:26:07   90 RM::loadSprite(): Loading sprite 'sprites/saucer-spr.txt'.
-12:26:07   90 RM::loadSprite(): Sprite 'saucer' loaded.
-12:26:07   90 RM::loadSprite(): Loading sprite 'sprites/ship-spr.txt'.
-12:26:07   90 RM::loadSprite(): Sprite 'ship' loaded.
-12:26:07   90 RM::loadSprite(): Loading sprite 'sprites/bullet-spr.txt'.
-12:26:07   90 RM::loadSprite(): Sprite 'bullet' loaded.
-12:26:07   90 RM::loadSprite(): Loading sprite 'sprites/explosion-spr.txt'.
-12:26:07   90 RM::loadSprite(): Sprite 'explosion' loaded.
-12:26:07   90 RM::loadSprite(): Loading sprite 'sprites/gamestart-spr.txt'.
-12:26:07   90 RM::loadSprite(): Sprite 'gamestart' loaded.
-12:26:07   90 RM::loadSprite(): Loading sprite 'sprites/gameover-spr.txt'.
-12:26:07   90 RM::loadSprite(): Sprite 'gameover' loaded.
-12:26:07   90 Pause::Pause(): Pause enabled.  Press any other key to resume.
-12:26:07    1 GameManager::run(): Can't keep up! frame_time 33 ms, split 51 ms
-12:26:07    2 GameManager::run(): Can't keep up! frame_time 33 ms, split 34 ms
-12:26:07    6 GameManager::run(): Can't keep up! frame_time 33 ms, split 55 ms
-12:26:07   12 GameManager::run(): Can't keep up! frame_time 33 ms, split 33 ms
-12:26:07   19 GameManager::run(): Can't keep up! frame_time 33 ms, split 33 ms
-12:26:08   27 GameManager::run(): Can't keep up! frame_time 33 ms, split 35 ms
-12:26:08   39 GameManager::run(): Can't keep up! frame_time 33 ms, split 33 ms
-12:26:09   51 GameManager::run(): Can't keep up! frame_time 33 ms, split 51 ms
-12:26:09   69 GameManager::run(): Can't keep up! frame_time 33 ms, split 33 ms
-12:26:09   73 GameManager::run(): Can't keep up! frame_time 33 ms, split 52 ms
-12:26:09   74 GameManager::run(): Can't keep up! frame_time 33 ms, split 34 ms
-12:26:10   86 GameManager::run(): Can't keep up! frame_time 33 ms, split 37 ms
-12:26:10   92 GameManager::run(): Can't keep up! frame_time 33 ms, split 35 ms
-12:26:10   93 GameManager::run(): Can't keep up! frame_time 33 ms, split 33 ms
-12:26:11  116 GameManager::run(): Can't keep up! frame_time 33 ms, split 33 ms
-12:26:12  132 GameManager::run(): Can't keep up! frame_time 33 ms, split 88 ms
-12:26:12  133 ****************************************************
-12:26:12  133 ** Game engine stopped **
+14:28:16    0 ****************************************************
+14:28:16    0 ** Dragonfly version 4.16 **
+14:28:16    0 ** Game engine started **
+14:28:16    0 ****************************************************
+14:28:18   33 GameManager::run(): Can't keep up! frame_time 33 ms, split 35 ms
+14:28:19   50 GameManager::run(): Can't keep up! frame_time 33 ms, split 33 ms
+14:28:19   60 GameManager::run(): Can't keep up! frame_time 33 ms, split 33 ms
+14:28:20   71 GameManager::run(): Can't keep up! frame_time 33 ms, split 33 ms
+14:28:20   82 GameManager::run(): Can't keep up! frame_time 33 ms, split 33 ms
+14:28:20   90 RM::loadSprite(): Loading sprite 'sprites/saucer-spr.txt'.
+14:28:20   90 RM::loadSprite(): Sprite 'saucer' loaded.
+14:28:20   90 RM::loadSprite(): Loading sprite 'sprites/ship-spr.txt'.
+14:28:20   90 RM::loadSprite(): Sprite 'ship' loaded.
+14:28:20   90 RM::loadSprite(): Loading sprite 'sprites/bullet-spr.txt'.
+14:28:20   90 RM::loadSprite(): Sprite 'bullet' loaded.
+14:28:20   90 RM::loadSprite(): Loading sprite 'sprites/explosion-spr.txt'.
+14:28:20   90 RM::loadSprite(): Sprite 'explosion' loaded.
+14:28:20   90 RM::loadSprite(): Loading sprite 'sprites/gamestart-spr.txt'.
+14:28:20   90 RM::loadSprite(): Sprite 'gamestart' loaded.
+14:28:20   90 RM::loadSprite(): Loading sprite 'sprites/gameover-spr.txt'.
+14:28:20   90 RM::loadSprite(): Sprite 'gameover' loaded.
+14:28:20   90 Pause::Pause(): Pause enabled.  Press any other key to resume.
+14:28:20   90 MenuSelect | setLocation() window width = 80.0, window height = 24.0.
+14:28:20   90 MenuSelect | setLocation() x = 0.0, y = 0.0.
+14:28:20   90 MenuSelect | setLocation() x = 0.0, y = 0.0.
+14:28:20   90 MenuSelect | setLocation() window width = 80.0, window height = 24.0.
+14:28:20   90 MenuSelect | setLocation() x = 8.0, y = 2.4.
+14:28:20   90 MenuSelect | setLocation() x = 8.0, y = 2.4.

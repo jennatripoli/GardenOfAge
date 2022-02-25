@@ -1,12 +1,7 @@
-//
-// GameStart.h
-//
-
 #include "Music.h"
 #include "ViewObject.h"
 
 class GameStart : public df::ViewObject {
-
  private:
   df::Music *p_music;
   void start();

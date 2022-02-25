@@ -1,8 +1,3 @@
-//
-// GameStart.cpp
-//
-
-// Engine includes.
 #include "Color.h"
 #include "EventKeyboard.h"
 #include "GameManager.h"
@@ -10,12 +5,8 @@
 #include "ResourceManager.h"
 #include "WorldManager.h"
 
-// Game includes.
 #include "GameStart.h"
-#include "Hero.h"
 #include "Music.h"
-#include "Points.h"
-#include "Saucer.h"
 
 GameStart::GameStart() {
   setType("GameStart");
@@ -30,8 +21,8 @@ GameStart::GameStart() {
   registerInterest(df::KEYBOARD_EVENT);
 
   // Play start music.
-  p_music = RM.getMusic("start music");
-  playMusic();
+  //p_music = RM.getMusic("start music");
+  //playMusic();
 }
 
 // Play start music.
@@ -63,21 +54,6 @@ int GameStart::eventHandler(const df::Event *p_e) {
 }
 
 void GameStart::start() {
-
-  // Create hero.
-  new Hero;
-
-  // Spawn some saucers to shoot.
-  for (int i=0; i<16; i++)
-    new Saucer;
-
-  // Setup heads-up display.
-  new Points;		                     // Points display.
-  df::ViewObject *p_vo = new df::ViewObject; // Count of nukes.
-  p_vo->setLocation(df::TOP_LEFT);
-  p_vo->setViewString("Nukes");
-  p_vo->setValue(1);
-  p_vo->setColor(df::YELLOW);
 
   // Pause start music.
   p_music->pause();

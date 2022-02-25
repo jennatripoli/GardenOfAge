@@ -1,58 +1,42 @@
-//
-// game.cpp
-// 
-
-// Engine includes.
 #include "GameManager.h"
 #include "LogManager.h"
 #include "Pause.h"
 #include "ResourceManager.h"
+#include "DisplayManager.h"
 #include <Windows.h>
 
-
-// Game includes.
 #include "GameStart.h"
-#include "Star.h"
+#include "MenuSelect.h"
 
-// Function prototypes.
 void loadResources(void);
 void populateWorld(void);
- 
-int main(int argc, char *argv[]) {
-    sf::Music music;
-    if (!music.openFromFile("sounds/start-music.wav")) {
-        fprintf(stderr, "Unable to load music!\n");
-    }
-    music.play();
-    Sleep(5000);
 
-  // Start up game manager.
-  if (GM.startUp())  {
-    LM.writeLog("Error starting game manager!");
-    GM.shutDown();
-    return 0;
-  }
+int main(int argc, char* argv[]) {
+    // start up GameManager
+	if (GM.startUp()) {
+		LM.writeLog("GameManager | startUp() error.");
+        GM.shutDown();
+        return 0;
+	}
 
-  // Set flush of logfile during development (when done, make false).
-  LM.setFlush(true);
+	LM.setFlush(true);
+	df::splash();
 
-  // Show splash screen.
-  df::splash();
+	loadResources();
+	populateWorld();
 
-  // Load game resources.
-  loadResources();
+	new df::Pause(df::Keyboard::F10);
 
-  // Populate game world with some objects.
-  populateWorld();
+	MenuSelect* menu = new MenuSelect("Hello, world!", df::YELLOW, NULL);
+	menu->setLocation(1, 1);
+	menu->draw();
+	DM.swapBuffers();
+	Sleep(1000);
 
-  // Enable player to pause game.
-  new df::Pause(df::Keyboard::F10);
- 
-  // Run game (this blocks until game loop is over).
-  GM.run();
-  
-  // Shut everything down.
-  GM.shutDown();
+    //GM.run();
+    //GM.shutDown();
+
+	return 0;
 }
 
 // Load resources (sprites, sound effects, music).
@@ -73,10 +57,6 @@ void loadResources(void) {
 // Populate world with some objects.
 void populateWorld(void) {
 
-  // Spawn some Stars.
-  for (int i=0; i<16; i++) 
-    new Star;
-   
   // Create GameStart object.
   new GameStart();
 }

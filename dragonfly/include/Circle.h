@@ -9,26 +9,26 @@
 
 namespace df {
 
-class Circle {
+	class Circle {
 
- private:
-  Vector m_center;        ///< Circle middle.
-  float m_radius;         ///< Circle raduis.
+	private:
+		Vector m_center;        ///< Circle middle.
+		float m_radius;         ///< Circle raduis.
 
- public:
+	public:
 
-  /// Create circle at center with radius r.
-  Circle(Vector init_center, float init_radius);
+		/// Create circle at center with radius r.
+		Circle(Vector init_center, float init_radius);
 
-  /// Default circle segment is at (0,0) with radius 0.
-  Circle();
+		/// Default circle segment is at (0,0) with radius 0.
+		Circle();
 
-  void setCenter(Vector new_center); ///< Set center.
-  Vector getCenter() const;          ///< Get center.
-  void setRadius(float new_radius);  ///< Set radius.
-  float getRadius() const;           ///< Get radius.
-  std::string toString() const;      ///< Return attributes as string.
-};
+		void setCenter(Vector new_center); ///< Set center.
+		Vector getCenter() const;          ///< Get center.
+		void setRadius(float new_radius);  ///< Set radius.
+		float getRadius() const;           ///< Get radius.
+		std::string toString() const;      ///< Return attributes as string.
+	};
 
 } // end of namespace df
 #endif //__CIRCLE_H__
