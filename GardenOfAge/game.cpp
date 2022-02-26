@@ -8,9 +8,11 @@
 #include "GameStart.h"
 #include "MenuSelect.h"
 #include "Tank.h"
+#include "EventDamage.h"
 
 void loadResources(void);
 void populateWorld(void);
+void tests(void);
 
 int main(int argc, char* argv[]) {
     // start up GameManager
@@ -28,31 +30,44 @@ int main(int argc, char* argv[]) {
 
 	new df::Pause(df::Keyboard::F10);
 
-	// test MenuSelect displaying
-	MenuSelect* menu = new MenuSelect("Hello, world!", df::YELLOW, NULL);
-	menu->setLocation(1, 1);
-	menu->draw();
-	DM.swapBuffers();
-	Sleep(1000);
-
-	// test tank can display and HP can change
-	Tank* t = new Tank();
-	t->setPosition(df::Vector(10, 10));
-	t->draw();
-	t->drawHP();
-	DM.swapBuffers();
-	Sleep(1000);
-
-	t->takeDamage(10);
-	t->draw();
-	t->drawHP();
-	DM.swapBuffers();
-	Sleep(1000);
+	tests();
 
     //GM.run();
     //GM.shutDown();
 
 	return 0;
+}
+
+void tests(void) {
+	// test MenuSelect can display
+	/*MenuSelect* menu = new MenuSelect("Hello, world!", df::YELLOW, NULL);
+	menu->setLocation(1, 1);
+	menu->draw();
+	DM.swapBuffers();
+	Sleep(1000);*/
+
+	// test Tank can display
+	/*Tank* t = new Tank();
+	t->setPosition(df::Vector(10, 10));
+	t->draw();
+	t->drawHP();
+	DM.swapBuffers();
+	Sleep(1000);*/
+
+	// test Tank can change hp
+	/*t->takeDamage(10);
+	t->draw();
+	t->drawHP();
+	DM.swapBuffers();
+	Sleep(1000);*/
+
+	// test sending an EventDamage to Tank
+	/*EventDamage* d = new EventDamage(20);
+	t->eventHandler(d);
+	t->draw();
+	t->drawHP();
+	DM.swapBuffers();
+	Sleep(1000);*/
 }
 
 // Load resources (sprites, sound effects, music).

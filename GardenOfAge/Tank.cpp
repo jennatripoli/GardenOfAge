@@ -16,7 +16,7 @@ Tank::~Tank() {
 int Tank::eventHandler(const df::Event* p_e) {
 	if (p_e->getType() == "damage") {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
-		//takeDamage(p_damage_event->getAmount());
+		takeDamage(p_damage_event->getAmount());
 		return 1;
 	}
 

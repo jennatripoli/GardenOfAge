@@ -8,5 +8,5 @@ private:
 	EventDamage();
 public:
 	EventDamage(int amount);
-	int getAmount();
+	int getAmount() const;
 };
