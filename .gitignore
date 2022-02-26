@@ -4,3 +4,7 @@ GardenOfAge/.vs/GardenOfAge/v16/Browse.VC.opendb
 GardenOfAge/dragonfly.log
 *.tlog
 *.ipch
+*.obj
+*.log
+*.pdb
+*.ilk
