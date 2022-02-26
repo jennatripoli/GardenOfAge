@@ -7,6 +7,7 @@
 
 #include "GameStart.h"
 #include "MenuSelect.h"
+#include "Tank.h"
 
 void loadResources(void);
 void populateWorld(void);
@@ -27,9 +28,24 @@ int main(int argc, char* argv[]) {
 
 	new df::Pause(df::Keyboard::F10);
 
+	// test MenuSelect displaying
 	MenuSelect* menu = new MenuSelect("Hello, world!", df::YELLOW, NULL);
 	menu->setLocation(1, 1);
 	menu->draw();
+	DM.swapBuffers();
+	Sleep(1000);
+
+	// test tank can display and HP can change
+	Tank* t = new Tank();
+	t->setPosition(df::Vector(10, 10));
+	t->draw();
+	t->drawHP();
+	DM.swapBuffers();
+	Sleep(1000);
+
+	t->takeDamage(10);
+	t->draw();
+	t->drawHP();
 	DM.swapBuffers();
 	Sleep(1000);
 

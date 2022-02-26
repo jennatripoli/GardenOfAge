@@ -20,16 +20,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
+    <ClInclude Include="EventDamage.h" />
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="GameStart.h" />
     <ClInclude Include="MenuSelect.h" />
+    <ClInclude Include="Tank.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="EventDamage.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="GameStart.cpp" />
     <ClCompile Include="MenuSelect.cpp" />
+    <ClCompile Include="Tank.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
