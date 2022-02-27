@@ -21,17 +21,24 @@
   <ItemGroup>
     <ClInclude Include="Character.h" />
     <ClInclude Include="EventDamage.h" />
+    <ClInclude Include="EventToggleMenu.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="GameStart.h" />
+    <ClInclude Include="MenuButton.h" />
+    <ClInclude Include="MenuGuide.h" />
     <ClInclude Include="MenuSelect.h" />
     <ClInclude Include="Tank.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="EventDamage.cpp" />
+    <ClCompile Include="EventToggleMenu.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="GameStart.cpp" />
+    <ClCompile Include="MenuButton.cpp" />
+    <ClCompile Include="MenuGuide.cpp" />
     <ClCompile Include="MenuSelect.cpp" />
     <ClCompile Include="Tank.cpp" />
   </ItemGroup>

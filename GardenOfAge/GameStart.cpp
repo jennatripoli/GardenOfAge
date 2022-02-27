@@ -7,18 +7,19 @@
 
 #include "GameStart.h"
 #include "Music.h"
+#include "game.h"
 
 GameStart::GameStart() {
   setType("GameStart");
 
   // link to gamestart sprite
-  // setSprite("gamestart");
+  setSprite("gamestart");
 
   // put in center of screen
-  // setLocation(df::CENTER_CENTER);
+  setLocation(df::CENTER_CENTER);
 
   // register for keyboard event
-  // registerInterest(df::KEYBOARD_EVENT);
+  registerInterest(df::KEYBOARD_EVENT);
 
   // play start music
   // p_music = RM.getMusic("start music");
@@ -51,9 +52,9 @@ int GameStart::eventHandler(const df::Event *p_e) {
 }
 
 void GameStart::start() {
-    p_music->pause();  // pause start music
+    //p_music->pause();  // pause start music
     setActive(false);  // when game starts, become inactive
-
+    game::phase1();
 }
 
 // override default draw so as not to display "value"

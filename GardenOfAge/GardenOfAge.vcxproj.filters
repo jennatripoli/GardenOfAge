@@ -33,19 +33,16 @@
     <ClInclude Include="EventDamage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MenuGuide.h">
+    <ClInclude Include="EventToggleMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MenuButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TestMenu.h">
+    <ClInclude Include="MenuGuide.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Phase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EventToggleMenu.h">
+    <ClInclude Include="game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -71,19 +68,13 @@
     <ClCompile Include="EventDamage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuGuide.cpp">
+    <ClCompile Include="EventToggleMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MenuButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Phase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EventToggleMenu.cpp">
+    <ClCompile Include="MenuGuide.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,14 +1,15 @@
 #ifndef __MENU_GUIDE_H__
 #define __MENU_GUIDE_H__
+
 #include "MenuSelect.h"
 #include "MenuButton.h"
 #include "ViewObject.h"
 #include "Object.h"
 #include "Event.h"
+
 const int MAXCAPACITY = 50;
 
-class MenuGuide : df::Object
-{
+class MenuGuide : df::Object {
 private:
 	MenuSelect* menu_s_lists[MAXCAPACITY];
 	MenuButton* menu_b_lists[MAXCAPACITY];
@@ -17,8 +18,6 @@ private:
 	int b_guide_counter; 
 	int timetracker; 
 	bool isToggled;
-	
-	
 
 public:
 	MenuGuide();

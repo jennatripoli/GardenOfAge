@@ -1,3 +1,6 @@
+#ifndef __EVENT_DAMAGE_H__
+#define __EVENT_DAMAGE_H__
+
 #include "Event.h"
 
 #define DAMAGE_EVENT "damage"
@@ -10,3 +13,4 @@ public:
 	EventDamage(int amount);
 	int getAmount() const;
 };
+#endif __EVENT_DAMAGE_H__

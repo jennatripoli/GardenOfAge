@@ -9,7 +9,7 @@
 MenuSelect::MenuSelect(std::string m_string, df::Color color, int d_int) {
 	if (d_int > -1) m_string = std::to_string(d_int) + " " + m_string;
 
-	setViewString(m_string);
+	df::ViewObject::setViewString(m_string);
 	setColor(color);
 	setBorder(false);
 	setLocation(0, 0);
