@@ -8,3 +8,9 @@ GardenOfAge/dragonfly.log
 *.log
 *.pdb
 *.ilk
+GardenOfAge/.vs/GardenOfAge/v16/.suo
+GardenOfAge/dragonfly.log
+GardenOfAge/x64/Debug/GardenOfAge.exe
+GardenOfAge/x64/Debug/GardenOfAge.exe.recipe
+GardenOfAge/x64/Debug/GardenOfAge.vcxproj.FileListAbsolute.txt
+GardenOfAge/x64/Debug/vc142.idb

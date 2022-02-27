@@ -17,6 +17,7 @@ public:
 	std::string getName();
 	void setName(std::string new_name);
 
+	void dealDamage(int damage, Character* recipient);
 	void takeDamage(int damage);
 	int drawHP(df::Color color = df::WHITE);
 };

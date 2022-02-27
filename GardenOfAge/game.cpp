@@ -15,7 +15,6 @@ void populateWorld(void);
 void tests(void);
 
 int main(int argc, char* argv[]) {
-    // start up GameManager
 	if (GM.startUp()) {
 		LM.writeLog("GameManager | startUp() error.");
         GM.shutDown();
@@ -33,7 +32,7 @@ int main(int argc, char* argv[]) {
 	tests();
 
     //GM.run();
-    //GM.shutDown();
+    GM.shutDown();
 
 	return 0;
 }
@@ -68,26 +67,29 @@ void tests(void) {
 	t->drawHP();
 	DM.swapBuffers();
 	Sleep(1000);*/
+
+	// test sending EventDamage from one Tank to another Tank
+	Tank* t1 = new Tank();
+	Tank* t2 = new Tank();
+	t1->setPosition(df::Vector(10, 10));
+	t2->setPosition(df::Vector(20, 10));
+	t1->draw();
+	t2->draw();
+	DM.swapBuffers();
+	Sleep(1000);
+	t1->dealDamage(10, t2);
+	t1->draw();
+	t2->draw();
+	DM.swapBuffers();
+	Sleep(1000);
 }
 
-// Load resources (sprites, sound effects, music).
+// load resources (sprites, sound effects, music)
 void loadResources(void) {
-  RM.loadSprite("sprites/saucer-spr.txt", "saucer");
-  RM.loadSprite("sprites/ship-spr.txt", "ship");
-  RM.loadSprite("sprites/bullet-spr.txt", "bullet");
-  RM.loadSprite("sprites/explosion-spr.txt", "explosion");
-  RM.loadSprite("sprites/gamestart-spr.txt", "gamestart");
-  RM.loadSprite("sprites/gameover-spr.txt", "gameover");
-  RM.loadSound("sounds/fire.wav", "fire");
-  RM.loadSound("sounds/explode.wav", "explode");
-  RM.loadSound("sounds/nuke.wav", "nuke");
-  RM.loadSound("sounds/game-over.wav", "game over");
-  RM.loadMusic("sounds/start-music.wav", "start music");
+	RM.loadSprite("sprites/menu-play-spr.txt", "menu-play");
 }
 
-// Populate world with some objects.
+// populate world with objects
 void populateWorld(void) {
-
-  // Create GameStart object.
-  new GameStart();
+	new GameStart();
 }
