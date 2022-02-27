@@ -2,6 +2,7 @@
 #include "WorldManager.h"
 #include "DisplayManager.h"
 #include "LogManager.h"
+#include "EventDamage.h"
 
 Character::Character() {
 	df::Object::setType("Character");
@@ -11,7 +12,7 @@ Character::Character() {
 	setName("Character");
 }
 
-// these two functions will be overridden by their child classes
+// these two functions will be overridden
 int Character::eventHandler(const df::Event* p_e) { return 0; }
 int Character::draw() { return 0; }
 
@@ -21,16 +22,24 @@ void Character::setHP(int new_hp) { m_hp = new_hp; }
 std::string Character::getName() { return m_name; }
 void Character::setName(std::string new_name) { m_name = new_name; }
 
+// send parameter damage to a specific character
+void Character::dealDamage(int damage, Character* recipient) {
+	EventDamage* p_damage_event = new EventDamage(damage);
+	recipient->eventHandler(p_damage_event);
+}
+
+// decrease Character's m_hp by parameter damage
 void Character::takeDamage(int damage) {
 	setHP(getHP() - damage);
 }
 
+// draw HP on screen underneath Character
 int Character::drawHP(df::Color color) {
 	df::Vector hp_pos(getPosition().getX(), getPosition().getY() + 1);
 	std::string hp_str = "HP: " + std::to_string(getHP());
 
 	if (DM.drawString(hp_pos, hp_str, df::CENTER_JUSTIFIED, color) == -1) {
-		LM.writeLog("Tank | draw() hp failure.");
+		LM.writeLog("Character | draw() hp failure.");
 		return -1;
 	}
 

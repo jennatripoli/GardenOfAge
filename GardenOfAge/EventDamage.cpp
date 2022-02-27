@@ -5,4 +5,4 @@ EventDamage::EventDamage(int amount) {
 	m_amount = amount;
 }
 
-int EventDamage::getAmount() { return m_amount; }
+int EventDamage::getAmount() const { return m_amount; }
