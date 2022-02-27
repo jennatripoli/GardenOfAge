@@ -10,8 +10,8 @@ MenuButton::MenuButton(std::string m_string, df::Color c_highlight, df::Color c_
 {
 	if (d_int < -1) m_string = std::to_string(d_int) + " " + m_string;
 
-	setType(MENUBUTTON); 
-	setBorder(false); 
+	setType(MENUBUTTON);
+	setBorder(false);
 	setViewString(m_string);
 	setHighlightColor(c_highlight);
 	setDefaultColor(c_default);
@@ -30,7 +30,7 @@ int MenuButton::draw() //modfy like menu select
 void MenuButton::update(std::string m_string, int d_int)
 {
 	if (d_int < -1) m_string = std::to_string(d_int) + " " + m_string;
-	setViewString(m_string); 
+	setViewString(m_string);
 }
 
 void MenuButton::setLocation(float x_view, float y_view) //modified to draw 0 by 10 area like menu_ select
@@ -43,7 +43,7 @@ void MenuButton::setLocation(float x_view, float y_view) //modified to draw 0 by
 	LM.writeLog("MenuButton | setLocation() x = %.1f, y = %.1f.", getPosition().getX(), getPosition().getY());
 }
 
-void MenuButton::callback() 
+void MenuButton::callback()
 // going to be redefined based on each button specific use i,e quit, magic spell, or toggle 
 // or hav certain functions passed as arguements
 {

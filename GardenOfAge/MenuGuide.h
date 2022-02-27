@@ -2,9 +2,9 @@
 #define __MENU_GUIDE_H__
 #include "MenuSelect.h"
 #include "Object.h"
-const int MAXCAPACITY = 5; 
+const int MAXCAPACITY = 5;
 
-class MenuGuide: df::Object
+class MenuGuide : df::Object
 {
 private:
 	MenuSelect* menu_lists[MAXCAPACITY];
@@ -12,11 +12,11 @@ private:
 	bool isToggled;
 
 public:
-	MenuGuide(); 
+	MenuGuide();
 	int addMenu(MenuSelect* new_menu);
-	MenuSelect*  getMenu(int select_menu)const;
-	void clearMenu(); 
-	void toggleMenu(); 
+	MenuSelect* getMenu(int select_menu)const;
+	void clearMenu();
+	void toggleMenu();
 	void controlToggle(bool doActivate);
 };
 

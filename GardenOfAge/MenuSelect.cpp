@@ -7,7 +7,7 @@
 
 // easily write and display information the game will communicate to the player (ex: health)
 MenuSelect::MenuSelect(std::string m_string, df::Color color, int d_int) {
-	if (d_int != NULL) m_string = std::to_string(d_int) + " " + m_string;
+	if (d_int > -1) m_string = std::to_string(d_int) + " " + m_string;
 
 	setViewString(m_string);
 	setColor(color);
@@ -18,7 +18,7 @@ MenuSelect::MenuSelect(std::string m_string, df::Color color, int d_int) {
 // update the string being displayed
 void MenuSelect::update(std::string m_update, int d_update) {
 	if (m_update.empty()) m_update = menu_message;
-	if (d_update != NULL) m_update = std::to_string(d_update) + " " + m_update;
+	if (d_update >-1) m_update = std::to_string(d_update) + " " + m_update;
 	setViewString(m_update);
 }
 
