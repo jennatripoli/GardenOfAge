@@ -46,12 +46,10 @@ void game::phase1() {
 	Princess* p = new Princess();
 	p->setPosition(df::Vector(20, 10));
 	Enemy* e = new Enemy();
-	e->setPosition(df::Vector(60, 15));
+	e->setPosition(df::Vector(60, 10));
 
 	p->dealDamage(10, e);
-	Sleep(2000);
 	e->dealDamage(20, p);
-	Sleep(2000);
 }
 
 void tests(void) {
