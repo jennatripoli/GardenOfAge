@@ -19,6 +19,6 @@ public:
 
 	void dealDamage(int damage, Character* recipient);
 	void takeDamage(int damage);
-	int drawHP(df::Color color = df::WHITE);
+	int drawHP(df::Color color, std::string name);
 };
 #endif __CHARACTER_H__

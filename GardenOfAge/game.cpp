@@ -3,6 +3,7 @@
 #include "Pause.h"
 #include "ResourceManager.h"
 #include "DisplayManager.h"
+#include "WorldManager.h"
 #include <Windows.h>
 
 #include "GameStart.h"
@@ -11,6 +12,8 @@
 #include "EventDamage.h"
 #include "MenuGuide.h"
 #include "game.h"
+#include "Princess.h"
+#include "Enemy.h"
 
 void loadResources(void);
 void populateWorld(void);
@@ -39,7 +42,16 @@ int main(int argc, char* argv[]) {
 }
 
 void game::phase1() {
-	testMenu();
+	//testMenu();
+	Princess* p = new Princess();
+	p->setPosition(df::Vector(20, 10));
+	Enemy* e = new Enemy();
+	e->setPosition(df::Vector(60, 15));
+
+	p->dealDamage(10, e);
+	Sleep(2000);
+	e->dealDamage(20, p);
+	Sleep(2000);
 }
 
 void tests(void) {
@@ -117,6 +129,8 @@ void testMenu(void) {
 void loadResources(void) {
 	RM.loadSprite("sprites/menuplay-spr.txt", "menuplay");
 	RM.loadSprite("sprites/gamestart-spr.txt", "gamestart");
+	RM.loadSprite("sprites/princess-spr.txt", "princess");
+	RM.loadSprite("sprites/generic-spr.txt", "generic");
 }
 
 // populate world with objects

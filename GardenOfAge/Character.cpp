@@ -34,9 +34,9 @@ void Character::takeDamage(int damage) {
 }
 
 // draw HP on screen underneath Character
-int Character::drawHP(df::Color color) {
-	df::Vector hp_pos(getPosition().getX(), getPosition().getY() + 1);
-	std::string hp_str = "HP: " + std::to_string(getHP());
+int Character::drawHP(df::Color color, std::string name) {
+	df::Vector hp_pos(getPosition().getX(), getPosition().getY() + 6);
+	std::string hp_str = name + " HP: " + std::to_string(getHP());
 
 	if (DM.drawString(hp_pos, hp_str, df::CENTER_JUSTIFIED, color) == -1) {
 		LM.writeLog("Character | draw() hp failure.");
