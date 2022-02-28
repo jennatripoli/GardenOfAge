@@ -5,11 +5,11 @@
 #include "Object.h"
 
 CharacterActionButton::CharacterActionButton(int action_worth, Character* ch, Character* enemy, std::string m_string) {
-	//setType(MENUBUTTON);
-	//setBorder(false);
-	//setViewString(m_string);
-	//setHighlightColor(df::CYAN);
-	//setDefaultColor(df::WHITE);
+	setType(MENUBUTTON);
+	setBorder(false);
+	setViewString(m_string);
+	setHighlightColor(df::CYAN);
+	setDefaultColor(df::WHITE);
 
 	character = ch;
 	target = enemy;

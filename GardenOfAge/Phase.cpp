@@ -36,10 +36,10 @@ Phase* Phase::nextPhase() {
 
 void Phase::loadInfoMenu() {
 	Character* temp_character = player_party[0];
-	CharacterActionButton* option1 = new CharacterActionButton(10, temp_character, phase_boss, "option 1");
+	CharacterActionButton* option1 = new CharacterActionButton(10, temp_character, phase_boss, "AttackTank 10");
 	option1->setLocation(5, 7);
 
-	CharacterActionButton* option2 = new CharacterActionButton(40, temp_character, phase_boss, "option 2");
+	CharacterActionButton* option2 = new CharacterActionButton(40, temp_character, phase_boss, "AttackTank 40");
 	option2->setLocation(7, 7);
 	//(int action_worth, Character * ch, Character * enemy, std::string m_string)
 		/*for (int party_count = 0; party_count < 1; party_count++) {
@@ -71,7 +71,7 @@ int Phase::startNextPhase() {
 	return 0;
 }
 
-//event toggle menu
+// event toggle menu
 int Phase::eventHandler(const df::Event* p_e) {
 	if (p_e->getType() == MENU_TOGGLE_EVNT) {
 
