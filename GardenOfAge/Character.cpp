@@ -12,9 +12,11 @@ Character::Character() {
 	setName("Character");
 }
 
-// these two functions will be overridden
+// these three functions will be overridden
 int Character::eventHandler(const df::Event* p_e) { return 0; }
 int Character::draw() { return 0; }
+int Character::moveSet(int choice) { return 0; }
+
 
 // getters and setters for Character data
 int Character::getHP() { return m_hp; }

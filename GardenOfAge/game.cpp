@@ -14,11 +14,13 @@
 #include "game.h"
 #include "Princess.h"
 #include "Enemy.h"
+#include "Phase.h"
 
 void loadResources(void);
 void populateWorld(void);
 void tests(void);
 void testMenu(void);
+void testPhase(void);
 
 int main(int argc, char* argv[]) {
 	if (GM.startUp()) {
@@ -43,13 +45,30 @@ int main(int argc, char* argv[]) {
 
 void game::phase1() {
 	//testMenu();
-	Princess* p = new Princess();
+	/*Princess* p = new Princess();
 	p->setPosition(df::Vector(20, 10));
 	Enemy* e = new Enemy();
 	e->setPosition(df::Vector(60, 10));
 
 	p->dealDamage(10, e);
-	e->dealDamage(20, p);
+	e->dealDamage(20, p);*/
+	testPhase();
+}
+
+void testPhase() {
+	//runs a phase
+	Princess* Lyla = new Princess();
+	Lyla->setPosition(df::Vector(20, 5));
+	Lyla->setHP(50);
+
+	Enemy* LittleKnight = new Enemy();
+	LittleKnight->setPosition(df::Vector(60, 5));
+	LittleKnight->setHP(200);
+
+
+	Phase* test_phase = new Phase("test phase", Lyla, LittleKnight);
+	test_phase->loadCharacterMenu();
+	test_phase->loadInfoMenu();
 }
 
 void tests(void) {

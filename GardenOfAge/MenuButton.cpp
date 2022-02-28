@@ -4,6 +4,14 @@
 #include "WorldManager.h"
 #include "Color.h"
 
+MenuButton::MenuButton() {
+	setType("");
+	setBorder(false);
+	setViewString("");
+	setHighlightColor(df::WHITE);
+	setDefaultColor(df::WHITE);
+}
+
 MenuButton::MenuButton(std::string m_string, df::Color c_highlight, df::Color c_default, int d_int) {
 	if (d_int < -1) m_string = std::to_string(d_int) + " " + m_string;
 

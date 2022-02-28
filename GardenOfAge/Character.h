@@ -11,6 +11,7 @@ public:
 	Character();
 	virtual int eventHandler(const df::Event* p_e);
 	virtual int draw();
+	virtual int moveSet(int choice);
 
 	int getHP();
 	void setHP(int new_hp);

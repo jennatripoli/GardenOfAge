@@ -36,3 +36,16 @@ int Princess::draw() {
 
 	return drawHP(df::WHITE, "Princess");
 }
+
+int Princess::moveSet(int choice) {
+	int t = 0;
+	switch (choice) {
+	case 1:
+		t = 20;
+		break;
+	case 2:
+		t = 1;
+		break;
+	}
+	return t;
+}
