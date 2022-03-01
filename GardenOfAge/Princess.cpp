@@ -4,11 +4,13 @@
 #include "EventDamage.h"
 #include "LogManager.h"
 #include "ViewObject.h"
+#include <Windows.h>
 
 Princess::Princess() {
 	setHP(80);
 	setName("Princess");
 	setSprite("princess");
+	setPosition(df::Vector(20, 5));
 }
 
 Princess::~Princess() {
@@ -21,6 +23,7 @@ int Princess::eventHandler(const df::Event* p_e) {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		takeDamage(p_damage_event->getAmount());
 
+		//setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 		return 1;
 	}
 
@@ -34,7 +37,12 @@ int Princess::draw() {
 		return -1;
 	}
 
-	return drawHP(df::WHITE, "Princess Lyla");
+	/*if (getPosition().getX() != 20) {
+		Sleep(500);
+		setPosition(df::Vector(getPosition().getX() + 1, getPosition().getY()));
+	}*/
+
+	return drawHP(df::YELLOW, "Princess Lyla");
 }
 
 int Princess::moveSet(int choice) {

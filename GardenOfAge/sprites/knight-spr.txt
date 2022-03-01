@@ -2,7 +2,7 @@
 frames 2
 width 30
 height 11
-color yellow
+color cyan
 slowdown 15
 </HEADER>
 <BODY>
