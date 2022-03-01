@@ -1,22 +1,22 @@
-#include "Princess.h"
+#include "Father.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
 #include "EventDamage.h"
 #include "LogManager.h"
 #include "ViewObject.h"
 
-Princess::Princess() {
-	setHP(80);
-	setName("Princess");
-	setSprite("princess");
+Father::Father() {
+	setHP(120);
+	setName("Father");
+	setSprite("father");
 }
 
-Princess::~Princess() {
+Father::~Father() {
 	//WM.markForDelete(this);
 }
 
 // handle event (return 0 if ignored, else return 1)
-int Princess::eventHandler(const df::Event* p_e) {
+int Father::eventHandler(const df::Event* p_e) {
 	if (p_e->getType() == "damage") {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		takeDamage(p_damage_event->getAmount());
@@ -28,16 +28,16 @@ int Princess::eventHandler(const df::Event* p_e) {
 }
 
 // draw Princess and its HP on screen
-int Princess::draw() {
+int Father::draw() {
 	if (Object::draw() == -1) {
-		LM.writeLog("Princess | draw() failure.");
+		LM.writeLog("Father | draw() failure.");
 		return -1;
 	}
 
-	return drawHP(df::WHITE, "Princess Lyla");
+	return drawHP(df::WHITE, "Ghost of Father");
 }
 
-int Princess::moveSet(int choice) {
+int Father::moveSet(int choice) {
 	int t = 0;
 	switch (choice) {
 	case 1:
