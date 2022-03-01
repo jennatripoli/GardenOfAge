@@ -35,11 +35,11 @@ Phase* Phase::nextPhase() {
 }
 
 void Phase::loadInfoMenu() {
-	CharacterActionButton* option1 = new CharacterActionButton(7, player_party[0], phase_boss, "AttackTank 7");
+	CharacterActionButton* option1 = new CharacterActionButton(7, phase_boss, player_party[0], "Attack Princess 7");
 	option1->setLocation(5, 7);
 
-	CharacterActionButton* option2 = new CharacterActionButton(40, player_party[0], phase_boss, "AttackTank 40");
-	option2->setLocation(7, 7);
+	CharacterActionButton* option2 = new CharacterActionButton(13, player_party[0], phase_boss, "Attack Knight 13");
+	option2->setLocation(8, 7);
 
 	//(int action_worth, Character * ch, Character * enemy, std::string m_string)
 		/*for (int party_count = 0; party_count < 1; party_count++) {

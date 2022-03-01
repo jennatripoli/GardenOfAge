@@ -43,12 +43,16 @@ int main(int argc, char* argv[]) {
 
 // load resources (sprites, sound effects, music)
 void loadResources(void) {
-	RM.loadSprite("sprites/menuplay-spr.txt", "menuplay");
 	RM.loadSprite("sprites/gamestart-spr.txt", "gamestart");
+	RM.loadSprite("sprites/gameover-spr.txt", "gameover");
 	RM.loadSprite("sprites/princess-spr.txt", "princess");
 	RM.loadSprite("sprites/knight-spr.txt", "knight");
 	RM.loadSprite("sprites/father-spr.txt", "father");
+
 	RM.loadSprite("sprites/generic-spr.txt", "generic");
+	RM.loadSprite("sprites/menuplay-spr.txt", "menuplay");
+
+	RM.loadMusic("sounds/damage.wav", "damage");
 }
 
 // populate world with objects
@@ -61,14 +65,9 @@ void game::phase1() {
 }
 
 void testPhase(void) {
-	//runs a phase
+	// runs a phase
 	Princess* Lyla = new Princess();
-	Lyla->setPosition(df::Vector(20, 5));
-	Lyla->setHP(50);
-
 	Knight* LittleKnight = new Knight();
-	LittleKnight->setPosition(df::Vector(60, 5));
-	LittleKnight->setHP(200);
 
 	Phase* test_phase = new Phase("test phase", Lyla, LittleKnight);
 	test_phase->loadCharacterMenu();

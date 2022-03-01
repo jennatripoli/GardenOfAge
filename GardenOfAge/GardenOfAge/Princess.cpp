@@ -4,6 +4,7 @@
 #include "EventDamage.h"
 #include "LogManager.h"
 #include "ViewObject.h"
+#include "GameOver.h"
 #include <Windows.h>
 
 Princess::Princess() {
@@ -14,6 +15,7 @@ Princess::Princess() {
 }
 
 Princess::~Princess() {
+	new GameOver;
 	//WM.markForDelete(this);
 }
 
@@ -23,6 +25,7 @@ int Princess::eventHandler(const df::Event* p_e) {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		takeDamage(p_damage_event->getAmount());
 
+		if (getHP() <= 0) WM.markForDelete(this);
 		//setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 		return 1;
 	}

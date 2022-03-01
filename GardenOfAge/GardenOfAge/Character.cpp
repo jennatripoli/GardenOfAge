@@ -3,6 +3,8 @@
 #include "DisplayManager.h"
 #include "LogManager.h"
 #include "EventDamage.h"
+#include "Sound.h"
+#include "ResourceManager.h"
 
 Character::Character() {
 	df::Object::setType("Character");
@@ -34,6 +36,9 @@ void Character::dealDamage(int damage, Character* recipient) {
 void Character::takeDamage(int damage) {
 	if (getHP() - damage <= 0) setHP(0);
 	else setHP(getHP() - damage);
+
+	df::Sound* p_sound = RM.getSound("damage");
+	if (p_sound != NULL) p_sound->play(false);
 }
 
 // draw HP on screen underneath Character
