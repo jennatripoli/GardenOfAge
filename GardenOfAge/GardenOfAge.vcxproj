@@ -25,6 +25,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EventDamage.h" />
     <ClInclude Include="EventToggleMenu.h" />
+    <ClInclude Include="Explosion.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="GameStart.h" />
@@ -42,6 +43,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EventDamage.cpp" />
     <ClCompile Include="EventToggleMenu.cpp" />
+    <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="GameStart.cpp" />

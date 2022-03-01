@@ -3,6 +3,7 @@
 #include "DisplayManager.h"
 #include "EventDamage.h"
 #include "LogManager.h"
+#include "Explosion.h"
 
 Tank::Tank() {
 	setHP(100);
@@ -11,15 +12,22 @@ Tank::Tank() {
 }
 
 Tank::~Tank() {
-	WM.markForDelete(this);
+	for (int i = -4; i <= 4; i += 2) {
+		for (int j = -4; j <= 4; j += 2) {
+			df::Vector temp_pos = this->getPosition();
+			temp_pos.setX(this->getPosition().getX() + i);
+			temp_pos.setY(this->getPosition().getY() + j);
+			Explosion* p_explosion = new Explosion;
+			p_explosion->setPosition(temp_pos);
+		}
+	}
 }
 
-// handle event (return 0 if ignored, else return 1)
+// handle event (return 0 if ignored, -1 if removed, else return 1)
 int Tank::eventHandler(const df::Event* p_e) {
 	if (p_e->getType() == "damage") {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		takeDamage(p_damage_event->getAmount());
-
 		return 1;
 	}
 

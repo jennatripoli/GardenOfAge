@@ -61,7 +61,7 @@ void testPhase() {
 	Lyla->setPosition(df::Vector(20, 5));
 	Lyla->setHP(50);
 
-	Enemy* LittleKnight = new Enemy();
+	Tank* LittleKnight = new Tank();
 	LittleKnight->setPosition(df::Vector(60, 5));
 	LittleKnight->setHP(200);
 

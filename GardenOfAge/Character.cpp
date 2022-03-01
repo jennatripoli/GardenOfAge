@@ -32,7 +32,8 @@ void Character::dealDamage(int damage, Character* recipient) {
 
 // decrease Character's m_hp by parameter damage
 void Character::takeDamage(int damage) {
-	setHP(getHP() - damage);
+	if (getHP() - damage <= 0) setHP(0);
+	else setHP(getHP() - damage);
 }
 
 // draw HP on screen underneath Character
