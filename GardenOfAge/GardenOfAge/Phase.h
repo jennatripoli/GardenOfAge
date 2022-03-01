@@ -5,6 +5,8 @@
 #include "Event.h"
 #include "MenuGuide.h"
 #include "Character.h"
+#include "EndTurnButton.h"
+
 
 class Phase :public df::Object {
 private:
@@ -12,13 +14,14 @@ private:
 	std::string name;
 	bool isPhaseOver();
 	bool isPhaseDone;
-	std::string* turn_queue[3];
+	int turn_queue;
 	Character* player_party[3];
 
 	Character* phase_boss;
 	MenuGuide* character_menu;
 	MenuGuide* info_menu;
 	Phase* nextPhase();
+	EndTurnButton* end_btn;
 
 public:
 	// will modify later to have more characters to load

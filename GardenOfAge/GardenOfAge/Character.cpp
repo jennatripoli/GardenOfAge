@@ -17,7 +17,7 @@ Character::Character() {
 // these three functions will be overridden
 int Character::eventHandler(const df::Event* p_e) { return 0; }
 int Character::draw() { return 0; }
-int Character::moveSet(int choice) { return 0; }
+int Character::characterMoveSet(int choice) { return 0; }
 
 
 // getters and setters for Character data
@@ -26,6 +26,17 @@ void Character::setHP(int new_hp) { m_hp = new_hp; }
 std::string Character::getName() { return m_name; }
 void Character::setName(std::string new_name) { m_name = new_name; }
 
+
+int Character::setCharacterMove(int choice)
+{
+	currentMoveset = choice;
+	return currentMoveset;
+}
+
+int Character::getCharacterMove()const
+{
+	return currentMoveset;
+}
 // send parameter damage to a specific character
 void Character::dealDamage(int damage, Character* recipient) {
 	EventDamage* p_damage_event = new EventDamage(damage);

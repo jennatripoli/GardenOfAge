@@ -18,6 +18,8 @@ public:
 
 	int draw() override;                           // overide to allow for choice of having a numerical value
 	void setLocation(float x_view, float y_view);  // rewritten to allow for more selection of position
+	void setSelectActive(bool status);
+
 };
 
 #endif __MENU_SELECT_H__

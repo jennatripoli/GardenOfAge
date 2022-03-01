@@ -39,3 +39,8 @@ void MenuSelect::setLocation(float x_view, float y_view) {
 	setPosition(new_pos);
 	LM.writeLog("MenuSelect | setLocation() x = %.1f, y = %.1f.", getPosition().getX(), getPosition().getY());
 }
+
+void MenuSelect::setSelectActive(bool status)
+{
+	setActive(status);
+}

@@ -7,11 +7,15 @@ class Character : public df::Object {
 private:
 	int m_hp;
 	std::string m_name;
+	int currentMoveset;
+
 public:
 	Character();
 	virtual int eventHandler(const df::Event* p_e);
 	virtual int draw();
-	virtual int moveSet(int choice);
+	virtual int characterMoveSet(int choice);
+	virtual int setCharacterMove(int choice);
+	int getCharacterMove() const;
 
 	int getHP();
 	void setHP(int new_hp);

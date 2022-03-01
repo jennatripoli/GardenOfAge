@@ -13,6 +13,8 @@ public:
 	void setLocation(float x_view, float y_view);
 	int draw() override;
 	void callback();
+	void setButtonActive(bool status);
+
 };
 
 #endif __MENU_BUTTON_H__

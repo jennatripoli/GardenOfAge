@@ -1,10 +1,11 @@
+#include <Windows.h>
 #include "Knight.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
 #include "EventDamage.h"
 #include "LogManager.h"
 #include "ViewObject.h"
-#include <Windows.h>
+
 #include "Explosion.h"
 
 Knight::Knight() {
@@ -56,7 +57,7 @@ int Knight::draw() {
 	return drawHP(df::CYAN, "Little Knight");
 }
 
-int Knight::moveSet(int choice) {
+int Knight::characterMoveSet(int choice) {
 	int t = 0;
 	switch (choice) {
 	case 1:

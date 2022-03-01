@@ -1,3 +1,4 @@
+#include <Windows.h>
 #include "Princess.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -5,7 +6,7 @@
 #include "LogManager.h"
 #include "ViewObject.h"
 #include "GameOver.h"
-#include <Windows.h>
+
 
 Princess::Princess() {
 	setHP(80);
@@ -48,15 +49,29 @@ int Princess::draw() {
 	return drawHP(df::YELLOW, "Princess Lyla");
 }
 
-int Princess::moveSet(int choice) {
-	int t = 0;
-	switch (choice) {
+ int Princess::characterMoveSet(int choice)
+{
+	switch (choice)
+	{
 	case 1:
-		t = 20;
+		LM.writeLog("PrincessMoveSet 1 selected");
 		break;
 	case 2:
-		t = 1;
+		LM.writeLog("PrincessMoveSet 2 selected");
+		break;
+	case 3:
+		LM.writeLog("PrincessMoveSet 3 selected");
+		break;
+	default:
+		LM.writeLog("PrincessMoveSet 4 selected");
 		break;
 	}
-	return t;
+	return 0;
 }
+
+//three moves
+
+//move 1 Impale Attack
+//move 2 Guard Sheild
+//move 3 Close Quarters
+//healing move as mentioned by you granted by defeating sister

@@ -1,10 +1,10 @@
+#include <Windows.h>
 #include "Sister.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
 #include "EventDamage.h"
 #include "LogManager.h"
 #include "ViewObject.h"
-#include <Windows.h>
 #include "Explosion.h"
 
 Sister::Sister() {
@@ -56,7 +56,7 @@ int Sister::draw() {
 	return drawHP(df::MAGENTA, "Raile the Magic Warrior");
 }
 
-int Sister::moveSet(int choice) {
+int Sister::characterMoveSet(int choice) {
 	int t = 0;
 	switch (choice) {
 	case 1:

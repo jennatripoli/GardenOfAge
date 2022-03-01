@@ -1,10 +1,11 @@
+#include <Windows.h>
 #include "Father.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
 #include "EventDamage.h"
 #include "LogManager.h"
 #include "ViewObject.h"
-#include <Windows.h>
+
 
 Father::Father() {
 	setHP(120);
@@ -45,7 +46,7 @@ int Father::draw() {
 	return drawHP(df::WHITE, "Ghost of Father");
 }
 
-int Father::moveSet(int choice) {
+int Father::characterMoveSet(int choice) {
 	int t = 0;
 	switch (choice) {
 	case 1:

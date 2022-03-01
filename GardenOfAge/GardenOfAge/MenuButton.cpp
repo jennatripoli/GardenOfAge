@@ -1,4 +1,5 @@
 #include "MenuButton.h"
+#include "Object.h"
 #include "DisplayManager.h"
 #include "LogManager.h"
 #include "WorldManager.h"
@@ -46,4 +47,9 @@ void MenuButton::setLocation(float x_view, float y_view) {
 // going to be redefined based on each button's specific use (ex: quit, magic spell, toggle)
 void MenuButton::callback() {
 	LM.writeLog("Button Clicked");
+}
+
+void MenuButton::setButtonActive(bool status)
+{
+	setActive(status);
 }

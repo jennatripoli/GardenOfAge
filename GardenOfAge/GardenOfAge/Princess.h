@@ -9,7 +9,7 @@ public:
 	~Princess();
 	int eventHandler(const df::Event* p_e) override;
 	int draw() override;
-	int moveSet(int choice) override;
+	int characterMoveSet(int choice) override;
 };
 
 #endif __PRINCESS_H__

@@ -55,46 +55,48 @@ MenuButton* MenuGuide::getButton(int select_button) const {
 }
 
 void MenuGuide::clearMenu() {
-	for (int s_guide_count = 0; s_guide_count < s_guide_counter; s_guide_count++) WM.markForDelete(menu_s_lists[s_guide_count]);
-	s_guide_counter = 0;
-
-	for (int b_guide_count = 0; b_guide_count < b_guide_counter; b_guide_count++) WM.markForDelete(menu_s_lists[b_guide_count]);
-	b_guide_counter = 0;
+	//for (int s_guide_count = 0; s_guide_count < s_guide_counter; s_guide_count++) WM.markForDelete(menu_s_lists[s_guide_count]);
+	//s_guide_counter = 0;
 }
 
 // toggle the menu and all of its strings from MenuSelect (make visible and not visible when needed)
 void MenuGuide::toggleMenu() {
-	setActive(isToggled);
 
 	df::ObjectList s_world_list = WM.objectsOfType(MENUSELECT);
 	df::ObjectListIterator* li_s = new df::ObjectListIterator(&s_world_list);
-	int guide_count = 0;
+	for (int s_traverse_list = 0; s_traverse_list < s_guide_counter; s_traverse_list++)
+	{
+		li_s->first();
+		while (!li_s->isDone()) {
+			df::Object* temp_object = li_s->currentObject();
+			MenuSelect* temp_menu = dynamic_cast<MenuSelect*> (temp_object);
 
-	li_s->first(); 
-	while (!li_s->isDone() && guide_count != s_guide_counter) {
-		df::Object* temp_object = li_s->currentObject();
-		const MenuSelect* temp_menu = dynamic_cast<const MenuSelect*> (temp_object);
+			if (temp_menu == menu_s_lists[s_traverse_list])
+				temp_menu->setActive(isToggled);
+			li_s->next();
+		}
 
-		if (temp_menu == menu_s_lists[guide_count]) setActive(isToggled);
+		df::ObjectList b_world_list = WM.objectsOfType(MENUBUTTON);
+		df::ObjectListIterator* li_b = new df::ObjectListIterator(&b_world_list);
 
-		guide_count++;
-		li_s->next();
+		for (int b_traverse_list = 0; b_traverse_list < b_guide_counter; b_traverse_list++)
+		{
+			WM.markForDelete(menu_b_lists[b_traverse_list]);
+
+			/*
+			li_b->first();
+			while (!li_b->isDone()) {
+				df::Object* temp_object = li_b->currentObject();
+				MenuButton* temp_menu = dynamic_cast<MenuButton*> (temp_object);
+
+				if (temp_menu == menu_b_lists[b_traverse_list])
+					temp_menu->setActive(isToggled);
+				li_b->next();
+			}
+			*/
+		}
+		isToggled = !isToggled;
 	}
-
-	guide_count = 0;
-	df::ObjectList b_world_list = WM.objectsOfType(MENUBUTTON);
-	df::ObjectListIterator* li_b = new df::ObjectListIterator(&b_world_list);
-
-	while (!li_b->isDone() && guide_count != s_guide_counter) {
-		df::Object* temp_object = li_b->currentObject();
-		const MenuButton* temp_menu = dynamic_cast<const MenuButton*> (temp_object);
-
-		if (temp_menu == menu_b_lists[guide_count]) setActive(isToggled);
-
-		guide_count++;
-		li_b->next();
-	}
-	isToggled = !isToggled;
 }
 
 void MenuGuide::controlToggle(bool doActivate) {
@@ -102,12 +104,6 @@ void MenuGuide::controlToggle(bool doActivate) {
 }
 
 int MenuGuide::eventHandler(const df::Event* p_e) {
-	if (p_e->getType() == df::STEP_EVENT) {
-		const df::EventStep* p_step_event = dynamic_cast<const df::EventStep*> (p_e);
-		if (timetracker % 300 == 0) toggleMenu();
-		if (timetracker > 1200) clearMenu(); 
-		return 1;
-	}
-
+	
 	return 0;  // event ignored
 }

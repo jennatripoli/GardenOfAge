@@ -1,10 +1,11 @@
+#include <Windows.h>
 #include "Confidant.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
 #include "EventDamage.h"
 #include "LogManager.h"
 #include "ViewObject.h"
-#include <Windows.h>
+
 #include "Explosion.h"
 
 Confidant::Confidant() {
@@ -56,7 +57,7 @@ int Confidant::draw() {
 	return drawHP(df::BLUE, "Beguile Confidant");
 }
 
-int Confidant::moveSet(int choice) {
+int Confidant::characterMoveSet(int choice) {
 	int t = 0;
 	switch (choice) {
 	case 1:

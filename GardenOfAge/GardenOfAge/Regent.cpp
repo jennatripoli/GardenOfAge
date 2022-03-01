@@ -1,10 +1,10 @@
+#include <Windows.h>
 #include "Regent.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
 #include "EventDamage.h"
 #include "LogManager.h"
 #include "ViewObject.h"
-#include <Windows.h>
 #include "Explosion.h"
 
 Regent::Regent() {
@@ -56,7 +56,7 @@ int Regent::draw() {
 	return drawHP(df::RED, "Hallowed Regent");
 }
 
-int Regent::moveSet(int choice) {
+int Regent::characterMoveSet(int choice) {
 	int t = 0;
 	switch (choice) {
 	case 1:
