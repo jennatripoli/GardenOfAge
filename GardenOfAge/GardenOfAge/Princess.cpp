@@ -25,8 +25,8 @@ int Princess::eventHandler(const df::Event* p_e) {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		takeDamage(p_damage_event->getAmount());
 
+		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 		if (getHP() <= 0) WM.markForDelete(this);
-		//setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 		return 1;
 	}
 
@@ -40,10 +40,10 @@ int Princess::draw() {
 		return -1;
 	}
 
-	/*if (getPosition().getX() != 20) {
+	if (getPosition().getX() != 20) {
 		Sleep(500);
 		setPosition(df::Vector(getPosition().getX() + 1, getPosition().getY()));
-	}*/
+	}
 
 	return drawHP(df::YELLOW, "Princess Lyla");
 }

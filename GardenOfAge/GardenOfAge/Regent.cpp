@@ -1,4 +1,4 @@
-#include "Knight.h"
+#include "Regent.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
 #include "EventDamage.h"
@@ -7,14 +7,14 @@
 #include <Windows.h>
 #include "Explosion.h"
 
-Knight::Knight() {
+Regent::Regent() {
 	setHP(80);
-	setName("Knight");
-	setSprite("knight");
+	setName("Regent");
+	setSprite("Regent");
 	setPosition(df::Vector(60, 5));
 }
 
-Knight::~Knight() {
+Regent::~Regent() {
 	for (int i = -8; i <= 8; i += 5) {
 		for (int j = -5; j <= 5; j += 3) {
 			df::Vector temp_pos = this->getPosition();
@@ -25,11 +25,11 @@ Knight::~Knight() {
 		}
 	}
 
-	//WM.markForDelete(this);
+	//WM.markForDelete(this);Sister
 }
 
 // handle event (return 0 if ignored, else return 1)
-int Knight::eventHandler(const df::Event* p_e) {
+int Regent::eventHandler(const df::Event* p_e) {
 	if (p_e->getType() == "damage") {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		takeDamage(p_damage_event->getAmount());
@@ -41,10 +41,10 @@ int Knight::eventHandler(const df::Event* p_e) {
 	return 0;  // event ignored
 }
 
-// draw Knight and its HP on screen
-int Knight::draw() {
+// draw Princess and its HP on screen
+int Regent::draw() {
 	if (Object::draw() == -1) {
-		LM.writeLog("Knight | draw() failure.");
+		LM.writeLog("Confidant | draw() failure.");
 		return -1;
 	}
 
@@ -53,10 +53,10 @@ int Knight::draw() {
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 	}
 
-	return drawHP(df::CYAN, "Little Knight");
+	return drawHP(df::RED, "Hallowed Regent");
 }
 
-int Knight::moveSet(int choice) {
+int Regent::moveSet(int choice) {
 	int t = 0;
 	switch (choice) {
 	case 1:

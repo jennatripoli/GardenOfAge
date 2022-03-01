@@ -63,6 +63,15 @@
     <ClInclude Include="Father.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Sister.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Confidant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Regent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -111,6 +120,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Father.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sister.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Confidant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Regent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

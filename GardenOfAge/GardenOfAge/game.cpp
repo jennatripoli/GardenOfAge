@@ -45,14 +45,19 @@ int main(int argc, char* argv[]) {
 void loadResources(void) {
 	RM.loadSprite("sprites/gamestart-spr.txt", "gamestart");
 	RM.loadSprite("sprites/gameover-spr.txt", "gameover");
+
 	RM.loadSprite("sprites/princess-spr.txt", "princess");
 	RM.loadSprite("sprites/knight-spr.txt", "knight");
+	RM.loadSprite("sprites/confidant-spr.txt", "confidant");
 	RM.loadSprite("sprites/father-spr.txt", "father");
+	RM.loadSprite("sprites/sister-spr.txt", "sister");
+	RM.loadSprite("sprites/regent-spr.txt", "regent");
 
 	RM.loadSprite("sprites/generic-spr.txt", "generic");
 	RM.loadSprite("sprites/menuplay-spr.txt", "menuplay");
+	RM.loadSprite("sprites/explosion-spr.txt", "explosion");
 
-	RM.loadMusic("sounds/damage.wav", "damage");
+	RM.loadSound("sounds/damage.wav", "damage");
 }
 
 // populate world with objects

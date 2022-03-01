@@ -17,7 +17,7 @@ GameOver::GameOver() {
 	registerInterest(df::STEP_EVENT);
 
 	// Play "game over" sound.
-	//df::Sound *p_sound = RM.getSound("game over");
+	//df::Sound *p_sound = RM.getSound("gameover");
 	//p_sound->play();
 }
 
