@@ -1,3 +1,4 @@
+#include <Windows.h>
 #include "Knight.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -5,7 +6,6 @@
 #include "LogManager.h"
 #include "ViewObject.h"
 #include "Explosion.h"
-#include <Windows.h>
 
 Knight::Knight() {
 	setHP(80);

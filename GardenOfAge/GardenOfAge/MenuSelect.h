@@ -13,6 +13,7 @@ class MenuSelect : public df::ViewObject {
 private:
 	std::string menu_message;
 public:
+	MenuSelect();
 	MenuSelect(std::string m_string, df::Color color = df::WHITE, int d_int = -1);
 	void update(std::string m_update = "", int d_update = -1);
 

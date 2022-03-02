@@ -1,3 +1,4 @@
+#include <Windows.h>
 #include "Color.h"
 #include "EventKeyboard.h"
 #include "GameManager.h"
@@ -11,7 +12,7 @@
 #include "game.h"
 #include "Phase.h"
 
-#include <Windows.h>
+
 
 BattleComplete::BattleComplete() {
     setType("BattleComplete");
@@ -33,7 +34,7 @@ BattleComplete::BattleComplete() {
         df::Object* p_o = i.currentObject();
 
         if (p_o->getType() == "Character" || p_o->getType() == "ViewObject"
-            || p_o->getType() == "MenuButton") WM.markForDelete(p_o);
+            || p_o->getType() == "MenuButton" || p_o->getType() == "MenuSelect") i.currentObject()->setActive(false);//WM.markForDelete(p_o);
     }
 
     draw();
@@ -41,6 +42,15 @@ BattleComplete::BattleComplete() {
     Sleep(3000);
     setActive(false);
     WM.markForDelete(this);
+
+    for (i.first(); !i.isDone(); i.next()) {
+        df::Object* p_o = i.currentObject();
+
+        if (p_o->getType() == "Character" || p_o->getType() == "ViewObject"
+            || p_o->getType() == "MenuButton" || p_o->getType() == "MenuSelect") i.currentObject()->setActive(true);//WM.markForDelete(p_o);
+    }
+    WM.draw();
+    DM.swapBuffers(); 
 }
 
 void BattleComplete::playMusic() {

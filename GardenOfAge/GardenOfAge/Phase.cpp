@@ -1,3 +1,4 @@
+#include <Windows.h>
 #include "GameManager.h"
 #include "WorldManager.h"
 #include "ResourceManager.h"
@@ -24,7 +25,7 @@
 #include "CharacterButton.h"
 #include "BattleComplete.h"
 
-#include <Windows.h>
+
 
 Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 	registerInterest(df::STEP_EVENT);
@@ -90,9 +91,9 @@ int Phase::startNextBoss() {
 		enemy_killcount++;
 
 		new BattleComplete();
-		Sleep(3000);
+		Sleep(2000);
 
-		player_party = new Princess();
+		//player_party = new Princess();
 
 		switch (enemy_killcount) {
 

@@ -1,3 +1,4 @@
+#include <Windows.h>
 #include "Confidant.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -5,7 +6,7 @@
 #include "LogManager.h"
 #include "ViewObject.h"
 #include "Explosion.h"
-#include <Windows.h>
+
 
 Confidant::Confidant() {
 	setHP(80);

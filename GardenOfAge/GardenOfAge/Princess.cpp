@@ -1,3 +1,4 @@
+#include <Windows.h>
 #include "Princess.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -5,7 +6,7 @@
 #include "LogManager.h"
 #include "ViewObject.h"
 #include "GameOver.h"
-#include <Windows.h>
+#include "Announcement.h"
 
 Princess::Princess() {
 	setHP(80);
@@ -90,24 +91,36 @@ int Princess::draw() {
 }
 
  // damage multiplier
- void Princess::Caliburn() {
-	 if (isBraveHearty) dealDamage(60, getTarget()); 
-	 else dealDamage(20, getTarget());
+ void Princess::Caliburn()
+{
+ Announcement* announce_move = new Announcement("Caliburn Strikes", df::YELLOW);
+	 //int mutliplier?
+ if (isBraveHearty)
+ {
+	 dealDamage(60, getTarget());
+	 isBraveHearty = false;
  }
+ else
+	 dealDamage(20, getTarget()); 
+}
 
- // reduces incoming damage
- void Princess::GildedSheild() {
-	 isIronfast = true;
- }
+ void Princess::GildedSheild()
 
- // 
- void Princess::Honorless() {
-	 //setmultiplier move deal 1 damage
-	 isBraveHearty = true; 
-	 dealDamage(5, getTarget());
- }
+{ // reduces incoming damge by
+	Announcement* announce_move = new Announcement("Gilded Sheild Protects");
+	isIronfast = true;
+}
+
+void Princess::Honorless()
+{
+ //setmultiplier move deal 1 damage
+ Announcement* announce_move = new Announcement("Honorless");
+isBraveHearty = true;
+dealDamage(5, getTarget());
+}
 
  void Princess::HolyLight() {
+	 Announcement* announce_move = new Announcement("HolyLight");
 	 if (isTheRightfulHeir) {
 
 	 } else {

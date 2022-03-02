@@ -5,6 +5,14 @@
 #include "LogManager.h"
 #include <iostream>
 
+MenuSelect::MenuSelect()
+{
+	df::ViewObject::setViewString("");
+	setColor(df::WHITE);
+	setBorder(false);
+	setLocation(0, 0);
+}
+
 // easily write and display information the game will communicate to the player (ex: health)
 MenuSelect::MenuSelect(std::string m_string, df::Color color, int d_int) {
 	if (d_int > -1) m_string = std::to_string(d_int) + " " + m_string;
