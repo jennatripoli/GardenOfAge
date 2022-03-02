@@ -3,16 +3,21 @@
 #include "WorldManager.h"
 #include "DisplayManager.h"
 #include "EventDamage.h"
+#include "EventEnemeyTurn.h"
 #include "LogManager.h"
 #include "ViewObject.h"
 #include "Explosion.h"
+#include "EventStartTurn.h"
 
 
 Sister::Sister() {
+	registerInterest(END_ENEMY_TURN_EVENT);
 	setHP(80);
 	setName("Sister");
 	setSprite("sister");
 	setPosition(df::Vector(60, 5));
+	turnCountManage();
+
 }
 
 Sister::~Sister() {
@@ -39,6 +44,12 @@ int Sister::eventHandler(const df::Event* p_e) {
 		return 1;
 	}
 
+	if (p_e->getType() == END_ENEMY_TURN_EVENT)
+	{
+		setCharacterMove(decideMove());
+		characterMoveSet(getCharacterMove());
+	}
+
 	return 0;  // event ignored
 }
 
@@ -58,16 +69,14 @@ int Sister::draw() {
 }
 
 int Sister::characterMoveSet(int choice) {
-	int t = 0;
-	switch (choice) {
-	case 1:
-
-
-		t = 20;
-		break;
-	case 2:
-		t = 1;
-		break;
+	if (true)
+	{
+		LM.writeLog("Boo EnenemyTurn , %d", getTurnCount());
 	}
-	return t;
+
+	EventStartTurn* nextTurn = new EventStartTurn();
+	Character* the_player = getTarget();
+	the_player->eventHandler(nextTurn);
+
+	return 0;
 }

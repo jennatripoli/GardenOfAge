@@ -111,6 +111,7 @@ int Princess::draw() {
 	isIronfast = true;
 }
 
+
 void Princess::Honorless()
 {
  //setmultiplier move deal 1 damage
@@ -129,6 +130,25 @@ dealDamage(5, getTarget());
 	 }
  }
 
+ bool Princess::getIsIronFast() const
+ {
+	 return isIronfast;
+ }
+ 
+ bool Princess::getIsBraveHearty() const
+ {
+	 return isBraveHearty;
+ }
+
+ bool Princess::getisOfKinderedSpirit() const
+ {
+	 return isOfKinderedSpirit;
+ }
+
+ bool Princess::getisTheRightfulHeir() const
+ {
+	 return isTheRightfulHeir;
+ }
 //three moves
 
 //move 1 Impale Attack

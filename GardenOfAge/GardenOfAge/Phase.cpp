@@ -1,12 +1,13 @@
 #include <Windows.h>
 #include "GameManager.h"
 #include "WorldManager.h"
+#include "DisplayManager.h"
 #include "ResourceManager.h"
 #include "LogManager.h"
 #include "Vector.h"
 #include "Event.h"
 #include "EventStep.h"
-
+#include "EventEnemeyTurn.h"
 #include "Princess.h"
 #include "Knight.h"
 #include "Father.h"
@@ -16,6 +17,7 @@
 
 #include "EventEndTurn.h"
 #include "EndTurnButton.h"
+#include "EventStartTurn.h"
 
 #include "Phase.h"
 #include "MenuSelect.h"
@@ -30,6 +32,7 @@
 Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 	registerInterest(df::STEP_EVENT);
 	registerInterest(END_TURN_EVENT);
+	registerInterest(START_TURN_EVENT);
 
 	name = phase_name;
 	character_menu = new MenuGuide();
@@ -119,11 +122,23 @@ int Phase::startNextBoss() {
 
 // event toggle menu
 int Phase::eventHandler(const df::Event* p_e) {
+	if (p_e->getType() == START_TURN_EVENT)
+	{		
+		end_btn->setActive(true);
+		WM.draw();
+		DM.swapBuffers(); 
+	}
+	
 	if (p_e->getType() == END_TURN_EVENT) 
 	{
 		completeTurn();
 		startNextBoss(); 
+		//end_btn->setActive(false); 
 		LM.writeLog("EndTurn");
+
+		EventEnemyEndTurn* nextTurn = new EventEnemyEndTurn(); 
+		phase_boss->setTartget(player_party); 
+		phase_boss->eventHandler(nextTurn);
 	}
 
 	return 0;

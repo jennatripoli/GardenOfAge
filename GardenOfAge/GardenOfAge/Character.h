@@ -5,7 +5,8 @@
 
 class Character : public df::Object {
 private:
-	int m_hp;
+	int m_hp;	
+	int turn_count;
 	std::string m_name;
 	int currentMoveset;
 	Character* target;
@@ -14,12 +15,15 @@ public:
 	Character();
 	virtual int eventHandler(const df::Event* p_e);
 	virtual int draw();
+	virtual int decideMove();
 	virtual int characterMoveSet(int choice);
 	virtual int setCharacterMove(int choice);
 	int getCharacterMove() const;
 
 	int getHP();
 	void setHP(int new_hp);
+	void turnCountManage();
+	int getTurnCount()const; 
 	std::string getName();
 	void setName(std::string new_name);
 

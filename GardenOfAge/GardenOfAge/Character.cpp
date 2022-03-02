@@ -12,17 +12,27 @@ Character::Character() {
 
 	setHP(0);
 	setName("Character");
+	turn_count = 0; 
 }
 
 // these three functions will be overridden
 int Character::eventHandler(const df::Event* p_e) { return 0; }
 int Character::draw() { return 0; }
+
 int Character::characterMoveSet(int choice) { return 0; }
 
 
 // getters and setters for Character data
 int Character::getHP() { return m_hp; }
 void Character::setHP(int new_hp) { m_hp = new_hp; }
+
+void Character::turnCountManage() 
+{ if (turn_count != 0 )
+	if(turn_count > 0)
+		turn_count++; 
+	else turn_count = 0; 
+}
+int Character::getTurnCount() const{return turn_count;}
 std::string Character::getName() { return m_name; }
 void Character::setName(std::string new_name) { m_name = new_name; }
 
@@ -32,6 +42,8 @@ int Character::setCharacterMove(int choice)
 	currentMoveset = choice;
 	return currentMoveset;
 }
+
+int Character::decideMove() {return 0;}
 
 int Character::getCharacterMove()const
 {
