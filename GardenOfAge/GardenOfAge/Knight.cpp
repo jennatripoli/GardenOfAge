@@ -1,12 +1,11 @@
-#include <Windows.h>
 #include "Knight.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
 #include "EventDamage.h"
 #include "LogManager.h"
 #include "ViewObject.h"
-
 #include "Explosion.h"
+#include <Windows.h>
 
 Knight::Knight() {
 	setHP(80);
@@ -16,7 +15,7 @@ Knight::Knight() {
 }
 
 Knight::~Knight() {
-	for (int i = -8; i <= 8; i += 5) {
+	/*for (int i = -8; i <= 8; i += 5) {
 		for (int j = -5; j <= 5; j += 3) {
 			df::Vector temp_pos = this->getPosition();
 			temp_pos.setX(this->getPosition().getX() + i);
@@ -24,7 +23,7 @@ Knight::~Knight() {
 			Explosion* p_explosion = new Explosion;
 			p_explosion->setPosition(temp_pos);
 		}
-	}
+	}*/
 
 	//WM.markForDelete(this);
 }

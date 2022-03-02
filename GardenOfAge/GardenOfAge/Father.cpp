@@ -1,11 +1,10 @@
-#include <Windows.h>
 #include "Father.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
 #include "EventDamage.h"
 #include "LogManager.h"
 #include "ViewObject.h"
-
+#include <Windows.h>
 
 Father::Father() {
 	setHP(120);

@@ -1,4 +1,3 @@
-#include <Windows.h>
 #include "Princess.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -6,7 +5,7 @@
 #include "LogManager.h"
 #include "ViewObject.h"
 #include "GameOver.h"
-
+#include <Windows.h>
 
 Princess::Princess() {
 	setHP(80);
@@ -18,11 +17,9 @@ Princess::Princess() {
 	isBraveHearty = false;
 	isOfKinderedSpirit = false;
 	isTheRightfulHeir = false; 
-
 }
 
 Princess::~Princess() {
-	new GameOver;
 	//WM.markForDelete(this);
 }
 
@@ -32,27 +29,22 @@ int Princess::eventHandler(const df::Event* p_e) {
 		//isbraveHearty
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		
-		if (!isIronfast)
-		{
-			if (isBraveHearty != true)
-			takeDamage(p_damage_event->getAmount());
-			else
-			{			
+		if (!isIronfast) {
+			if (isBraveHearty != true) takeDamage(p_damage_event->getAmount());
+			else {			
 				takeDamage(p_damage_event->getAmount() * 2); 
 				isBraveHearty = false; 
 			}
-
-		}
-		else
-		{
+		} else {
 			takeDamage((p_damage_event->getAmount()/2));
 			isIronfast = false;
-
 		}
 		
-
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
-		if (getHP() <= 0) WM.markForDelete(this);
+		if (getHP() <= 0) {
+			new GameOver;
+			//WM.markForDelete(this);
+		}
 		return 1;
 	}
 	return 0;  // event ignored
@@ -97,41 +89,31 @@ int Princess::draw() {
 	return 0; 
 }
 
-
- void Princess::Caliburn()
- {
-	 //int mutliplier?
-	 if (isBraveHearty)
-		 dealDamage(60, getTarget()); 
-	 else
-		 dealDamage(20, getTarget());
-
+ // damage multiplier
+ void Princess::Caliburn() {
+	 if (isBraveHearty) dealDamage(60, getTarget()); 
+	 else dealDamage(20, getTarget());
  }
 
- void Princess::GildedSheild()
- { // reduces incoming damge by
+ // reduces incoming damage
+ void Princess::GildedSheild() {
 	 isIronfast = true;
  }
 
- void Princess::Honorless()
- {
+ // 
+ void Princess::Honorless() {
 	 //setmultiplier move deal 1 damage
 	 isBraveHearty = true; 
 	 dealDamage(5, getTarget());
  }
 
- void Princess::HolyLight()
- {
-	 if (isTheRightfulHeir)
-	 {
+ void Princess::HolyLight() {
+	 if (isTheRightfulHeir) {
 
-	 }
-	 else
-	 {
+	 } else {
 		int current_HP = getHP() + 50; 
 		setHP(current_HP);
 	 }
-	
  }
 
 //three moves

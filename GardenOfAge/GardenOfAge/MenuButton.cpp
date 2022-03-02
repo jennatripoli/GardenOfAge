@@ -6,7 +6,7 @@
 #include "Color.h"
 
 MenuButton::MenuButton() {
-	setType("");
+	setType("MenuButton");
 	setBorder(false);
 	setViewString("");
 	setHighlightColor(df::WHITE);

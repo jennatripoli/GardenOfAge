@@ -1,4 +1,3 @@
-#include <Windows.h>
 #include "Sister.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -6,6 +5,7 @@
 #include "LogManager.h"
 #include "ViewObject.h"
 #include "Explosion.h"
+#include <Windows.h>
 
 Sister::Sister() {
 	setHP(80);

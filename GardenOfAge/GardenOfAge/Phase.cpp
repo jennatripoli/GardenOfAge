@@ -6,6 +6,7 @@
 #include "Event.h"
 #include "EventStep.h"
 
+#include "Princess.h"
 #include "Knight.h"
 #include "Father.h"
 #include "Sister.h"
@@ -21,6 +22,9 @@
 #include "CharacterActionButton.h"
 #include "MenuGuide.h"
 #include "CharacterButton.h"
+#include "BattleComplete.h"
+
+#include <Windows.h>
 
 Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 	registerInterest(df::STEP_EVENT);
@@ -43,10 +47,8 @@ Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 }
 
 bool Phase::isPhaseOver() {
-	if (phase_boss->getHP() <= 0)
-		isPhaseDone = true;
-	else
-		isPhaseDone = false;
+	if (phase_boss->getHP() <= 0) isPhaseDone = true;
+	else isPhaseDone = false;
 
 	return isPhaseDone;
 }
@@ -87,26 +89,28 @@ int Phase::startNextBoss() {
 
 		enemy_killcount++;
 
-		//run win display //sleep right after
+		new BattleComplete();
+		Sleep(3000);
 
-		switch (enemy_killcount)
-		{
-			case 1:
-				phase_boss = new Father();
-				LM.writeLog("spawn father");
-				break;
+		player_party = new Princess();
 
-			case 2:
-				phase_boss = new Sister();
-				break;
+		switch (enemy_killcount) {
 
-			case 3:
-				phase_boss = new Confidant();
-				break;
+		case 1:
+			phase_boss = new Confidant();
+			break;
 
-			case 4:
-				phase_boss = new Regent();
-				break;
+		case 2:
+			phase_boss = new Father();
+			break;
+
+		case 3:
+			phase_boss = new Sister();
+			break;
+
+		case 4:
+			phase_boss = new Regent();
+			break;
 		}
 	}
 	return enemy_killcount;

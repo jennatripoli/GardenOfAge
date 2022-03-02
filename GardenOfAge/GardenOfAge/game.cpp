@@ -1,10 +1,10 @@
-#include <Windows.h>
 #include "GameManager.h"
 #include "LogManager.h"
 #include "Pause.h"
 #include "ResourceManager.h"
 #include "DisplayManager.h"
 #include "WorldManager.h"
+#include <Windows.h>
 
 #include "GameStart.h"
 #include "MenuSelect.h"
@@ -45,6 +45,7 @@ int main(int argc, char* argv[]) {
 void loadResources(void) {
 	RM.loadSprite("sprites/gamestart-spr.txt", "gamestart");
 	RM.loadSprite("sprites/gameover-spr.txt", "gameover");
+	RM.loadSprite("sprites/battlecomplete-spr.txt", "battlecomplete");
 
 	RM.loadSprite("sprites/princess-spr.txt", "princess");
 	RM.loadSprite("sprites/knight-spr.txt", "knight");

@@ -28,7 +28,7 @@ GameStart::GameStart() {
 
 // play start music
 void GameStart::playMusic() {
-  p_music->play();
+  //p_music->play();
 }
 
 // handle event (return 0 if ignored, else return 1)
