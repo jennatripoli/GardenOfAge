@@ -15,7 +15,7 @@ private:
 	bool isPhaseOver();
 	bool isPhaseDone;
 	int turn_queue;
-	Character* player_party[3];
+	Character* player_party;
 
 	Character* phase_boss;
 	MenuGuide* character_menu;

@@ -8,6 +8,7 @@ private:
 	int m_hp;
 	std::string m_name;
 	int currentMoveset;
+	Character* target;
 
 public:
 	Character();
@@ -21,6 +22,11 @@ public:
 	void setHP(int new_hp);
 	std::string getName();
 	void setName(std::string new_name);
+
+	
+	void setTartget(Character* the_enemy);
+
+	Character* getTarget() const;
 
 	void dealDamage(int damage, Character* recipient);
 	void takeDamage(int damage);

@@ -31,9 +31,20 @@ CharacterButton::CharacterButton(Character* character, df::Color c_highlight, df
 	int y_view = 8;
 	int x_view = 5;
 	int stored_move = 1;
+	std::string move_name = "";
 	for (int i = 0; i < 4; i++)
 	{
-		CharacterActionButton* current_button = new CharacterActionButton(stored_move, stored_character, "Attack " + i);
+		//hardcode nanmes for functions
+		if (stored_move == 1)
+			move_name = "Caliburn";
+		if (stored_move == 2)
+			move_name = "Gilded Shield";
+		if (stored_move == 3)
+			move_name = "Honorless";
+		if (stored_move == 4)
+			move_name = "Holy Light";
+
+		CharacterActionButton* current_button = new CharacterActionButton(stored_move, stored_character, move_name);
 		stored_move++;
 		current_button->setLocation(x_view, y_view);
 		if (i % 2 == 0)

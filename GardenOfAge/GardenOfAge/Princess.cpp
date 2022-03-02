@@ -13,6 +13,12 @@ Princess::Princess() {
 	setName("Princess");
 	setSprite("princess");
 	setPosition(df::Vector(20, 5));
+	
+	isIronfast = false; 
+	isBraveHearty = false;
+	isOfKinderedSpirit = false;
+	isTheRightfulHeir = false; 
+
 }
 
 Princess::~Princess() {
@@ -23,14 +29,32 @@ Princess::~Princess() {
 // handle event (return 0 if ignored, else return 1)
 int Princess::eventHandler(const df::Event* p_e) {
 	if (p_e->getType() == "damage") {
+		//isbraveHearty
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
-		takeDamage(p_damage_event->getAmount());
+		
+		if (!isIronfast)
+		{
+			if (isBraveHearty != true)
+			takeDamage(p_damage_event->getAmount());
+			else
+			{			
+				takeDamage(p_damage_event->getAmount() * 2); 
+				isBraveHearty = false; 
+			}
+
+		}
+		else
+		{
+			takeDamage((p_damage_event->getAmount()/2));
+			isIronfast = false;
+
+		}
+		
 
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 		if (getHP() <= 0) WM.markForDelete(this);
 		return 1;
 	}
-
 	return 0;  // event ignored
 }
 
@@ -55,19 +79,60 @@ int Princess::draw() {
 	{
 	case 1:
 		LM.writeLog("PrincessMoveSet 1 selected");
+		Caliburn();
 		break;
 	case 2:
 		LM.writeLog("PrincessMoveSet 2 selected");
+		GildedSheild();
 		break;
 	case 3:
 		LM.writeLog("PrincessMoveSet 3 selected");
+		Honorless();
 		break;
 	default:
 		LM.writeLog("PrincessMoveSet 4 selected");
+		HolyLight();
 		break;
 	}
-	return 0;
+	return 0; 
 }
+
+
+ void Princess::Caliburn()
+ {
+	 //int mutliplier?
+	 if (isBraveHearty)
+		 dealDamage(60, getTarget()); 
+	 else
+		 dealDamage(20, getTarget());
+
+ }
+
+ void Princess::GildedSheild()
+ { // reduces incoming damge by
+	 isIronfast = true;
+ }
+
+ void Princess::Honorless()
+ {
+	 //setmultiplier move deal 1 damage
+	 isBraveHearty = true; 
+	 dealDamage(5, getTarget());
+ }
+
+ void Princess::HolyLight()
+ {
+	 if (isTheRightfulHeir)
+	 {
+
+	 }
+	 else
+	 {
+		int current_HP = getHP() + 50; 
+		setHP(current_HP);
+	 }
+	
+ }
 
 //three moves
 

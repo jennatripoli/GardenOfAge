@@ -37,6 +37,18 @@ int Character::getCharacterMove()const
 {
 	return currentMoveset;
 }
+
+//setEnemy for some character classes to target
+void Character::setTartget(Character* the_enemy)
+{
+	target = the_enemy;
+}
+Character* Character::getTarget()const
+{
+	return target; 
+}
+
+
 // send parameter damage to a specific character
 void Character::dealDamage(int damage, Character* recipient) {
 	EventDamage* p_damage_event = new EventDamage(damage);

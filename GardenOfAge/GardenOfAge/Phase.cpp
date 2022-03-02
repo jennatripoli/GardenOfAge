@@ -22,7 +22,7 @@ Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 	character_menu = new MenuGuide();
 	isPhaseDone = false;
 
-	player_party[0] = ch_1;  // add characters 
+	player_party = ch_1;  // add characters 
 	phase_boss = boss;       // set phase boss
 	LM.writeLog("Phase created");
 	//setSprite("menuplay");
@@ -53,17 +53,16 @@ void Phase::loadCharacterMenu() {
 	// creates and sets all Character buttons
 	float x_view = 2;
 	float y_view = 8;
-	for (int party_count = 0; party_count < 1; party_count++) {
-		Character* temp_character = player_party[party_count];
-		character_menu->addButton(new CharacterButton(temp_character, df::YELLOW, df::WHITE));
-		character_menu->getButton(party_count)->setLocation(x_view, y_view);
-		y_view++;
-	}
+	
+	Character* temp_character = player_party;
+	character_menu->addButton(new CharacterButton(temp_character, df::YELLOW, df::WHITE));		
+	character_menu->getButton(0)->setLocation(x_view, y_view);
 }
 
 void Phase::completeTurn() {
-	turn_queue = player_party[0]->getCharacterMove();
-	player_party[0]->characterMoveSet(turn_queue);
+	turn_queue = player_party->getCharacterMove();
+	player_party->setTartget(phase_boss); 
+	player_party->characterMoveSet(turn_queue);
 }
 
 void Phase::announcements(std::string announce) {
