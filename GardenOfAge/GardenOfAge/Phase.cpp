@@ -1,12 +1,20 @@
 #include "GameManager.h"
+#include "WorldManager.h"
 #include "ResourceManager.h"
 #include "LogManager.h"
 #include "Vector.h"
 #include "Event.h"
 #include "EventStep.h"
-#include "EventToggleMenu.h"
+
+#include "Knight.h"
+#include "Father.h"
+#include "Sister.h"
+#include "Confidant.h"
+#include "Regent.h"
+
 #include "EventEndTurn.h"
 #include "EndTurnButton.h"
+
 #include "Phase.h"
 #include "MenuSelect.h"
 #include "MenuButton.h"
@@ -30,6 +38,8 @@ Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 
 	end_btn = new EndTurnButton();
 	end_btn->setLocation(9, 9);
+
+	enemy_killcount = 0;
 }
 
 bool Phase::isPhaseOver() {
@@ -69,14 +79,45 @@ void Phase::announcements(std::string announce) {
 	//MenuSelect* announcement (announce, df::WHITE)
 }
 
-int Phase::startNextPhase() {
-	return 0;
+int Phase::startNextBoss() {
+
+	if (phase_boss->getHP() == 0)
+	{
+		WM.markForDelete(phase_boss);
+
+		enemy_killcount++;
+
+		//run win display //sleep right after
+
+		switch (enemy_killcount)
+		{
+			case 1:
+				phase_boss = new Father();
+				LM.writeLog("spawn father");
+				break;
+
+			case 2:
+				phase_boss = new Sister();
+				break;
+
+			case 3:
+				phase_boss = new Confidant();
+				break;
+
+			case 4:
+				phase_boss = new Regent();
+				break;
+		}
+	}
+	return enemy_killcount;
 }
 
 // event toggle menu
 int Phase::eventHandler(const df::Event* p_e) {
-	if (p_e->getType() == END_TURN_EVENT) {
+	if (p_e->getType() == END_TURN_EVENT) 
+	{
 		completeTurn();
+		startNextBoss(); 
 		LM.writeLog("EndTurn");
 	}
 

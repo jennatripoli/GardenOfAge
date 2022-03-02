@@ -18,6 +18,7 @@ private:
 	Character* player_party;
 
 	Character* phase_boss;
+	int enemy_killcount;
 	MenuGuide* character_menu;
 	MenuGuide* info_menu;
 	Phase* nextPhase();
@@ -32,7 +33,7 @@ public:
 	void completeTurn();
 	void announcements(std::string announce);
 
-	int startNextPhase();
+	int startNextBoss();
 	int eventHandler(const df::Event* p_e);
 };
 
