@@ -3,8 +3,7 @@
 #include "Color.h"
 #include "EventEndTurn.h"
 
-EndTurnButton::EndTurnButton()
-{
+EndTurnButton::EndTurnButton() {
 	setType(MENUBUTTON);
 	setBorder(false);
 	setViewString("End Turn");
@@ -12,8 +11,7 @@ EndTurnButton::EndTurnButton()
 	setDefaultColor(df::RED);
 }
 
-void EndTurnButton::callback()
-{
+void EndTurnButton::callback() {
 	EventEndTurn* endturn = new EventEndTurn(); 
 	WM.onEvent(endturn);
 }

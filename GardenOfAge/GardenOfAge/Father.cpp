@@ -61,8 +61,7 @@ int Father::draw() {
 }
 
 int Father::characterMoveSet(int choice) {
-	switch (choice)
-	{
+	switch (choice) {
 	case 1:
 		woeIsMe();
 		break;
@@ -85,49 +84,34 @@ int Father::characterMoveSet(int choice) {
 	return choice;
 }
 
-int Father::decideMove()
-{
+int Father::decideMove() {
 	Princess* princess = dynamic_cast <Princess*> (getTarget());
 
-
-	if (princess->getisTheRightfulHeir())
-	{
+	if (princess->getisTheRightfulHeir()){
 		return 3; 
-		LM.writeLog("end turn");
+		LM.writeLog("Princess | end turn.");
 	}
-	else
-	{
-	}if (getTurnCount() % 2 == 0)
-			return 1;
-		else
-			return 2;
-
-	return 0;
+	
+	if (getTurnCount() % 2 == 0) return 1;
+	else return 2;
 }
 
-void Father::woeIsMe()
-{
+void Father::woeIsMe() {
 	Announcement* announce_move = new Announcement("Woe is me, Dead king of an unkempt garden", df::CYAN);
 	Announcement* announce_move2 = new Announcement("Can a light shower groawth on me", df::CYAN);
-
 	int current_HP = getHP() + 30;
 	setHP(current_HP);
 
 }
 
-void Father::woeIsYou()
-{
+void Father::woeIsYou() {
 	Announcement* announce_move = new Announcement("Woe is you sprout in a garden not yours", df::CYAN);
 	Announcement* announce_move2 = new Announcement("Will you be the one to slay the weeds of youthful sprouts", df::CYAN);
-
-	if(getTarget()->getHP() != 0)
-		dealDamage(getTarget()->getHP() / 2, getTarget());
+	if(getTarget()->getHP() != 0) dealDamage(getTarget()->getHP() / 2, getTarget());
 }
 
-void Father::theEnd()
-{
+void Father::theEnd() {
 	Announcement* announce_move = new Announcement("Have I failed you...I'm sorry", df::CYAN);
 	setHP(1);
 	getTarget()->setHP(80); 
 }
-

@@ -63,11 +63,10 @@ int Knight::draw() {
 
 int Knight::characterMoveSet(int choice) {
 
-	LM.writeLog("Knight EnenemyTurn , %d", getTurnCount());
-	LM.writeLog("Knight move %d", getCharacterMove());
+	LM.writeLog("Knight | EnenemyTurn %d.", getTurnCount());
+	LM.writeLog("Knight | move %d.", getCharacterMove());
 
-	switch (choice)
-	{
+	switch (choice) {
 	case 1:
 		arrows();
 		break;
@@ -124,9 +123,6 @@ int Knight::decideMove() {
 		// arrows
 		if (princess->getHP() >= 10) return 1;
 	}
-
-
-
 }
 
 void Knight::arrows() {
