@@ -14,18 +14,18 @@ abilitites to claim her throne once and for all.
 Press your button and end your turn to continue                        
 Highlight OVER the text to click                                       
 Caliburn-     A legendary sword that does 20 damage alone. if          
-	      honorless was used beforehand it does 50.                
-	      *Becomes Excalibur                                       
+              honorless was used beforehand it does 50.                
+              *Becomes Excalibur                                       
 Honorless-    Allows for immense damage to enemies at the cost of      
-              an extra turn	                                       
-	      *Pride in all Ivy                                        
+              an extra turn.                                           
+              *Pride in all Ivy                                        
 GildedShield- A mythical sheild that halves incoming damage and        
-              provides a portion of the damage back                    
-	      *Thorn Sheild of Roses                                   
-Holylight-    Grants Lyla 50 HP back as per her divine right           
+              provides a portion of the damage back.                   
+              *Thorn Sheild of Roses                                   
+Holylight-    Grants Lyla 50 HP back as per her divine right.          
               *Divinerule                                              
-	                                                               
-              Press 'p' to play Press'q' to quit                       
+                                                                       
+              Press 'p' to play, 'q' to quit                           
 end
 Lyla has 4 abilitites she'll be using to reclaim her throne!           
 Each Ability moddifies a hidden trait that enemies are aware of.       
@@ -35,17 +35,16 @@ abilitites to claim her throne once and for all.
 Press your button and end your turn to continue                        
 Highlight OVER the text to click                                       
 Caliburn-     A legendary sword that does 20 damage alone. if          
-	      honorless was used beforehand it does 50.                
-	      *Becomes Excalibur                                       
+              honorless was used beforehand it does 50.                
+              *Becomes Excalibur                                       
 Honorless-    Allows for immense damage to enemies at the cost of      
-              an extra turn	                                       
-	      *Pride in all Ivy                                        
+              an extra turn.                                           
+              *Pride in all Ivy                                        
 GildedShield- A mythical sheild that halves incoming damage and        
-              provides a portion of the damage back                    
-	      *Thorn Sheild of Roses                                   
-Holylight-    Grants Lyla 50 HP back as per her divine right           
+              provides a portion of the damage back.                   
+              *Thorn Sheild of Roses                                   
+Holylight-    Grants Lyla 50 HP back as per her divine right.          
               *Divinerule                                              
-	                                                               
                                                                        
                                                                        
 end

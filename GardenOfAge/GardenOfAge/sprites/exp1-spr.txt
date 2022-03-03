@@ -1,7 +1,7 @@
 <HEADER>
 frames 2
 width 75
-height 11
+height 12
 color green
 slowdown 15
 </HEADER>

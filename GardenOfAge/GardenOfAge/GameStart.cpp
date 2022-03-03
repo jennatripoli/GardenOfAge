@@ -32,7 +32,7 @@ int GameStart::eventHandler(const df::Event *p_e) {
         df::EventKeyboard *p_keyboard_event = (df::EventKeyboard *) p_e;
         switch (p_keyboard_event->getKey()) {
         case df::Keyboard::P:  // play
-            num_screens--; // traverse screens
+            num_screens--;     // traverse screens
             if (num_screens > 0) {
                 if (num_screens == 2) setSprite("exp1");
                 if (num_screens == 1) setSprite("exp2"); 
