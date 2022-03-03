@@ -16,7 +16,7 @@ Princess::Princess() {
 	setHP(80);
 	setName("Princess");
 	setSprite("princess");
-	setPosition(df::Vector(20, 5));
+	setPosition(df::Vector(20, 9.5));
 	
 	isIronfast = false; 
 	isBraveHearty = false;
@@ -40,8 +40,17 @@ int Princess::eventHandler(const df::Event* p_e) {
 		} else {
 			takeDamage((p_damage_event->getAmount()/2));
 			isIronfast = false;
-		}
-		
+			if (isIronfast) {
+				if (isBraveHearty != true) {
+					takeDamage(p_damage_event->getAmount()/5);
+					dealDamage(p_damage_event->getAmount() / 10, getTarget());
+				} else takeDamage(p_damage_event->getAmount() + 5);
+			} else takeDamage((p_damage_event->getAmount()));
+		}	
+
+		isIronfast = false;
+		isTheRightfulHeir = false;
+
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 		
 		if (getHP() <= 0) {
@@ -99,7 +108,7 @@ void Princess::Caliburn() {
 	if (isBraveHearty) {
 	 dealDamage(80, getTarget());
 	 isBraveHearty = false;
-	} else dealDamage(35, getTarget()); 
+	} else dealDamage(37, getTarget()); 
 
 	isOfKinderedSpirit = !isOfKinderedSpirit;
 
@@ -125,8 +134,8 @@ void Princess::HolyLight() {
 	int current_HP = getHP() + 50; 
 	setHP(current_HP);
 
-	if(getHP() <= 30) isTheRightfulHeir != isTheRightfulHeir; 
- }
+		isTheRightfulHeir = true; 
+}
 
 bool Princess::getIsIronFast() const { return isIronfast; }
 bool Princess::getIsBraveHearty() const { return isBraveHearty; }

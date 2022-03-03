@@ -10,6 +10,8 @@
 #include "EventEnemyTurn.h"
 #include "EventStartTurn.h"
 #include "Explosion.h"
+#include "Princess.h"
+#include "Announcement.h"
 
 #include <Windows.h>
 
@@ -18,8 +20,8 @@ Confidant::Confidant() {
 	setHP(80);
 	setName("Confidant");
 	setSprite("confidant");
-	setPosition(df::Vector(60, 5));
-	turnCountManage();
+	setPosition(df::Vector(60, 9.5));
+	startTurnCount();
 }
 
 // handle event (return 0 if ignored, else return 1)
@@ -33,7 +35,10 @@ int Confidant::eventHandler(const df::Event* p_e) {
 	}
 
 	if (p_e->getType() == END_ENEMY_TURN_EVENT) {
-		setCharacterMove(decideMove()); 
+
+		turnCountManage();
+
+		setCharacterMove(decideMove());
 		characterMoveSet(getCharacterMove());
 		return 1;
 	}
@@ -57,11 +62,73 @@ int Confidant::draw() {
 }
 
 int Confidant::characterMoveSet(int choice) {
-	if (true) LM.writeLog("Boo EnemyTurn, %d", getTurnCount());
+	switch (choice)
+	{
+	case 1:
+		betray();
+		break;
+	case 2:
+		protect();
+		break;
+	case 3:
+		realizations();
+		break;
+	default:
+		betray();
+		break;
+	}
 
-	EventStartTurn* nextTurn = new EventStartTurn(); 
+
+	EventStartTurn* nextTurn = new EventStartTurn();
 	Character* the_player = getTarget();
-	the_player->eventHandler(nextTurn); 
-	
+	the_player->eventHandler(nextTurn);
+
+	return choice;
+}
+
+int Confidant::decideMove()
+{
+	Princess* princess = dynamic_cast <Princess*> (getTarget());
+
+
+	if (princess->getIsIronFast())
+	{
+		return 3;
+		LM.writeLog("end turn");
+	}
+	else
+	{
+	}if (getTurnCount() % 2 == 0)
+		return 1;
+	else
+		return 2;
+
 	return 0;
 }
+
+void Confidant::protect()
+{
+	Announcement* announce_move = new Announcement("That sheild of yours is beutiful like tall stems of rose", df::CYAN);
+
+	dealDamage(20, getTarget());
+
+
+
+}
+
+void Confidant::betray()
+{
+	Announcement* announce_move = new Announcement("Betrayed you say, I can't believe you ", df::CYAN);
+	dealDamage(10, getTarget());
+
+}
+
+void Confidant::realizations()
+{
+	Announcement* announce_move2 = new Announcement("you no longer need me huh", df::CYAN);
+	Announcement* announce_move3 = new Announcement("That's for the best", df::CYAN);
+
+	setHP(1); 
+
+}
+

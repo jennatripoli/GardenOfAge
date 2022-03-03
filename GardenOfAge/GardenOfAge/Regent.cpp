@@ -18,7 +18,7 @@ Regent::Regent() {
 	setHP(80);
 	setName("Regent");
 	setSprite("Regent");
-	setPosition(df::Vector(60, 5));
+	setPosition(df::Vector(60, 9.5));
 	turnCountManage();
 }
 

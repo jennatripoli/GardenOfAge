@@ -9,6 +9,8 @@
 #include "EventDamage.h"
 #include "EventEnemyTurn.h"
 #include "EventStartTurn.h"
+#include "Princess.h"
+#include "Announcement.h"
 
 #include <Windows.h>
 
@@ -17,8 +19,8 @@ Father::Father() {
 	setHP(120);
 	setName("Father");
 	setSprite("father");
-	setPosition(df::Vector(60, 5));
-	turnCountManage();
+	setPosition(df::Vector(60, 9.5));
+	startTurnCount();
 }
 
 // handle event (return 0 if ignored, else return 1)
@@ -31,7 +33,10 @@ int Father::eventHandler(const df::Event* p_e) {
 		return 1;
 	}
 
-	if (p_e->getType() == END_ENEMY_TURN_EVENT) {
+if (p_e->getType() == END_ENEMY_TURN_EVENT) {
+
+		turnCountManage();
+
 		setCharacterMove(decideMove());
 		characterMoveSet(getCharacterMove());
 		return 1;
@@ -56,11 +61,73 @@ int Father::draw() {
 }
 
 int Father::characterMoveSet(int choice) {
-	if (true) LM.writeLog("Boo EnemyTurn, %d", getTurnCount());
+	switch (choice)
+	{
+	case 1:
+		woeIsMe();
+		break;
+	case 2:
+		woeIsYou();
+		break;
+	case 3:
+		theEnd();
+		break;
+	default:
+		theEnd();
+		break;
+	}
+
 
 	EventStartTurn* nextTurn = new EventStartTurn();
 	Character* the_player = getTarget();
 	the_player->eventHandler(nextTurn);
 
+	return choice;
+}
+
+int Father::decideMove()
+{
+	Princess* princess = dynamic_cast <Princess*> (getTarget());
+
+
+	if (princess->getisTheRightfulHeir())
+	{
+		return 3; 
+		LM.writeLog("end turn");
+	}
+	else
+	{
+	}if (getTurnCount() % 2 == 0)
+			return 1;
+		else
+			return 2;
+
 	return 0;
 }
+
+void Father::woeIsMe()
+{
+	Announcement* announce_move = new Announcement("Woe is me, Dead king of an unkempt garden", df::CYAN);
+	Announcement* announce_move2 = new Announcement("Can a light shower groawth on me", df::CYAN);
+
+	int current_HP = getHP() + 30;
+	setHP(current_HP);
+
+}
+
+void Father::woeIsYou()
+{
+	Announcement* announce_move = new Announcement("Woe is you sprout in a garden not yours", df::CYAN);
+	Announcement* announce_move2 = new Announcement("Will you be the one to slay the weeds of youthful sprouts", df::CYAN);
+
+	if(getTarget()->getHP() != 0)
+		dealDamage(getTarget()->getHP() / 2, getTarget());
+}
+
+void Father::theEnd()
+{
+	Announcement* announce_move = new Announcement("Have I failed you...I'm sorry", df::CYAN);
+	setHP(1);
+	getTarget()->setHP(80); 
+}
+

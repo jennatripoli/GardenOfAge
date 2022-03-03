@@ -11,7 +11,6 @@ class Phase :public df::Object {
 private:
 	Phase();
 	bool isPhaseOver();
-	Phase* nextPhase();
 
 	std::string name;
 	bool is_phase_done;
@@ -26,7 +25,6 @@ private:
 
 public:
 	Phase(std::string phase_name, Character* ch_1, Character* boss);
-	void loadInfoMenu();
 	void loadCharacterMenu();
 
 	void completeTurn();
