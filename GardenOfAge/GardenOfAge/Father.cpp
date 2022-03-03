@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -10,7 +10,7 @@
 #include "EventEnemyTurn.h"
 #include "EventStartTurn.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 Father::Father() {
 	registerInterest(END_ENEMY_TURN_EVENT);

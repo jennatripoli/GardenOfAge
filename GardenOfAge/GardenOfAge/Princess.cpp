@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -10,7 +10,7 @@
 #include "Announcement.h"
 #include "EventDamage.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 Princess::Princess() {
 	setHP(80);
@@ -30,9 +30,14 @@ int Princess::eventHandler(const df::Event* p_e) {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		
 		if (!isIronfast) {
-			if (isBraveHearty != true) takeDamage(p_damage_event->getAmount());
+			if (isBraveHearty != true)
+			{
+				takeDamage(p_damage_event->getAmount());
+				dealDamage(p_damage_event->getAmount() / 10, getTarget());
+			}
+
 			else {			
-				takeDamage(p_damage_event->getAmount() * 2); 
+				takeDamage(p_damage_event->getAmount() + 15); 
 				isBraveHearty = false; 
 			}
 		} else {
@@ -95,9 +100,12 @@ void Princess::Caliburn() {
 	Announcement* announce_move = new Announcement("Princess | Caliburn Strikes.", df::YELLOW);
 
 	if (isBraveHearty) {
-	 dealDamage(60, getTarget());
+	 dealDamage(80, getTarget());
 	 isBraveHearty = false;
-	} else dealDamage(20, getTarget()); 
+	} else dealDamage(35, getTarget()); 
+
+	isOfKinderedSpirit = !isOfKinderedSpirit;
+
 }
 
 // reduce incoming damage
@@ -115,12 +123,11 @@ void Princess::Honorless() {
 void Princess::HolyLight() {
 	 Announcement* announce_move = new Announcement("HolyLight");
 	 
-	 if (isTheRightfulHeir) {
-
-	 } else {
 		int current_HP = getHP() + 50; 
 		setHP(current_HP);
-	 }
+
+		if(getHP() <= 30)
+			isTheRightfulHeir != isTheRightfulHeir; 
  }
 
 bool Princess::getIsIronFast() const { return isIronfast; }

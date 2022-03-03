@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "GameManager.h"
 #include "WorldManager.h"
@@ -27,7 +27,7 @@
 #include "CharacterButton.h"
 #include "BattleComplete.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 	registerInterest(df::STEP_EVENT);

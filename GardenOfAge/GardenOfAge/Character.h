@@ -23,6 +23,7 @@ public:
 
 	int getHP();
 	void setHP(int new_hp);
+	void startTurnCount();
 
 	void turnCountManage();
 	int getTurnCount() const;

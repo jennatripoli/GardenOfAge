@@ -13,7 +13,7 @@ Character::Character() {
 
 	setHP(0);
 	setName("Character");
-	turn_count = 0; 
+	turn_count = 1; 
 }
 
 // these functions will be overridden
@@ -26,17 +26,14 @@ int Character::decideMove() { return 0; }
 // getters and setters for Character data
 int Character::getHP() { return hp; }
 void Character::setHP(int new_hp) { hp = new_hp; }
+void Character::startTurnCount() { turn_count = 0; }
+void Character::turnCountManage() { turn_count++; }
 int Character::getTurnCount() const { return turn_count; }
 std::string Character::getName() { return name; }
 void Character::setName(std::string new_name) { name = new_name; }
 int Character::getCharacterMove() const { return current_moveset; }
 Character* Character::getTarget() const { return target; }
 void Character::setTarget(Character* the_enemy) { target = the_enemy; }
-
-void Character::turnCountManage() { 
-	if (turn_count > 0) turn_count++;
-	else if (turn_count < 0) turn_count = 0;
-}
 
 int Character::setCharacterMove(int choice) {
 	current_moveset = choice;

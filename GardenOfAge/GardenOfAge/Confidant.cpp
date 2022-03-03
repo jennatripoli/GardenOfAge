@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -11,7 +11,7 @@
 #include "EventStartTurn.h"
 #include "Explosion.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 Confidant::Confidant() {
 	registerInterest(END_ENEMY_TURN_EVENT);
