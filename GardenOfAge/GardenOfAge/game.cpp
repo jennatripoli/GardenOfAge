@@ -45,7 +45,8 @@ void loadResources(void) {
 	RM.loadSprite("sprites/explanation-spr.txt", "exp1");
 	RM.loadSprite("sprites/explanation2-spr.txt", "exp2");
 	RM.loadSprite("sprites/gameover-spr.txt", "gameover");
-	RM.loadSprite("sprites/battlecomplete-spr.txt", "battlecomplete");
+	RM.loadSprite("sprites/victory-spr.txt", "gameover");
+	RM.loadSprite("sprites/battlecomplete-spr.txt", "victory");
 
 	RM.loadSprite("sprites/princess-spr.txt", "princess");
 	RM.loadSprite("sprites/knight-spr.txt", "knight");
@@ -72,10 +73,7 @@ void populateWorld(void) {
 
 // start the game
 void game::start(void) {
-	Princess* Lyla = new Princess();
-	Knight* LittleKnight = new Knight();
-	//Regent* r = new Regent();
 
-	Phase* phase = new Phase("Start", Lyla, LittleKnight);
+	Phase* phase = new Phase("Start Lyla's Battles");
 	phase->loadCharacterMenu();
 }

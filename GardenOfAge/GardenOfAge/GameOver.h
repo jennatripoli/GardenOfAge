@@ -9,7 +9,7 @@ private:
 	void step();
 
 public:
-	GameOver();
+	GameOver(bool isVictory = false);
 	~GameOver();
 	int eventHandler(const df::Event *p_e) override;
 	int draw() override;

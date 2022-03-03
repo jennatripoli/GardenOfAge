@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -13,11 +13,11 @@
 #include "Princess.h"
 #include "Announcement.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 Regent::Regent() {
 	//registerInterest(END_ENEMY_TURN_EVENT);
-	setHP(400);
+	setHP(300);
 	setName("Regent");
 	setSprite("regent");
 	setPosition(df::Vector(60, 11));
@@ -54,7 +54,7 @@ int Regent::draw() {
 
 	if (getPosition().getX() != 60) {
 		//Sleep(500);
-		//setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
+		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 	}
 
 	return drawHP(df::RED, "Hallowed Regent");

@@ -24,7 +24,7 @@ private:
 	EndTurnButton* end_btn;
 
 public:
-	Phase(std::string phase_name, Character* ch_1, Character* boss);
+	Phase(std::string phase_name);
 	void loadCharacterMenu();
 
 	void completeTurn();

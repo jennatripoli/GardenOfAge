@@ -16,7 +16,7 @@ GameStart::GameStart() {
   setLocation(df::CENTER_CENTER);
   registerInterest(df::KEYBOARD_EVENT);
 
-  num_screens = 3;
+  num_screens = 2;
   music = RM.getMusic("gamestart");
   playMusic();
 }
@@ -29,16 +29,22 @@ void GameStart::playMusic() {
 int GameStart::eventHandler(const df::Event *p_e) {
     if (p_e->getType() == df::KEYBOARD_EVENT) {
         df::EventKeyboard *p_keyboard_event = (df::EventKeyboard *) p_e;
+
         switch (p_keyboard_event->getKey()) {
         case df::Keyboard::P:  // play
-            num_screens--; // traverse screens
-            if (num_screens > 0) {
+             // traverse screens
+
                 if (num_screens == 2) setSprite("exp1");
+                LM.writeLog("screen 2");
                 if (num_screens == 1) setSprite("exp2"); 
+                LM.writeLog("screen 1");
+
+                num_screens--; //sets iteration through screens
                 draw();
                 DM.swapBuffers(); 
-                start();
-            }
+                if (num_screens == 0 )
+                    start();
+            
             break;
         case df::Keyboard::Q:  // quit
             GM.setGameOver();
@@ -53,7 +59,8 @@ int GameStart::eventHandler(const df::Event *p_e) {
 }
 
 void GameStart::start() {
-    music->pause();
+    music->pause();    
+    num_screens = 2; //resets screen traversal
     setActive(false);  // when game starts, become inactive
     game::start();
 }
