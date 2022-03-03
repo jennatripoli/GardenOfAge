@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -11,7 +11,7 @@
 #include "Explosion.h"
 #include "EventStartTurn.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Sister::Sister() {
 	registerInterest(END_ENEMY_TURN_EVENT);
@@ -50,7 +50,7 @@ int Sister::draw() {
 	}
 
 	if (getPosition().getX() != 60) {
-		Sleep(500);
+		//Sleep(500);
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 	}
 
@@ -58,10 +58,7 @@ int Sister::draw() {
 }
 
 int Sister::characterMoveSet(int choice) {
-	if (true)
-	{
-		LM.writeLog("Boo EnenemyTurn , %d", getTurnCount());
-	}
+	if (true) LM.writeLog("Boo EnenemyTurn , %d", getTurnCount());
 
 	EventStartTurn* nextTurn = new EventStartTurn();
 	Character* the_player = getTarget();

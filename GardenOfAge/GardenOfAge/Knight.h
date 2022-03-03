@@ -14,12 +14,11 @@ public:
 	int characterMoveSet(int choice) override;
 
 	int decideMove() override;
-	//all moves
-	void arrows();//1
-	void struggle();//2
-	void comrades(); //3
-	void areHonorless(); //4
-	void noSavior(); //5th
+	void arrows();
+	void struggle();
+	void comrades();
+	void areHonorless();
+	void noSavior(); 
 };
 
 #endif __KNIGHT_H__

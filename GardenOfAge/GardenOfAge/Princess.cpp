@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -10,7 +10,7 @@
 #include "Announcement.h"
 #include "EventDamage.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Princess::Princess() {
 	setHP(80);
@@ -30,13 +30,10 @@ int Princess::eventHandler(const df::Event* p_e) {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		
 		if (!isIronfast) {
-			if (isBraveHearty != true)
-			{
+			if (isBraveHearty != true) {
 				takeDamage(p_damage_event->getAmount());
 				dealDamage(p_damage_event->getAmount() / 10, getTarget());
-			}
-
-			else {			
+			} else {			
 				takeDamage(p_damage_event->getAmount() + 15); 
 				isBraveHearty = false; 
 			}
@@ -49,7 +46,7 @@ int Princess::eventHandler(const df::Event* p_e) {
 		
 		if (getHP() <= 0) {
 			new GameOver;
-			// WM.markForDelete(this);
+			//WM.markForDelete(this);
 		}
 		return 1;
 	}
@@ -65,7 +62,7 @@ int Princess::draw() {
 	}
 
 	if (getPosition().getX() != 20) {
-		Sleep(500);
+		//Sleep(500);
 		setPosition(df::Vector(getPosition().getX() + 1, getPosition().getY()));
 	}
 
@@ -97,7 +94,7 @@ int Princess::draw() {
 
 // damage multiplier
 void Princess::Caliburn() {
-	Announcement* announce_move = new Announcement("Princess | Caliburn Strikes.", df::YELLOW);
+	Announcement* announce_move = new Announcement("Caliburn Strikes.", df::YELLOW);
 
 	if (isBraveHearty) {
 	 dealDamage(80, getTarget());
@@ -110,24 +107,25 @@ void Princess::Caliburn() {
 
 // reduce incoming damage
 void Princess::GildedShield() {
-	Announcement* announce_move = new Announcement("Princess | Gilded Sheild Protects.");
+	Announcement* announce_move = new Announcement("Gilded Sheild Protects.");
 	isIronfast = true;
 }
 
+// deal 5 damage
 void Princess::Honorless() {
 	Announcement* announce_move = new Announcement("Honorless");
 	isBraveHearty = true;
 	dealDamage(5, getTarget());
 }
 
+// heal by 50 hp
 void Princess::HolyLight() {
 	 Announcement* announce_move = new Announcement("HolyLight");
 	 
-		int current_HP = getHP() + 50; 
-		setHP(current_HP);
+	int current_HP = getHP() + 50; 
+	setHP(current_HP);
 
-		if(getHP() <= 30)
-			isTheRightfulHeir != isTheRightfulHeir; 
+	if(getHP() <= 30) isTheRightfulHeir != isTheRightfulHeir; 
  }
 
 bool Princess::getIsIronFast() const { return isIronfast; }

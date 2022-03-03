@@ -9,7 +9,7 @@
 
 class Announcement : public MenuSelect {
 public:
-	Announcement(std::string m_string, df::Color color = df::WHITE, float seconds_paused = 1.2f, bool singular_message = false);
+	Announcement(std::string m_string, df::Color color = df::WHITE, float seconds_paused = 1.5f, bool singular_message = false);
 };
 
 #endif __ANNOUNCEMENT_H__

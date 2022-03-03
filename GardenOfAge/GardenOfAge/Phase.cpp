@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "GameManager.h"
 #include "WorldManager.h"
@@ -27,7 +27,7 @@
 #include "CharacterButton.h"
 #include "BattleComplete.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 	registerInterest(df::STEP_EVENT);
@@ -85,8 +85,13 @@ void Phase::announcements(std::string announce) {
 }
 
 int Phase::startNextBoss() {
-	if (phase_boss->getHP() == 0) {
+	if (phase_boss->getHP() <= 0) {
+		//Sleep(500);
+		phase_boss->draw();
+		DM.swapBuffers();
+		Sleep(500);
 		WM.markForDelete(phase_boss);
+		WM.update();
 		enemy_killcount++;
 		new BattleComplete();
 		Sleep(2000);

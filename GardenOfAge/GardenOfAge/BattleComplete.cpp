@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "Color.h"
 #include "EventKeyboard.h"
@@ -12,15 +12,15 @@
 #include "Music.h"
 #include "Phase.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 BattleComplete::BattleComplete() {
     setType("BattleComplete");
     setSprite("battlecomplete");
     setLocation(df::CENTER_CENTER);
 
-    // music = RM.getMusic("battlecompletemusic");
-    // playMusic();
+    sound = RM.getSound("battlecomplete");
+    playSound();
 
     df::ObjectList object_list = WM.getAllObjects(true);
     df::ObjectListIterator i(&object_list);
@@ -55,8 +55,8 @@ BattleComplete::BattleComplete() {
     DM.swapBuffers(); 
 }
 
-void BattleComplete::playMusic() {
-    // music->play();
+void BattleComplete::playSound() {
+    sound->play();
 }
 
 // override default draw so as not to display "value"

@@ -15,12 +15,12 @@ GameStart::GameStart() {
   setLocation(df::CENTER_CENTER);
   registerInterest(df::KEYBOARD_EVENT);
 
-  // music = RM.getMusic("start music");
-  // playMusic();
+  music = RM.getMusic("gamestart");
+  playMusic();
 }
 
 void GameStart::playMusic() {
-  // music->play();
+  music->play();
 }
 
 // handle event (return 0 if ignored, else return 1)
@@ -44,7 +44,7 @@ int GameStart::eventHandler(const df::Event *p_e) {
 }
 
 void GameStart::start() {
-    // music->pause();
+    music->pause();
     setActive(false);  // when game starts, become inactive
     game::phase1();
 }

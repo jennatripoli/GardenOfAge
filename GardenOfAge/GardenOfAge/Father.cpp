@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -10,7 +10,7 @@
 #include "EventEnemyTurn.h"
 #include "EventStartTurn.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Father::Father() {
 	registerInterest(END_ENEMY_TURN_EVENT);
@@ -48,7 +48,7 @@ int Father::draw() {
 	}
 
 	if (getPosition().getX() != 60) {
-		Sleep(500);
+		//Sleep(500);
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 	}
 

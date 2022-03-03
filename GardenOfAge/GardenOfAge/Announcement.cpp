@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "DisplayManager.h"
 #include "ViewObject.h"
@@ -8,7 +8,7 @@
 #include "Announcement.h"
 #include "MenuSelect.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Announcement::Announcement(std::string m_string, df::Color color, float seconds_paused, bool singular_message) {
 	setViewString(m_string);
@@ -23,4 +23,5 @@ Announcement::Announcement(std::string m_string, df::Color color, float seconds_
 	Sleep(seconds_paused * 1000);
 	
 	WM.markForDelete(this);
+	WM.update();
 }

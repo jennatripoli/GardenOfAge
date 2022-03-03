@@ -1,6 +1,5 @@
 #include "EventStartTurn.h"
 
-EventStartTurn::EventStartTurn()
-{
+EventStartTurn::EventStartTurn() {
 	setType(START_TURN_EVENT);
 }

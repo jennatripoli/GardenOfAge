@@ -57,6 +57,10 @@ void loadResources(void) {
 	RM.loadSprite("sprites/explosion-spr.txt", "explosion");
 
 	RM.loadSound("sounds/damage.wav", "damage");
+	RM.loadSound("sounds/battlecomplete.wav", "battlecomplete");
+	RM.loadSound("sounds/gameover.wav", "gameover");
+	RM.loadMusic("sounds/gamestart.wav", "gamestart");
+
 }
 
 // populate world with objects

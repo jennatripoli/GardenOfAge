@@ -15,8 +15,8 @@ GameOver::GameOver() {
 	if (setSprite("gameover") == 0) time_to_live = getAnimation().getSprite()->getFrameCount() * getAnimation().getSprite()->getSlowdown();
 	else time_to_live = 0;
 
-	//df::Sound *sound = RM.getSound("gameover");
-	//sound->play();
+	df::Sound *sound = RM.getSound("gameover");
+	sound->play();
 }
 
 // when done, remove all Objects and reactivate GameStart
@@ -34,7 +34,7 @@ GameOver::~GameOver() {
 		// if GameStart, set as active
 		if (p_o->getType() == "GameStart") {
 			p_o->setActive(true);
-			//dynamic_cast <GameStart*> (p_o)->playMusic();	// Resume start music.
+			dynamic_cast <GameStart*> (p_o)->playMusic();	// Resume start music.
 		}
 	}
 }

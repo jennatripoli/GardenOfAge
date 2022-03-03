@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -11,7 +11,7 @@
 #include "EventStartTurn.h"
 #include "Regent.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Regent::Regent() {
 	//registerInterest(END_ENEMY_TURN_EVENT);
@@ -32,7 +32,6 @@ int Regent::eventHandler(const df::Event* p_e) {
 		return 1;
 	}
 
-
 	if (p_e->getType() == END_ENEMY_TURN_EVENT) {
 		setCharacterMove(decideMove());
 		characterMoveSet(getCharacterMove());
@@ -50,7 +49,7 @@ int Regent::draw() {
 	}
 
 	if (getPosition().getX() != 60) {
-		Sleep(500);
+		//Sleep(500);
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 	}
 

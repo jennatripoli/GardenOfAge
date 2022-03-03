@@ -1,17 +1,17 @@
 #ifndef __BATTLE_COMPLETE_H__
 #define __BATTLE_COMPLETE_H__
 
-#include "Music.h"
+#include "Sound.h"
 #include "ViewObject.h"
 
 class BattleComplete : public df::ViewObject {
 private:
-	df::Music* music;
+	df::Sound* sound;
 
 public:
 	BattleComplete();
 	int draw() override;
-	void playMusic();
+	void playSound();
 };
 
 #endif __BATTLE_COMPLETE_H__

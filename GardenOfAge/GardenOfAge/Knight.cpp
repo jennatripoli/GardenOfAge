@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -13,7 +13,7 @@
 #include "Princess.h"
 #include "Announcement.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Knight::Knight() {
 	registerInterest(END_ENEMY_TURN_EVENT);
@@ -37,9 +37,7 @@ int Knight::eventHandler(const df::Event* p_e) {
 	}
 
 	if (p_e->getType() == END_ENEMY_TURN_EVENT) {
-
 		turnCountManage();
-
 		setCharacterMove(decideMove());
 		characterMoveSet(getCharacterMove());
 		return 1;
@@ -56,7 +54,7 @@ int Knight::draw() {
 	}
 
 	if (getPosition().getX() != 60) {
-		Sleep(500);
+		//Sleep(500);
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 	}
 
@@ -96,75 +94,63 @@ int Knight::characterMoveSet(int choice) {
 	return choice;
 }
 
-int Knight::decideMove()
-{
+int Knight::decideMove() {
 	Princess* princess = dynamic_cast <Princess*> (getTarget());
 
-	if (getTurnCount() > 5) //nosavior
-		return 5;
-	else
-	{
-		if (priorMove == 1)// arehonorless
-		{
+	// no savior
+	if (getTurnCount() > 5) return 5;
+
+	else {
+		// are honorless
+		if (priorMove == 1) {
 			priorMove = 0;
 			return 4;
 		}
 
-		if (princess->getIsBraveHearty())
-		{
+		if (princess->getIsBraveHearty()) {
 			priorMove = 1;
 			return 1;
 		}
 
-		if (priorMove == 1)
-		{
-			priorMove = 0; //comrades
+		// comrades
+		if (priorMove == 1) {
+			priorMove = 0;
 			return 3;
 		}
 
-		if (princess->getisOfKinderedSpirit()) //struggle
-		{
-			return 2;
-		}
-		if (princess->getHP() >= 10) // arrows
-		{
-			return 1;
-		}
+		// struggle
+		if (princess->getisOfKinderedSpirit()) return 2;
+
+		// arrows
+		if (princess->getHP() >= 10) return 1;
 	}
 
 
 
 }
 
-void Knight::arrows()
-{
+void Knight::arrows() {
 	Announcement* announce_move = new Announcement("Rain of Arrows", df::CYAN);
 	dealDamage(20, getTarget());
 }
 
-void Knight::struggle()
-{
+void Knight::struggle() {
 	Announcement* announce_move = new Announcement("We are but children.... fighting", df::CYAN);
 	int current_HP = getHP() + 20;
 	setHP(current_HP);
 }
 
-void Knight::comrades()
-{
+void Knight::comrades() {
 	Announcement* announce_move = new Announcement("We serve the day we breathe all rulers", df::CYAN);
 	Announcement* announce_move2 = new Announcement("For all rulers higher than us sprots", df::CYAN);
 }
 
-void Knight::areHonorless()
-{
+void Knight::areHonorless() {
 	Announcement* announce_move = new Announcement("Are you honorless", df::CYAN);
 	dealDamage(getTarget()->getHP() / 4, getTarget());
 }
 
-void Knight::noSavior()
-{
+void Knight::noSavior() {
 	Announcement* announce_move = new Announcement("You are not our savior...", df::CYAN);
 	dealDamage(getTurnCount() * 7, getTarget());
-
 }
-
