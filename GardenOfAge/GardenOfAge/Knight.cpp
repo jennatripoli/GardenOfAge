@@ -20,7 +20,7 @@ Knight::Knight() {
 	setHP(80);
 	setName("Knight");
 	setSprite("knight");
-	setPosition(df::Vector(60, 5));
+	setPosition(df::Vector(60, 9.5));
 
 	startTurnCount();
 	priorMove = 0;

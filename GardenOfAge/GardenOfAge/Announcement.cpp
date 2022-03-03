@@ -14,7 +14,7 @@ Announcement::Announcement(std::string m_string, df::Color color, float seconds_
 	setViewString(m_string);
 	setColor(color); 
 	setBorder(false);
-	setLocation(5, 6);
+	setLocation(5, 7);
 
 	if (singular_message) draw();
 	else WM.draw();

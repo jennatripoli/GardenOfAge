@@ -41,7 +41,6 @@ Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 	player_party = ch_1;  // add characters 
 	phase_boss = boss;    // set phase boss
 	LM.writeLog("Phase %s created.", phase_name);
-	setPosition(df::Vector(45, 19));
 
 	end_btn = new EndTurnButton();
 	end_btn->setLocation(9, 9);
@@ -54,14 +53,6 @@ bool Phase::isPhaseOver() {
 	else is_phase_done = false;
 
 	return is_phase_done;
-}
-
-Phase* Phase::nextPhase() {
-	return nullptr;
-}
-
-void Phase::loadInfoMenu() {
-	
 }
 
 void Phase::loadCharacterMenu() {

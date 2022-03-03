@@ -75,5 +75,4 @@ void testPhase(void) {
 
 	Phase* test_phase = new Phase("test phase", Lyla, LittleKnight);
 	test_phase->loadCharacterMenu();
-	test_phase->loadInfoMenu();
 }
