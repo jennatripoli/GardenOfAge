@@ -22,6 +22,7 @@ GameStart::GameStart() {
 }
 
 void GameStart::playMusic() {
+  music = RM.getMusic("gamestart");
   music->play();
 }
 
