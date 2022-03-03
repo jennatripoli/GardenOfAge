@@ -8,11 +8,12 @@ const std::string MENU_TOGGLE_EVNT = "EventToggleMenu";
 
 class EventToggleMenu {
 private:
-	MenuGuide* p_m_guide; 
+	MenuGuide* menu_guide; 
 
 public:
 	EventToggleMenu(MenuGuide* new_guide); 
 	MenuGuide* getMenuGuide() const;
 	bool isEvent(MenuGuide* same_guide);
 };
+
 #endif __EVENT_TOGGLE_MENU_H__ 

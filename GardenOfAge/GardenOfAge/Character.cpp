@@ -1,10 +1,11 @@
-#include "Character.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
 #include "LogManager.h"
-#include "EventDamage.h"
 #include "Sound.h"
 #include "ResourceManager.h"
+
+#include "EventDamage.h"
+#include "Character.h"
 
 Character::Character() {
 	df::Object::setType("Character");
@@ -15,51 +16,32 @@ Character::Character() {
 	turn_count = 0; 
 }
 
-// these three functions will be overridden
+// these functions will be overridden
 int Character::eventHandler(const df::Event* p_e) { return 0; }
 int Character::draw() { return 0; }
-
 int Character::characterMoveSet(int choice) { return 0; }
+int Character::decideMove() { return 0; }
 
 
 // getters and setters for Character data
-int Character::getHP() { return m_hp; }
-void Character::setHP(int new_hp) { m_hp = new_hp; }
+int Character::getHP() { return hp; }
+void Character::setHP(int new_hp) { hp = new_hp; }
+int Character::getTurnCount() const { return turn_count; }
+std::string Character::getName() { return name; }
+void Character::setName(std::string new_name) { name = new_name; }
+int Character::getCharacterMove() const { return current_moveset; }
+Character* Character::getTarget() const { return target; }
+void Character::setTarget(Character* the_enemy) { target = the_enemy; }
 
-void Character::turnCountManage() 
-{ if (turn_count != 0 )
-	if(turn_count > 0)
-		turn_count++; 
-	else turn_count = 0; 
-}
-int Character::getTurnCount() const{return turn_count;}
-std::string Character::getName() { return m_name; }
-void Character::setName(std::string new_name) { m_name = new_name; }
-
-
-int Character::setCharacterMove(int choice)
-{
-	currentMoveset = choice;
-	return currentMoveset;
+void Character::turnCountManage() { 
+	if (turn_count > 0) turn_count++;
+	else if (turn_count < 0) turn_count = 0;
 }
 
-int Character::decideMove() {return 0;}
-
-int Character::getCharacterMove()const
-{
-	return currentMoveset;
+int Character::setCharacterMove(int choice) {
+	current_moveset = choice;
+	return current_moveset;
 }
-
-//setEnemy for some character classes to target
-void Character::setTartget(Character* the_enemy)
-{
-	target = the_enemy;
-}
-Character* Character::getTarget()const
-{
-	return target; 
-}
-
 
 // send parameter damage to a specific character
 void Character::dealDamage(int damage, Character* recipient) {
@@ -67,7 +49,7 @@ void Character::dealDamage(int damage, Character* recipient) {
 	recipient->eventHandler(p_damage_event);
 }
 
-// decrease Character's m_hp by parameter damage
+// decrease Character's hp by parameter damage
 void Character::takeDamage(int damage) {
 	df::Sound* p_sound = RM.getSound("damage");
 	if (p_sound != NULL) p_sound->play(false);
@@ -76,7 +58,7 @@ void Character::takeDamage(int damage) {
 	else setHP(getHP() - damage);
 }
 
-// draw HP on screen underneath Character
+// draw hp on screen underneath Character
 int Character::drawHP(df::Color color, std::string name) {
 	df::Vector hp_pos(getPosition().getX(), getPosition().getY() + 6);
 	std::string hp_str = name + " HP: " + std::to_string(getHP());

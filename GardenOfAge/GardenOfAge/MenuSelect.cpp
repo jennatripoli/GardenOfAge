@@ -5,15 +5,14 @@
 #include "LogManager.h"
 #include <iostream>
 
-MenuSelect::MenuSelect()
-{
+MenuSelect::MenuSelect() {
 	df::ViewObject::setViewString("");
 	setColor(df::WHITE);
 	setBorder(false);
 	setLocation(0, 0);
 }
 
-// easily write and display information the game will communicate to the player (ex: health)
+// easily write and display information the game will communicate to the player
 MenuSelect::MenuSelect(std::string m_string, df::Color color, int d_int) {
 	if (d_int > -1) m_string = std::to_string(d_int) + " " + m_string;
 
@@ -41,14 +40,9 @@ int MenuSelect::draw() {
 // horizontal and vertical axes are divided into 10 sections each, so parameters should be (0, 10)
 void MenuSelect::setLocation(float x_view, float y_view) {
 	df::Vector new_pos = df::Vector();
-	// LM.writeLog("MenuSelect | setLocation() window width = %.1f, window height = %.1f.", WM.getView().getHorizontal(), WM.getView().getVertical());
-
 	new_pos.setXY(WM.getView().getHorizontal() * (x_view / 10), WM.getView().getVertical() * (y_view / 10));
 	setPosition(new_pos);
 	LM.writeLog("MenuSelect | setLocation() x = %.1f, y = %.1f.", getPosition().getX(), getPosition().getY());
 }
 
-void MenuSelect::setSelectActive(bool status)
-{
-	setActive(status);
-}
+void MenuSelect::setSelectActive(bool status) { setActive(status); }

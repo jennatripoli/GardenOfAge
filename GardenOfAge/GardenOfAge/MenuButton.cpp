@@ -1,9 +1,10 @@
-#include "MenuButton.h"
 #include "Object.h"
 #include "DisplayManager.h"
 #include "LogManager.h"
 #include "WorldManager.h"
 #include "Color.h"
+
+#include "MenuButton.h"
 
 MenuButton::MenuButton() {
 	setType("MenuButton");
@@ -37,6 +38,7 @@ void MenuButton::update(std::string m_string, int d_int) {
 	setViewString(m_string);
 }
 
+// set the location using 0 through 10 for both axes
 void MenuButton::setLocation(float x_view, float y_view) {
 	df::Vector new_pos = df::Vector();
 	new_pos.setXY(WM.getView().getHorizontal() * (x_view / 10), WM.getView().getVertical() * (y_view / 10));
@@ -44,12 +46,9 @@ void MenuButton::setLocation(float x_view, float y_view) {
 	LM.writeLog("MenuButton | setLocation() x = %.1f, y = %.1f.", getPosition().getX(), getPosition().getY());
 }
 
-// going to be redefined based on each button's specific use (ex: quit, magic spell, toggle)
+// going to be redefined based on each button's specific use
 void MenuButton::callback() {
-	LM.writeLog("Button Clicked");
+	LM.writeLog("MenuButton | Button clicked.");
 }
 
-void MenuButton::setButtonActive(bool status)
-{
-	setActive(status);
-}
+void MenuButton::setButtonActive(bool status) { setActive(status); }

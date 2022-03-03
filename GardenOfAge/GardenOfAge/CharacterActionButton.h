@@ -9,11 +9,10 @@
 class CharacterActionButton : public MenuButton {
 private:
     CharacterActionButton();
-    int characterAction;
-    //df::Event* current;
+    int action;
+    int action_value;
     Character* character;
     Character* target;
-    int action_value;
 
 public:
     CharacterActionButton(int action_worth, Character* ch, std::string m_string);

@@ -1,13 +1,11 @@
 #include "EventToggleMenu.h"
 
 EventToggleMenu::EventToggleMenu(MenuGuide* new_guide) {
-	p_m_guide = new_guide; 
+	menu_guide = new_guide; 
 }
 
-MenuGuide* EventToggleMenu::getMenuGuide() const {
-	return p_m_guide;
-}
+MenuGuide* EventToggleMenu::getMenuGuide() const { return menu_guide; }
 
 bool EventToggleMenu::isEvent(MenuGuide* same_guide) {
-	return p_m_guide == same_guide; 
+	return menu_guide == same_guide; 
 }

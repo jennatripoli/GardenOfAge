@@ -5,7 +5,6 @@
 
 class Princess : public Character {
 private:
-//all princess moves counters/multiplyers
 	bool isIronfast; 
 	bool isBraveHearty;
 	bool isOfKinderedSpirit;
@@ -13,7 +12,6 @@ private:
 	
 public:
 	Princess();
-	~Princess();
 	int eventHandler(const df::Event* p_e) override;
 	int draw() override;
 	int characterMoveSet(int choice) override;
@@ -24,9 +22,9 @@ public:
 	bool getisTheRightfulHeir() const; 
 
 	void Caliburn();
-	void GildedSheild();
+	void GildedShield();
 	void Honorless();
-	void HolyLight(); //3 turn gradual heal
+	void HolyLight();
 };
 
 #endif __PRINCESS_H__

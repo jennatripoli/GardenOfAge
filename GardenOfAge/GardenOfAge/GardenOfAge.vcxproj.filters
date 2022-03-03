@@ -81,6 +81,15 @@
     <ClInclude Include="BattleComplete.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Announcement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEnemyTurn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventStartTurn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -147,6 +156,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BattleComplete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Announcement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEnemyTurn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventStartTurn.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

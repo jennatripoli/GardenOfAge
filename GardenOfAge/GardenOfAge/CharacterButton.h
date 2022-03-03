@@ -7,7 +7,7 @@
 
 class CharacterButton : public MenuButton {
 private:
-    bool showDisplay;
+    bool show_display;
     std::string name;
     Character* stored_character;
     MenuGuide* character_guide;
@@ -15,12 +15,12 @@ private:
 public:
     CharacterButton();
     CharacterButton(Character* character, df::Color c_highlight, df::Color c_default);
+
     Character* getCharacter() const;
+    void callback();
 
     bool isDisplayed() const;
     void setDisplayed(bool new_state);
-
-    void callback();
 };
 
 #endif __CHARACTER_BUTTON_H__

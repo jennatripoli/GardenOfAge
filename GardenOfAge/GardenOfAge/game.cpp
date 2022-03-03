@@ -1,4 +1,3 @@
-#include <Windows.h>
 #include "GameManager.h"
 #include "LogManager.h"
 #include "Pause.h"
@@ -12,7 +11,6 @@
 #include "MenuGuide.h"
 #include "game.h"
 #include "Phase.h"
-
 #include "Princess.h"
 #include "Knight.h"
 

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Announcement.h" />
     <ClInclude Include="BattleComplete.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterActionButton.h" />
@@ -27,6 +28,8 @@
     <ClInclude Include="EndTurnButton.h" />
     <ClInclude Include="EventDamage.h" />
     <ClInclude Include="EventEndTurn.h" />
+    <ClInclude Include="EventEnemyTurn.h" />
+    <ClInclude Include="EventStartTurn.h" />
     <ClInclude Include="EventToggleMenu.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="Father.h" />
@@ -43,6 +46,7 @@
     <ClInclude Include="Sister.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Announcement.cpp" />
     <ClCompile Include="BattleComplete.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CharacterActionButton.cpp" />
@@ -51,6 +55,8 @@
     <ClCompile Include="EndTurnButton.cpp" />
     <ClCompile Include="EventDamage.cpp" />
     <ClCompile Include="EventEndTurn.cpp" />
+    <ClCompile Include="EventEnemyTurn.cpp" />
+    <ClCompile Include="EventStartTurn.cpp" />
     <ClCompile Include="EventToggleMenu.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="Father.cpp" />

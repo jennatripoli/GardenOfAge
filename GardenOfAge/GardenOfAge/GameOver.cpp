@@ -9,16 +9,14 @@
 
 GameOver::GameOver() {
 	setType("GameOver");
+	setLocation(df::CENTER_CENTER);
+	registerInterest(df::STEP_EVENT);
 
 	if (setSprite("gameover") == 0) time_to_live = getAnimation().getSprite()->getFrameCount() * getAnimation().getSprite()->getSlowdown();
 	else time_to_live = 0;
 
-	setLocation(df::CENTER_CENTER);
-	registerInterest(df::STEP_EVENT);
-
-	// Play "game over" sound.
-	//df::Sound *p_sound = RM.getSound("gameover");
-	//p_sound->play();
+	//df::Sound *sound = RM.getSound("gameover");
+	//sound->play();
 }
 
 // when done, remove all Objects and reactivate GameStart
@@ -29,8 +27,9 @@ GameOver::~GameOver() {
 	for (i.first(); !i.isDone(); i.next()) {
 		df::Object* p_o = i.currentObject();
 
-		if (p_o->getType() == "Character" || p_o->getType() == "ViewObject"
-			|| p_o->getType() == "MenuButton") WM.markForDelete(p_o);
+		if (p_o->getType() == "Character" || p_o->getType() == "ViewObject" || p_o->getType() == "MenuButton") {
+			WM.markForDelete(p_o);
+		}
 
 		// if GameStart, set as active
 		if (p_o->getType() == "GameStart") {

@@ -1,12 +1,16 @@
-#include <Windows.h>
-#include "Princess.h"
+//#include <Windows.h>
+
 #include "WorldManager.h"
 #include "DisplayManager.h"
-#include "EventDamage.h"
 #include "LogManager.h"
 #include "ViewObject.h"
+
+#include "Princess.h"
 #include "GameOver.h"
 #include "Announcement.h"
+#include "EventDamage.h"
+
+#include <Windows.h>
 
 Princess::Princess() {
 	setHP(80);
@@ -20,14 +24,9 @@ Princess::Princess() {
 	isTheRightfulHeir = false; 
 }
 
-Princess::~Princess() {
-	//WM.markForDelete(this);
-}
-
 // handle event (return 0 if ignored, else return 1)
 int Princess::eventHandler(const df::Event* p_e) {
-	if (p_e->getType() == "damage") {
-		//isbraveHearty
+	if (p_e->getType() == DAMAGE_EVENT) {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		
 		if (!isIronfast) {
@@ -42,16 +41,18 @@ int Princess::eventHandler(const df::Event* p_e) {
 		}
 		
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
+		
 		if (getHP() <= 0) {
 			new GameOver;
-			//WM.markForDelete(this);
+			// WM.markForDelete(this);
 		}
 		return 1;
 	}
+
 	return 0;  // event ignored
 }
 
-// draw Princess and its HP on screen
+// draw Princess and its hp on screen
 int Princess::draw() {
 	if (Object::draw() == -1) {
 		LM.writeLog("Princess | draw() failure.");
@@ -66,62 +67,54 @@ int Princess::draw() {
 	return drawHP(df::YELLOW, "Princess Lyla");
 }
 
- int Princess::characterMoveSet(int choice)
-{
-	switch (choice)
-	{
+ int Princess::characterMoveSet(int choice) {
+	switch (choice) {
 	case 1:
-		LM.writeLog("PrincessMoveSet 1 selected");
+		LM.writeLog("Princess | moveset 1 (caliburn) selected.");
 		Caliburn();
 		break;
 	case 2:
-		LM.writeLog("PrincessMoveSet 2 selected");
-		GildedSheild();
+		LM.writeLog("Princess | moveset 2 (gilded shield) selected.");
+		GildedShield();
 		break;
 	case 3:
-		LM.writeLog("PrincessMoveSet 3 selected");
+		LM.writeLog("Princess | moveset 3 (honorless) selected.");
 		Honorless();
 		break;
 	default:
-		LM.writeLog("PrincessMoveSet 4 selected");
+		LM.writeLog("Princess | moveset 4 (holy light) selected.");
 		HolyLight();
 		break;
 	}
+
 	return 0; 
 }
 
- // damage multiplier
- void Princess::Caliburn()
-{
- Announcement* announce_move = new Announcement("Caliburn Strikes", df::YELLOW);
-	 //int mutliplier?
- if (isBraveHearty)
- {
+// damage multiplier
+void Princess::Caliburn() {
+	Announcement* announce_move = new Announcement("Princess | Caliburn Strikes.", df::YELLOW);
+
+	if (isBraveHearty) {
 	 dealDamage(60, getTarget());
 	 isBraveHearty = false;
- }
- else
-	 dealDamage(20, getTarget()); 
+	} else dealDamage(20, getTarget()); 
 }
 
- void Princess::GildedSheild()
-
-{ // reduces incoming damge by
-	Announcement* announce_move = new Announcement("Gilded Sheild Protects");
+// reduce incoming damage
+void Princess::GildedShield() {
+	Announcement* announce_move = new Announcement("Princess | Gilded Sheild Protects.");
 	isIronfast = true;
 }
 
-
-void Princess::Honorless()
-{
- //setmultiplier move deal 1 damage
- Announcement* announce_move = new Announcement("Honorless");
-isBraveHearty = true;
-dealDamage(5, getTarget());
+void Princess::Honorless() {
+	Announcement* announce_move = new Announcement("Honorless");
+	isBraveHearty = true;
+	dealDamage(5, getTarget());
 }
 
- void Princess::HolyLight() {
+void Princess::HolyLight() {
 	 Announcement* announce_move = new Announcement("HolyLight");
+	 
 	 if (isTheRightfulHeir) {
 
 	 } else {
@@ -130,28 +123,7 @@ dealDamage(5, getTarget());
 	 }
  }
 
- bool Princess::getIsIronFast() const
- {
-	 return isIronfast;
- }
- 
- bool Princess::getIsBraveHearty() const
- {
-	 return isBraveHearty;
- }
-
- bool Princess::getisOfKinderedSpirit() const
- {
-	 return isOfKinderedSpirit;
- }
-
- bool Princess::getisTheRightfulHeir() const
- {
-	 return isTheRightfulHeir;
- }
-//three moves
-
-//move 1 Impale Attack
-//move 2 Guard Sheild
-//move 3 Close Quarters
-//healing move as mentioned by you granted by defeating sister
+bool Princess::getIsIronFast() const { return isIronfast; }
+bool Princess::getIsBraveHearty() const { return isBraveHearty; }
+bool Princess::getisOfKinderedSpirit() const { return isOfKinderedSpirit; }
+bool Princess::getisTheRightfulHeir() const { return isTheRightfulHeir; }

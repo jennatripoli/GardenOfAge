@@ -1,6 +1,7 @@
 #include "WorldManager.h"
 #include "Color.h"
 #include "Event.h"
+
 #include "CharacterActionButton.h"
 #include "Object.h"
 
@@ -13,7 +14,6 @@ CharacterActionButton::CharacterActionButton(int action_worth, Character* ch, st
 
 	character = ch;
 	action_value = action_worth;
-	//current = current_event;
 }
 
 int CharacterActionButton::getButtonAction() {

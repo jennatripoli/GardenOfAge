@@ -1,14 +1,17 @@
-#include <Windows.h>
-#include "Sister.h"
+//#include <Windows.h>
+
 #include "WorldManager.h"
 #include "DisplayManager.h"
-#include "EventDamage.h"
-#include "EventEnemeyTurn.h"
 #include "LogManager.h"
 #include "ViewObject.h"
+
+#include "Sister.h"
+#include "EventDamage.h"
+#include "EventEnemyTurn.h"
 #include "Explosion.h"
 #include "EventStartTurn.h"
 
+#include <Windows.h>
 
 Sister::Sister() {
 	registerInterest(END_ENEMY_TURN_EVENT);
@@ -18,20 +21,6 @@ Sister::Sister() {
 	setPosition(df::Vector(60, 5));
 	turnCountManage();
 
-}
-
-Sister::~Sister() {
-	for (int i = -8; i <= 8; i += 5) {
-		for (int j = -5; j <= 5; j += 3) {
-			df::Vector temp_pos = this->getPosition();
-			temp_pos.setX(this->getPosition().getX() + i);
-			temp_pos.setY(this->getPosition().getY() + j);
-			Explosion* p_explosion = new Explosion;
-			p_explosion->setPosition(temp_pos);
-		}
-	}
-
-	//WM.markForDelete(this);Sister
 }
 
 // handle event (return 0 if ignored, else return 1)

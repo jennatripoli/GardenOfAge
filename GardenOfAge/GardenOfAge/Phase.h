@@ -7,13 +7,14 @@
 #include "Character.h"
 #include "EndTurnButton.h"
 
-
 class Phase :public df::Object {
 private:
 	Phase();
-	std::string name;
 	bool isPhaseOver();
-	bool isPhaseDone;
+	Phase* nextPhase();
+
+	std::string name;
+	bool is_phase_done;
 	int turn_queue;
 	Character* player_party;
 
@@ -21,11 +22,9 @@ private:
 	int enemy_killcount;
 	MenuGuide* character_menu;
 	MenuGuide* info_menu;
-	Phase* nextPhase();
 	EndTurnButton* end_btn;
 
 public:
-	// will modify later to have more characters to load
 	Phase(std::string phase_name, Character* ch_1, Character* boss);
 	void loadInfoMenu();
 	void loadCharacterMenu();

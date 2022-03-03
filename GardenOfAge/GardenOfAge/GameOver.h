@@ -14,4 +14,5 @@ public:
 	int eventHandler(const df::Event *p_e) override;
 	int draw() override;
 };
+
 #endif __GAME_OVER_H__

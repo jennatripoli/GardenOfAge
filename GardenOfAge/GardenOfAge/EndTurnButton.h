@@ -9,4 +9,5 @@ public:
 	EndTurnButton(); 
 	void callback(); 
 };
+
 #endif __END_TURN_BUTTON_H__

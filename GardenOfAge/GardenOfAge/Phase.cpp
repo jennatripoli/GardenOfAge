@@ -1,4 +1,5 @@
-#include <Windows.h>
+//#include <Windows.h>
+
 #include "GameManager.h"
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -7,18 +8,17 @@
 #include "Vector.h"
 #include "Event.h"
 #include "EventStep.h"
-#include "EventEnemeyTurn.h"
+
+#include "EventEndTurn.h"
+#include "EndTurnButton.h"
+#include "EventStartTurn.h"
+#include "EventEnemyTurn.h"
 #include "Princess.h"
 #include "Knight.h"
 #include "Father.h"
 #include "Sister.h"
 #include "Confidant.h"
 #include "Regent.h"
-
-#include "EventEndTurn.h"
-#include "EndTurnButton.h"
-#include "EventStartTurn.h"
-
 #include "Phase.h"
 #include "MenuSelect.h"
 #include "MenuButton.h"
@@ -27,7 +27,7 @@
 #include "CharacterButton.h"
 #include "BattleComplete.h"
 
-
+#include <Windows.h>
 
 Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 	registerInterest(df::STEP_EVENT);
@@ -36,12 +36,11 @@ Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 
 	name = phase_name;
 	character_menu = new MenuGuide();
-	isPhaseDone = false;
+	is_phase_done = false;
 
 	player_party = ch_1;  // add characters 
-	phase_boss = boss;       // set phase boss
-	LM.writeLog("Phase created");
-	//setSprite("menuplay");
+	phase_boss = boss;    // set phase boss
+	LM.writeLog("Phase %s created.", phase_name);
 	setPosition(df::Vector(45, 19));
 
 	end_btn = new EndTurnButton();
@@ -51,10 +50,10 @@ Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 }
 
 bool Phase::isPhaseOver() {
-	if (phase_boss->getHP() <= 0) isPhaseDone = true;
-	else isPhaseDone = false;
+	if (phase_boss->getHP() <= 0) is_phase_done = true;
+	else is_phase_done = false;
 
-	return isPhaseDone;
+	return is_phase_done;
 }
 
 Phase* Phase::nextPhase() {
@@ -77,69 +76,61 @@ void Phase::loadCharacterMenu() {
 
 void Phase::completeTurn() {
 	turn_queue = player_party->getCharacterMove();
-	player_party->setTartget(phase_boss); 
+	player_party->setTarget(phase_boss); 
 	player_party->characterMoveSet(turn_queue);
 }
 
 void Phase::announcements(std::string announce) {
-	//MenuSelect* announcement (announce, df::WHITE)
+	// MenuSelect* announcement (announce, df::WHITE)
 }
 
 int Phase::startNextBoss() {
-
-	if (phase_boss->getHP() == 0)
-	{
+	if (phase_boss->getHP() == 0) {
 		WM.markForDelete(phase_boss);
-
 		enemy_killcount++;
-
 		new BattleComplete();
 		Sleep(2000);
 
-		//player_party = new Princess();
+		// player_party = new Princess();
 
 		switch (enemy_killcount) {
-
 		case 1:
 			phase_boss = new Confidant();
 			break;
-
 		case 2:
 			phase_boss = new Father();
 			break;
-
 		case 3:
 			phase_boss = new Sister();
 			break;
-
 		case 4:
 			phase_boss = new Regent();
 			break;
 		}
 	}
+
 	return enemy_killcount;
 }
 
-// event toggle menu
+// handle event (return 0 if ignored, else return 1)
 int Phase::eventHandler(const df::Event* p_e) {
-	if (p_e->getType() == START_TURN_EVENT)
-	{		
+	if (p_e->getType() == START_TURN_EVENT) {		
 		end_btn->setActive(true);
 		WM.draw();
 		DM.swapBuffers(); 
+		return 1;
 	}
 	
-	if (p_e->getType() == END_TURN_EVENT) 
-	{
+	if (p_e->getType() == END_TURN_EVENT) {
 		completeTurn();
 		startNextBoss(); 
-		//end_btn->setActive(false); 
-		LM.writeLog("EndTurn");
+		LM.writeLog("Phase | end turn.");
 
 		EventEnemyEndTurn* nextTurn = new EventEnemyEndTurn(); 
-		phase_boss->setTartget(player_party); 
+		phase_boss->setTarget(player_party); 
 		phase_boss->eventHandler(nextTurn);
+		return 1;
 	}
 
-	return 0;
+	return 0;  // event ignored
 }

@@ -1,14 +1,17 @@
-#include <Windows.h>
-#include "Confidant.h"
+//#include <Windows.h>
+
 #include "WorldManager.h"
 #include "DisplayManager.h"
-#include "EventDamage.h"
-#include "EventEnemeyTurn.h"
-#include "EventStartTurn.h"
 #include "LogManager.h"
 #include "ViewObject.h"
+
+#include "Confidant.h"
+#include "EventDamage.h"
+#include "EventEnemyTurn.h"
+#include "EventStartTurn.h"
 #include "Explosion.h"
 
+#include <Windows.h>
 
 Confidant::Confidant() {
 	registerInterest(END_ENEMY_TURN_EVENT);
@@ -19,22 +22,9 @@ Confidant::Confidant() {
 	turnCountManage();
 }
 
-Confidant::~Confidant() {
-	for (int i = -8; i <= 8; i += 5) {
-		for (int j = -5; j <= 5; j += 3) {
-			df::Vector temp_pos = this->getPosition();
-			temp_pos.setX(this->getPosition().getX() + i);
-			temp_pos.setY(this->getPosition().getY() + j);
-			Explosion* p_explosion = new Explosion;
-			p_explosion->setPosition(temp_pos);
-		}
-	}
-	//WM.markForDelete(this);Sister
-}
-
 // handle event (return 0 if ignored, else return 1)
 int Confidant::eventHandler(const df::Event* p_e) {
-	if (p_e->getType() == "damage") {
+	if (p_e->getType() == DAMAGE_EVENT) {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		takeDamage(p_damage_event->getAmount());
 
@@ -42,16 +32,16 @@ int Confidant::eventHandler(const df::Event* p_e) {
 		return 1;
 	}
 
-	if (p_e->getType() == END_ENEMY_TURN_EVENT)
-	{
+	if (p_e->getType() == END_ENEMY_TURN_EVENT) {
 		setCharacterMove(decideMove()); 
-		characterMoveSet(getCharacterMove()); 
+		characterMoveSet(getCharacterMove());
+		return 1;
 	}
 
 	return 0;  // event ignored
 }
 
-// draw Confidant and its HP on screen
+// draw Confidant and its hp on screen
 int Confidant::draw() {
 	if (Object::draw() == -1) {
 		LM.writeLog("Confidant | draw() failure.");
@@ -67,11 +57,7 @@ int Confidant::draw() {
 }
 
 int Confidant::characterMoveSet(int choice) {
-	
-	if (true)
-	{
-		LM.writeLog("Boo EnenemyTurn , %d" , getTurnCount());
-	}
+	if (true) LM.writeLog("Boo EnemyTurn, %d", getTurnCount());
 
 	EventStartTurn* nextTurn = new EventStartTurn(); 
 	Character* the_player = getTarget();

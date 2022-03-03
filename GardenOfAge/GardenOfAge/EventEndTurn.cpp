@@ -1,4 +1,3 @@
-
 #include "EventEndTurn.h"
 
 EventEndTurn::EventEndTurn() {

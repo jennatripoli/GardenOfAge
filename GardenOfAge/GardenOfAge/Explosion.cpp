@@ -1,9 +1,10 @@
-#include "Explosion.h"
 #include "EventStep.h"
 #include "GameManager.h"
 #include "LogManager.h"
 #include "ResourceManager.h"
 #include "WorldManager.h"
+
+#include "Explosion.h"
 
 Explosion::Explosion() {
     registerInterest(df::STEP_EVENT);

@@ -6,7 +6,7 @@
 
 class BattleComplete : public df::ViewObject {
 private:
-	df::Music* p_music;
+	df::Music* music;
 
 public:
 	BattleComplete();

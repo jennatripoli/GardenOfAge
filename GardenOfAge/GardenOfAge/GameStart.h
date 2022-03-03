@@ -6,7 +6,7 @@
 
 class GameStart : public df::ViewObject {
 private:
-	df::Music *p_music;
+	df::Music *music;
 	void start();
 
 public:

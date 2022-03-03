@@ -16,20 +16,20 @@ private:
 
 	int s_guide_counter;
 	int b_guide_counter; 
-	int timetracker; 
-	bool isToggled;
+	int time_tracker; 
+	bool is_toggled;
 
 public:
 	MenuGuide();
 	int addMenu(MenuSelect* new_menu);
 	int addButton(MenuButton* new_button);
 
-	MenuSelect* getMenu(int select_menu)const;
-	MenuButton* getButton(int select_button)const;
+	MenuSelect* getMenu(int select_menu) const;
+	MenuButton* getButton(int select_button) const;
 
 	void clearMenu();
 	void toggleMenu();
-	void controlToggle(bool doActivate);
+	void controlToggle(bool do_activate);
 	int eventHandler(const df::Event* p_e); 
 };
 
