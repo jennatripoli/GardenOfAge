@@ -1,0 +1,38 @@
+<HEADER>
+frames 2
+width 75
+height 12
+color green
+slowdown 15
+</HEADER>
+<BODY>
+Garden of Age is a turn-based strategy combat game. In this game, you      
+play as Princess Lyla of Primus.                                           
+                                                                           
+When her father passed away a few years ago, Lyla was too young to be      
+in charge of a country, so a regent ruled for her.                         
+                                                                           
+Now, many years have passed, by the regent has yet to relinquish his       
+power. To reclaim the power that was once supposed to be hers, Lyla will   
+battle against those who have wronged her in the past, in hopes to resolve 
+her feelings about the kingdom and find peace within about growing up.     
+                                                                           
+                         Press 'p' to continue                             
+end
+Garden of Age is a turn-based strategy combat game. In this game, you      
+play as Princess Lyla of Primus.                                           
+                                                                           
+When her father passed away a few years ago, Lyla was too young to be      
+in charge of a country, so a regent ruled for her.                         
+                                                                           
+Now, many years have passed, by the regent has yet to relinquish his       
+power. To reclaim the power that was once supposed to be hers, Lyla will   
+battle against those who have wronged her in the past, in hopes to resolve 
+her feelings about the kingdom and find peace within about growing up.     
+                                                                           
+                                                                           
+end
+</BODY>
+<FOOTER>
+version 1
+</FOOTER>

@@ -8,6 +8,7 @@ class GameStart : public df::ViewObject {
 private:
 	df::Music *music;
 	int num_screens;
+	bool change_screen;
 	void start();
 
 public:
