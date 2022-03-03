@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -13,14 +13,14 @@
 #include "Princess.h"
 #include "Announcement.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Regent::Regent() {
 	//registerInterest(END_ENEMY_TURN_EVENT);
 	setHP(400);
 	setName("Regent");
-	setSprite("Regent");
-	setPosition(df::Vector(60, 16));
+	setSprite("regent");
+	setPosition(df::Vector(60, 11));
 	startTurnCount();
 	countdown = 0; 
 }
@@ -54,7 +54,7 @@ int Regent::draw() {
 
 	if (getPosition().getX() != 60) {
 		//Sleep(500);
-		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
+		//setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 	}
 
 	return drawHP(df::RED, "Hallowed Regent");
@@ -72,13 +72,12 @@ int Regent::characterMoveSet(int choice) {
 	case 3:
 		areYouEvenWorthy();
 		break;
-
 	default:
 		famineOfWeeds();
+		break;
 	}
 
-	if (countdown > 0)
-	{
+	if (countdown > 0) {
 		Announcement* announce_move = new Announcement("Famine deicmate the youth", df::CYAN);
 		dealDamage(20, getTarget());
 		countdown--; 
@@ -91,42 +90,29 @@ int Regent::characterMoveSet(int choice) {
 	return 0;
 }
 
-int Regent::decideMove()
-{
+int Regent::decideMove() {
 	Princess* princess = dynamic_cast <Princess*> (getTarget());
 
-	if (princess->getisTheRightfulHeir())
-		return 3; 
-
-	if (getTurnCount() % 3 == 0)
-	{
-		return 1;
-	}
-
-	if(princess->getIsBraveHearty())
-	return 2;
-
-	if (princess->getisOfKinderedSpirit())
-		return 3; 
+	if (princess->getisTheRightfulHeir()) return 3; 
+	if (getTurnCount() % 3 == 0) return 1;
+	if (princess->getIsBraveHearty()) return 2;
+	if (princess->getisOfKinderedSpirit()) return 3;
+	return 0;
 }
 
-void Regent::famineOfWeeds()
-{
+void Regent::famineOfWeeds() {
 	Announcement* announce_move = new Announcement("Perpetual damage to drain the youth and aquire the crops I want", df::CYAN);
 	countdown = 3;
 }
 
-void Regent::respectMyrule()
-{
+void Regent::respectMyrule() {
 	Announcement* announce_move = new Announcement("Yiled you unworthy child", df::CYAN);
 	dealDamage(60, getTarget()); 
 }
 
-void Regent::areYouEvenWorthy()
-{
+void Regent::areYouEvenWorthy() {
 	Announcement* announce_move = new Announcement("How can you fathom what a child, fathom my power", df::CYAN);
 	dealDamage(30, getTarget()); 
-
 	int heal = getHP();
 	setHP(getHP() + 40); 
 }

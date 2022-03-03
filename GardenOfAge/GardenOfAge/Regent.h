@@ -4,7 +4,6 @@
 #include "Character.h"
 
 class Regent : public Character {
-
 private:
 	int countdown;
 	
@@ -19,9 +18,6 @@ public:
 	void famineOfWeeds(); 
 	void respectMyrule();
 	void areYouEvenWorthy();
-
-
-
 };
 
 #endif __REGENT_H__

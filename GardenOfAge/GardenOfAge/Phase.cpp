@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "GameManager.h"
 #include "WorldManager.h"
@@ -28,7 +28,7 @@
 #include "BattleComplete.h"
 #include "Announcement.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Phase::Phase(std::string phase_name, Character* ch_1, Character* boss) {
 	registerInterest(df::STEP_EVENT);
@@ -76,8 +76,6 @@ void Phase::announcements(std::string announce) {
 }
 
 int Phase::startNextBoss() {
-	
-		//Sleep(500);
 		Princess* princess = dynamic_cast <Princess*> (player_party);
 
 		phase_boss->draw();
@@ -90,8 +88,7 @@ int Phase::startNextBoss() {
 		Sleep(2000);
 
 
-		if (enemy_killcount == 4)
-		{
+		if (enemy_killcount == 4) {
 			princess->setTrueRuler(true);
 			princess->setHP(80);
 			Announcement* sm1 = new Announcement("Sister", df::GREEN, 3, true);
@@ -99,7 +96,6 @@ int Phase::startNextBoss() {
 			Announcement* sm3 = new Announcement("WWhen you face him", df::GREEN, 3, true);
 			Announcement* sm4 = new Announcement("The future is made by seeds of the past and ", df::GREEN, 3, true);
 		}
-		// player_party = new Princess();
 
 		switch (enemy_killcount) {
 		case 1:
@@ -124,7 +120,6 @@ int Phase::startNextBoss() {
 			break;
 		}
 	
-
 	return enemy_killcount;
 }
 

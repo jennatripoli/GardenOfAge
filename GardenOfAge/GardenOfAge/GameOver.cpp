@@ -27,7 +27,8 @@ GameOver::~GameOver() {
 	for (i.first(); !i.isDone(); i.next()) {
 		df::Object* p_o = i.currentObject();
 
-		if (p_o->getType() == "Character" || p_o->getType() == "ViewObject" || p_o->getType() == "MenuButton") {
+		if (p_o->getType() == "Character" || p_o->getType() == "ViewObject" || p_o->getType() == "MenuButton" || p_o->getType() == "MenuSelect") {
+			i.currentObject()->setActive(false);
 			WM.markForDelete(p_o);
 		}
 

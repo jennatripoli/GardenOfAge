@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -13,7 +13,7 @@
 #include "Princess.h"
 #include "Announcement.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Sister::Sister() {
 	registerInterest(END_ENEMY_TURN_EVENT);

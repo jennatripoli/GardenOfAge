@@ -13,10 +13,10 @@
 #include "Phase.h"
 #include "Princess.h"
 #include "Knight.h"
+#include "Regent.h"
 
 void loadResources(void);
 void populateWorld(void);
-void testPhase(void);
 
 int main(int argc, char* argv[]) {
 	if (GM.startUp()) {
@@ -70,15 +70,12 @@ void populateWorld(void) {
 	new GameStart();
 }
 
-void game::phase1() {
-	testPhase();
-}
-
-void testPhase(void) {
-	// runs a phase
+// start the game
+void game::start(void) {
 	Princess* Lyla = new Princess();
 	Knight* LittleKnight = new Knight();
+	//Regent* r = new Regent();
 
-	Phase* test_phase = new Phase("test phase", Lyla, LittleKnight);
-	test_phase->loadCharacterMenu();
+	Phase* phase = new Phase("Start", Lyla, LittleKnight);
+	phase->loadCharacterMenu();
 }

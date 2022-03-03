@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -13,7 +13,7 @@
 #include "Princess.h"
 #include "Announcement.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Knight::Knight() {
 	registerInterest(END_ENEMY_TURN_EVENT);
@@ -63,7 +63,7 @@ int Knight::draw() {
 
 int Knight::characterMoveSet(int choice) {
 
-	LM.writeLog("Knight | EnenemyTurn %d.", getTurnCount());
+	LM.writeLog("Knight | EnemyTurn %d.", getTurnCount());
 	LM.writeLog("Knight | move %d.", getCharacterMove());
 
 	switch (choice) {

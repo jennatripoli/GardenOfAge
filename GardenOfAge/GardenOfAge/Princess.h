@@ -9,7 +9,6 @@ private:
 	bool isBraveHearty;
 	bool isOfKinderedSpirit;
 	bool isTheRightfulHeir;
-
 	bool trueRuler;
 	
 public:

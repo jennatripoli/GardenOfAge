@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -10,7 +10,7 @@
 #include "Announcement.h"
 #include "EventDamage.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Princess::Princess() {
 	setHP(80);
@@ -116,9 +116,7 @@ void Princess::Caliburn() {
 	 isBraveHearty = false;
 	} else dealDamage(20, getTarget()); 
 
-
-	if (trueRuler)
-	{
+	if (trueRuler) {
 		Announcement* announce_move = new Announcement("TrueRuler Ability : Caliburn insreased strength");
 		Announcement* announce_move2 = new Announcement("Excalibur");
 		dealDamage(60, getTarget());
@@ -133,8 +131,7 @@ void Princess::GildedShield() {
 	Announcement* announce_move = new Announcement("Gilded Sheild Protects.");
 	isIronfast = true;
 
-	if (trueRuler)
-	{
+	if (trueRuler) {
 		Announcement* announce_move = new Announcement("TrueRuler Ability : Thorn Sheild");
 		dealDamage(15, getTarget());
 	}
@@ -145,8 +142,7 @@ void Princess::Honorless() {
 	Announcement* announce_move = new Announcement("Honorless");
 	isBraveHearty = true;
 	dealDamage(5, getTarget());
-	if (trueRuler)
-	{
+	if (trueRuler) {
 		Announcement* announce_move = new Announcement("TrueRuler Ability: Pride in all Ivy");
 		isIronfast = true;
 	}
@@ -160,8 +156,7 @@ void Princess::HolyLight() {
 	setHP(current_HP);
 
 	isTheRightfulHeir = true; 
-	if (trueRuler)
-	{
+	if (trueRuler) {
 		Announcement* announce_move = new Announcement("TrueRuler Ability : Divine Rule");
 		int current_HP = getHP() + 30;
 		setHP(current_HP);

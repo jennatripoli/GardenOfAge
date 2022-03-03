@@ -3,7 +3,7 @@
 
 class game {
 public:
-	static void phase1();
+	static void start();
 };
 
 #endif __GAME_H__

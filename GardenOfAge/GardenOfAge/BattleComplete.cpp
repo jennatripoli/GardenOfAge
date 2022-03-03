@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "Color.h"
 #include "EventKeyboard.h"
@@ -12,7 +12,7 @@
 #include "Music.h"
 #include "Phase.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 BattleComplete::BattleComplete() {
     setType("BattleComplete");
@@ -31,7 +31,7 @@ BattleComplete::BattleComplete() {
 
         if (p_o->getType() == "Character" || p_o->getType() == "ViewObject" || p_o->getType() == "MenuButton" || p_o->getType() == "MenuSelect") {
             i.currentObject()->setActive(false);
-            // WM.markForDelete(p_o);
+            WM.markForDelete(p_o);
         }
     }
 
