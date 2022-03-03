@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -12,14 +12,14 @@
 #include "Princess.h"
 #include "Announcement.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 Father::Father() {
 	registerInterest(END_ENEMY_TURN_EVENT);
 	setHP(120);
 	setName("Father");
 	setSprite("father");
-	setPosition(df::Vector(60, 9.5));
+	setPosition(df::Vector(60, 16));
 	startTurnCount();
 }
 

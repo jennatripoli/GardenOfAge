@@ -1,7 +1,7 @@
 <HEADER>
 frames 2
-width 55
-height 24
+width 56
+height 21
 color red
 slowdown 15
 </HEADER>
@@ -13,9 +13,7 @@ slowdown 15
                                        )a'`SSSSSs      
                                       /_   SSSSSS      
                                       .=## SSSSS       
-                                      .####  SSSSs     
-                                      ###::::SSSSS     
-                                      .;:::""""SSS     
+                                      .####  SSSSs      
                                      .:;:'  . .  \\    
                                     .::/  '     .'|    
                                  .'  \  .       ./     
@@ -28,8 +26,7 @@ slowdown 15
                                     |     L  /    /    
                                     (    <_-'     \    
                                    .'\_            `-. 
-                                .-'\``:: ` .          \
-                               <____:::. . . . . . \ _/
+                                  <____:::. . . . \ _/
 end
                                        o .,<>., o      
                                        |\/\/\/\/|      
@@ -38,9 +35,7 @@ end
                                        )a'`SSSSSs      
                                       /_   SSSSSS      
                                       .=## SSSSS       
-                                      .####  SSSSs     
-                                      ###::::SSSSS     
-                                      .;:::""""SSS     
+                                      .####  SSSSs        
                                      .:;:'  . .  \\    
                                     .::/  '     .'|    
                                  .'  \  .       ./     
@@ -53,8 +48,7 @@ end
                                     |     L  /    /    
                                     (    <_-'     \    
                                    .'\_            `-. 
-                                .-'\``:: ` .          \
-                               <____:::. . . . . . \ _/
+                                  <____:::. . . . \ _/
 end
 </BODY>
 <FOOTER>

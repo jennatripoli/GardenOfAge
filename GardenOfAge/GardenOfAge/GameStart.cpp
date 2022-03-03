@@ -3,6 +3,7 @@
 #include "GameManager.h"
 #include "LogManager.h"
 #include "ResourceManager.h"
+#include "DisplayManager.h"
 #include "WorldManager.h"
 #include "Music.h"
 
@@ -11,9 +12,10 @@
 
 GameStart::GameStart() {
   setType("GameStart");
-  setSprite("gamestart");
+  setSprite("game-start");
   setLocation(df::CENTER_CENTER);
   registerInterest(df::KEYBOARD_EVENT);
+  num_ofscreens = 3;
 
   music = RM.getMusic("gamestart");
   playMusic();
@@ -29,7 +31,20 @@ int GameStart::eventHandler(const df::Event *p_e) {
         df::EventKeyboard *p_keyboard_event = (df::EventKeyboard *) p_e;
         switch (p_keyboard_event->getKey()) {
         case df::Keyboard::P:  // play
-            start();
+
+            num_ofscreens--; //traverse screens
+            if (num_ofscreens > 0)
+            {
+                if (num_ofscreens == 2)
+                 setSprite("exp1");
+                if (num_ofscreens == 1)
+                     setSprite("exp2"); 
+
+                    draw();
+                    DM.swapBuffers(); 
+                    start();
+            }
+           
             break;
         case df::Keyboard::Q:  // quit
             GM.setGameOver();

@@ -21,15 +21,15 @@ CharacterButton::CharacterButton() {
 CharacterButton::CharacterButton(Character* character, df::Color c_highlight, df::Color c_default) {
 	setType(MENUBUTTON);
 	setBorder(false);
-	setViewString(character->getName());
+	setViewString("");
 	setHighlightColor(c_highlight);
 	setDefaultColor(c_default);
 	show_display = false;
 	stored_character = character;
 	character_guide = new MenuGuide();
 
-	int y_view = 8;
-	int x_view = 5;
+	int y_view = 1;
+	int x_view = 1.5;
 	int stored_move = 1;
 	std::string move_name = "";
 

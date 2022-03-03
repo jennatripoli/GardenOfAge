@@ -42,6 +42,8 @@ int main(int argc, char* argv[]) {
 // load resources (sprites, sound effects, music)
 void loadResources(void) {
 	RM.loadSprite("sprites/gamestart-spr.txt", "gamestart");
+	RM.loadSprite("sprites/explanation-spr.txt", "exp1");
+	RM.loadSprite("sprites/explanation2-spr.txt", "exp2");
 	RM.loadSprite("sprites/gameover-spr.txt", "gameover");
 	RM.loadSprite("sprites/battlecomplete-spr.txt", "battlecomplete");
 

@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -13,14 +13,14 @@
 #include "Princess.h"
 #include "Announcement.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 Confidant::Confidant() {
 	registerInterest(END_ENEMY_TURN_EVENT);
 	setHP(80);
 	setName("Confidant");
 	setSprite("confidant");
-	setPosition(df::Vector(60, 9.5));
+	setPosition(df::Vector(60, 16));
 	startTurnCount();
 }
 

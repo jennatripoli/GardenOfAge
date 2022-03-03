@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -10,13 +10,13 @@
 #include "Announcement.h"
 #include "EventDamage.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 Princess::Princess() {
 	setHP(80);
 	setName("Princess");
 	setSprite("princess");
-	setPosition(df::Vector(20, 9.5));
+	setPosition(df::Vector(20, 16));
 	
 	isIronfast = false; 
 	isBraveHearty = false;
@@ -78,6 +78,12 @@ int Princess::draw() {
 	return drawHP(df::YELLOW, "Princess Lyla");
 }
 
+void Princess::setTrueRuler(bool state)
+{
+	trueRuler = state; 
+}
+
+
  int Princess::characterMoveSet(int choice) {
 	switch (choice) {
 	case 1:
@@ -106,9 +112,17 @@ void Princess::Caliburn() {
 	Announcement* announce_move = new Announcement("Caliburn Strikes.", df::YELLOW);
 
 	if (isBraveHearty) {
-	 dealDamage(80, getTarget());
+	 dealDamage(50, getTarget());
 	 isBraveHearty = false;
-	} else dealDamage(37, getTarget()); 
+	} else dealDamage(20, getTarget()); 
+
+
+	if (trueRuler)
+	{
+		Announcement* announce_move = new Announcement("TrueRuler Ability : Caliburn insreased strength");
+		Announcement* announce_move2 = new Announcement("Excalibur");
+		dealDamage(60, getTarget());
+	}
 
 	isOfKinderedSpirit = !isOfKinderedSpirit;
 
@@ -118,6 +132,12 @@ void Princess::Caliburn() {
 void Princess::GildedShield() {
 	Announcement* announce_move = new Announcement("Gilded Sheild Protects.");
 	isIronfast = true;
+
+	if (trueRuler)
+	{
+		Announcement* announce_move = new Announcement("TrueRuler Ability : Thorn Sheild");
+		dealDamage(15, getTarget());
+	}
 }
 
 // deal 5 damage
@@ -125,6 +145,11 @@ void Princess::Honorless() {
 	Announcement* announce_move = new Announcement("Honorless");
 	isBraveHearty = true;
 	dealDamage(5, getTarget());
+	if (trueRuler)
+	{
+		Announcement* announce_move = new Announcement("TrueRuler Ability: Pride in all Ivy");
+		isIronfast = true;
+	}
 }
 
 // heal by 50 hp
@@ -134,7 +159,13 @@ void Princess::HolyLight() {
 	int current_HP = getHP() + 50; 
 	setHP(current_HP);
 
-		isTheRightfulHeir = true; 
+	isTheRightfulHeir = true; 
+	if (trueRuler)
+	{
+		Announcement* announce_move = new Announcement("TrueRuler Ability : Divine Rule");
+		int current_HP = getHP() + 30;
+		setHP(current_HP);
+	}
 }
 
 bool Princess::getIsIronFast() const { return isIronfast; }
