@@ -34,6 +34,7 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="GameStart.h" />
+    <ClInclude Include="Information.h" />
     <ClInclude Include="Knight.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MenuGuide.h" />
@@ -59,6 +60,7 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="GameStart.cpp" />
+    <ClCompile Include="Information.cpp" />
     <ClCompile Include="Knight.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="MenuGuide.cpp" />

@@ -97,12 +97,12 @@ int Sister::decideMove() {
 	
 void Sister::gatheringMagic() {
 	Announcement* announce_move1 = new Announcement("I was never treated like the flower you are", df::CYAN);
-	Announcement* announce_move3 = new Announcement("I'll use theose around me and strike", df::CYAN);
-	Announcement* announce_move2 = new Announcement("Come little sister", df::CYAN);
+	Announcement* announce_move3 = new Announcement("I'll use those around me and strike", df::CYAN);
+	Announcement* announce_move2 = new Announcement("Come, little sister", df::CYAN);
 }
 
 void Sister::Taunt() {
-	Announcement* announce_move2 = new Announcement("Can you hadnle this SISTER!", df::CYAN);
+	Announcement* announce_move2 = new Announcement("Can you handle this, sister?!", df::CYAN);
 	dealDamage((getTarget()->getHP() * .7), getTarget());
 }
 

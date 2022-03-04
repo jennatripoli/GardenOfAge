@@ -123,7 +123,7 @@ int Knight::decideMove() {
 }
 
 void Knight::arrows() {
-	Announcement* announce_move = new Announcement("Rain of Arrows", df::CYAN);
+	Announcement* announce_move = new Announcement("Rain of arrows", df::CYAN);
 	dealDamage(20, getTarget());
 }
 
