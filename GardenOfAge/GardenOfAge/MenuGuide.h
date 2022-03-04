@@ -27,7 +27,6 @@ public:
 	MenuSelect* getMenu(int select_menu) const;
 	MenuButton* getButton(int select_button) const;
 
-	void toggleMenu();
 	void controlToggle(bool do_activate);
 };
 

@@ -30,9 +30,6 @@
     <ClInclude Include="EventDamage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EventToggleMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MenuButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -105,9 +102,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EventDamage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EventToggleMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MenuButton.cpp">

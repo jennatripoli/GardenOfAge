@@ -30,7 +30,6 @@
     <ClInclude Include="EventEndTurn.h" />
     <ClInclude Include="EventEnemyTurn.h" />
     <ClInclude Include="EventStartTurn.h" />
-    <ClInclude Include="EventToggleMenu.h" />
     <ClInclude Include="Father.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="GameOver.h" />
@@ -56,7 +55,6 @@
     <ClCompile Include="EventEndTurn.cpp" />
     <ClCompile Include="EventEnemyTurn.cpp" />
     <ClCompile Include="EventStartTurn.cpp" />
-    <ClCompile Include="EventToggleMenu.cpp" />
     <ClCompile Include="Father.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="GameOver.cpp" />

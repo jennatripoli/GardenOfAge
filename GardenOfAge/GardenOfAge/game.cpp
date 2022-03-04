@@ -55,10 +55,6 @@ void loadResources(void) {
 	RM.loadSprite("sprites/sister-spr.txt", "sister");
 	RM.loadSprite("sprites/regent-spr.txt", "regent");
 
-	RM.loadSprite("sprites/generic-spr.txt", "generic");
-	RM.loadSprite("sprites/menuplay-spr.txt", "menuplay");
-	RM.loadSprite("sprites/explosion-spr.txt", "explosion");
-
 	RM.loadSound("sounds/damage.wav", "damage");
 	RM.loadSound("sounds/battlecomplete.wav", "battlecomplete");
 	RM.loadSound("sounds/gameover.wav", "gameover");
