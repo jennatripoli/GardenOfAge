@@ -23,6 +23,12 @@ Princess::Princess() {
 	isOfKinderedSpirit = false;
 	isTheRightfulHeir = false; 
 	setTrueRuler(false);
+	isVictor = false;
+}
+
+void Princess::setVictory(bool state)
+{
+	isVictor = state; 
 }
 
 // handle event (return 0 if ignored, else return 1)
@@ -43,7 +49,14 @@ int Princess::eventHandler(const df::Event* p_e) {
 
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 		
-		if (getHP() <= 0) new GameOver;
+		if (isVictor)
+		{
+			new GameOver(true);
+			return 1;
+		}
+		
+		if (getHP() <= 0)
+				new GameOver();	
 		return 1;
 	}
 
@@ -94,7 +107,7 @@ void Princess::Caliburn() {
 	if (isBraveHearty) {
 	 dealDamage(60, getTarget());
 	 isBraveHearty = false;
-	} else dealDamage(300, getTarget()); 
+	} else dealDamage(30, getTarget()); 
 
 	if (trueRuler) {
 		Announcement* announce_move = new Announcement("True Ruler Ability : Caliburn insreased strength");

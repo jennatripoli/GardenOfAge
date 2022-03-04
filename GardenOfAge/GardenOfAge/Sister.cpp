@@ -103,7 +103,7 @@ void Sister::gatheringMagic() {
 
 void Sister::Taunt() {
 	Announcement* announce_move2 = new Announcement("Can you handle this, sister?!", df::CYAN);
-	dealDamage((getTarget()->getHP() * .7), getTarget());
+	dealDamage( (int) ((getTarget()->getHP() * .7)), getTarget());
 }
 
 void Sister::eleusiveStrike() {

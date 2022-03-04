@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "Color.h"
 #include "EventKeyboard.h"
@@ -13,7 +13,7 @@
 #include "game.h"
 #include "Information.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 bool display = false;
 

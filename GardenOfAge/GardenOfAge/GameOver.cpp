@@ -32,9 +32,9 @@ GameOver::~GameOver() {
 		df::Object* p_o = i.currentObject();
 
 		if (p_o->getType() != "GameStart") {
-			i.currentObject()->setActive(false);
+			i.currentObject();//->setActive(false);
 			WM.markForDelete(p_o);
-			WM.update();
+		//	WM.update();
 		}
 
 		// if GameStart, set as active

@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "EventKeyboard.h"
 #include "GameManager.h"
@@ -10,7 +10,7 @@
 #include "game.h"
 #include "EventStep.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 Information::Information(int num) {
     setType("Information");

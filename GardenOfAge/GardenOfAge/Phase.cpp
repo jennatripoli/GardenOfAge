@@ -91,7 +91,6 @@ int Phase::startNextBoss() {
 		LM.writeLog("Phase | %d enemy spawn.", enemy_killcount);
 		switch (enemy_killcount) {
 		case 0:
-			new BattleComplete();
 			Sleep(2000);
 			phase_boss = new Knight(); 
 			player_party->setTarget(phase_boss);
@@ -135,7 +134,10 @@ int Phase::startNextBoss() {
 			break;
 
 		case 5:
-			new GameOver(true);
+			princess->setVictory(true);
+			phase_boss = new Character();
+			phase_boss->setTarget(player_party);
+			phase_boss->dealDamage(princess->getHP(), phase_boss->getTarget());
 		break;
 		}
 	
@@ -155,6 +157,7 @@ int Phase::eventHandler(const df::Event* p_e) {
 		if (phase_boss->getHP() == 0) {
 			enemy_killcount++;
 				startNextBoss();
+
 			if(enemy_killcount < 5)
 				Announcement* message = new Announcement("New Battle!!!", df::GREEN, 3, true);
 			return 1;

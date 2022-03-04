@@ -120,6 +120,7 @@ int Knight::decideMove() {
 		// arrows
 		if (princess->getHP() >= 10) return 1;
 	}
+	return 0;
 }
 
 void Knight::arrows() {

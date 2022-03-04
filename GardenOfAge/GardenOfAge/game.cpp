@@ -43,8 +43,8 @@ int main(int argc, char* argv[]) {
 void loadResources(void) {
 	RM.loadSprite("sprites/gamestart-spr.txt", "gamestart");
 	RM.loadSprite("sprites/gameover-spr.txt", "gameover");
-	RM.loadSprite("sprites/victory-spr.txt", "gameover");
-	RM.loadSprite("sprites/battlecomplete-spr.txt", "victory");
+	RM.loadSprite("sprites/victory-spr.txt", "victory");
+	RM.loadSprite("sprites/battlecomplete-spr.txt", "battlecomplete");
 
 	RM.loadSprite("sprites/princess-spr.txt", "princess");
 	RM.loadSprite("sprites/knight-spr.txt", "knight");

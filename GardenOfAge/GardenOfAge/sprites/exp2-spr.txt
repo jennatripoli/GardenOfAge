@@ -13,8 +13,8 @@ abilitites to claim her throne once and for all.
 *If Lyla proves her right to her family, all her move upgrade!         
 Press your button and end your turn to continue                        
 Highlight OVER the text to click                                       
-Caliburn-     A legendary sword that does 20 damage alone. if          
-              honorless was used beforehand it does 50.                
+Caliburn-     A legendary sword that does 30 damage alone. if          
+              honorless was used beforehand it does 60.                
               *Becomes Excalibur                                       
 Honorless-    Allows for immense damage to enemies at the cost of      
               an extra turn.                                           
@@ -34,8 +34,8 @@ abilitites to claim her throne once and for all.
 *If Lyla proves her right to her family, all her move upgrade!         
 Press your button and end your turn to continue                        
 Highlight OVER the text to click                                       
-Caliburn-     A legendary sword that does 20 damage alone. if          
-              honorless was used beforehand it does 50.                
+Caliburn-     A legendary sword that does 30 damage alone. if          
+              honorless was used beforehand it does 60.                
               *Becomes Excalibur                                       
 Honorless-    Allows for immense damage to enemies at the cost of      
               an extra turn.                                           
