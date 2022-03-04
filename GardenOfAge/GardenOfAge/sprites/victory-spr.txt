@@ -1,6 +1,6 @@
 <HEADER>
 frames 7
-width 68
+width 67
 height 8
 color red
 slowdown 15
@@ -12,6 +12,7 @@ slowdown 15
     |_   _|/ __ \  | | | |                                         
       | | | |__| | | |_| |                                         
       |_|  \ __ /   \___/                                          
+                                                                   
                                                                    
 end
   ___      __               __                 __                  

@@ -93,17 +93,17 @@ int Confidant::decideMove() {
 }
 
 void Confidant::protect() {
-	Announcement* announce_move = new Announcement("That sheild of yours is beutiful like tall stems of rose", df::CYAN);
+	Announcement* announce_move = new Announcement("That shield of yours is beautiful like tall stems of rose", df::CYAN);
 	dealDamage(20, getTarget());
 }
 
 void Confidant::betray() {
-	Announcement* announce_move = new Announcement("Betrayed you say, I can't believe you ", df::CYAN);
+	Announcement* announce_move = new Announcement("Betrayed you say, I can't believe you", df::CYAN);
 	dealDamage(10, getTarget());
 }
 
 void Confidant::realizations() {
-	Announcement* announce_move2 = new Announcement("you no longer need me huh", df::CYAN);
+	Announcement* announce_move2 = new Announcement("You no longer need me, huh?", df::CYAN);
 	Announcement* announce_move3 = new Announcement("That's for the best", df::CYAN);
 	setHP(1); 
 }

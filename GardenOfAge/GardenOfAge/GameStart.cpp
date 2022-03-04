@@ -1,3 +1,5 @@
+//#include <Windows.h>
+
 #include "Color.h"
 #include "EventKeyboard.h"
 #include "GameManager.h"
@@ -9,6 +11,11 @@
 
 #include "GameStart.h"
 #include "game.h"
+#include "Information.h"
+
+#include <Windows.h>
+
+bool display = false;
 
 GameStart::GameStart() {
   setType("GameStart");
@@ -28,12 +35,19 @@ void GameStart::playMusic() {
 // handle event (return 0 if ignored, else return 1)
 int GameStart::eventHandler(const df::Event *p_e) {
     if (p_e->getType() == df::KEYBOARD_EVENT) {
-        df::EventKeyboard *p_keyboard_event = (df::EventKeyboard *) p_e;
+        const df::EventKeyboard* p_keyboard_event = dynamic_cast <const df::EventKeyboard*> (p_e);
 
         switch (p_keyboard_event->getKey()) {
         case df::Keyboard::P:  // play
+            music->pause();
+            setActive(false);
+            p_e = NULL;
+            new Information(1);
+            display = true;
+            break;
+
             // traverse screens
-            if (num_screens == 2) {
+            /*if (num_screens == 2) {
                 setSprite("exp1");
                 LM.writeLog("GameStart | screen 2.");
             }
@@ -47,7 +61,8 @@ int GameStart::eventHandler(const df::Event *p_e) {
             draw();
             DM.swapBuffers(); 
             if (num_screens == 0) start();
-            break;
+            break;*/
+
         case df::Keyboard::Q:  // quit
             GM.setGameOver();
             break;
@@ -62,7 +77,7 @@ int GameStart::eventHandler(const df::Event *p_e) {
 
 void GameStart::start() {
     music->pause();    
-    num_screens = 2;   // resets screen traversal
+    //num_screens = 2;   // resets screen traversal
     setActive(false);  // when game starts, become inactive
     game::start();
 }

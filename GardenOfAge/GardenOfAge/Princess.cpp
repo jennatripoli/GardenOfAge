@@ -89,7 +89,7 @@ int Princess::characterMoveSet(int choice) {
 
 // damage multiplier
 void Princess::Caliburn() {
-	Announcement* announce_move = new Announcement("Caliburn Strikes.", df::YELLOW);
+	Announcement* announce_move = new Announcement("Caliburn strikes", df::YELLOW);
 
 	if (isBraveHearty) {
 	 dealDamage(60, getTarget());
@@ -97,7 +97,7 @@ void Princess::Caliburn() {
 	} else dealDamage(300, getTarget()); 
 
 	if (trueRuler) {
-		Announcement* announce_move = new Announcement("TrueRuler Ability : Caliburn insreased strength");
+		Announcement* announce_move = new Announcement("True Ruler Ability : Caliburn insreased strength");
 		Announcement* announce_move2 = new Announcement("Excalibur");
 		dealDamage(30, getTarget());
 	}
@@ -107,11 +107,11 @@ void Princess::Caliburn() {
 
 // reduce incoming damage
 void Princess::GildedShield() {
-	Announcement* announce_move = new Announcement("Gilded Sheild Protects.");
+	Announcement* announce_move = new Announcement("Gilded sheild Pprotect");
 	isIronfast = true;
 
 	if (trueRuler) {
-		Announcement* announce_move = new Announcement("TrueRuler Ability : Thorn Sheild");
+		Announcement* announce_move = new Announcement("True Ruler Ability : Thorn Sheild");
 		dealDamage(15, getTarget());
 	}
 }
@@ -122,21 +122,21 @@ void Princess::Honorless() {
 	isBraveHearty = true;
 	dealDamage(5, getTarget());
 	if (trueRuler) {
-		Announcement* announce_move = new Announcement("TrueRuler Ability: Pride in all Ivy");
+		Announcement* announce_move = new Announcement("True Ruler Ability: Pride in all Ivy");
 		isIronfast = true;
 	}
 }
 
 // heal by 50 hp
 void Princess::HolyLight() {
-	 Announcement* announce_move = new Announcement("HolyLight");
+	 Announcement* announce_move = new Announcement("Holy Light");
 	 
 	int current_HP = getHP() + 50; 
 	setHP(current_HP);
 
 	isTheRightfulHeir = true; 
 	if (trueRuler) {
-		Announcement* announce_move = new Announcement("TrueRuler Ability : Divine Rule");
+		Announcement* announce_move = new Announcement("True Ruler Ability : Divine Rule");
 		int current_HP = getHP() + 40;
 		setHP(current_HP);
 	}
