@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -12,7 +12,7 @@
 #include "Princess.h"
 #include "Announcement.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 Knight::Knight() {
 	registerInterest(END_ENEMY_TURN_EVENT);

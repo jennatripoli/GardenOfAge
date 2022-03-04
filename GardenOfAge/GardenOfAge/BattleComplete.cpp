@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "Color.h"
 #include "EventKeyboard.h"
@@ -12,7 +12,7 @@
 #include "Music.h"
 #include "Phase.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 BattleComplete::BattleComplete() {
     setType("BattleComplete");

@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "GameManager.h"
 #include "WorldManager.h"
@@ -29,7 +29,7 @@
 #include "Announcement.h"
 #include "GameOver.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 Phase::Phase(std::string phase_name) {
 	registerInterest(df::STEP_EVENT);
@@ -75,52 +75,68 @@ void Phase::completeTurn() {
 
 int Phase::startNextBoss() {
 		Princess* princess = dynamic_cast <Princess*> (player_party);
-
+		Announcement* sm1;
+		Announcement* sm2;
+		Announcement* sm3;
+		Announcement* sm4;
 		if (enemy_killcount > 0) {
 			phase_boss->draw();
 			DM.swapBuffers();
 			Sleep(500);
 			WM.markForDelete(phase_boss);
 			WM.update();
-			new BattleComplete();
-			Sleep(2000);
+			
 		}
 
 		LM.writeLog("Phase | %d enemy spawn.", enemy_killcount);
 		switch (enemy_killcount) {
 		case 0:
+			new BattleComplete();
+			Sleep(2000);
 			phase_boss = new Knight(); 
 			player_party->setTarget(phase_boss);
 			phase_boss->setTarget(player_party);
 			break;
 		case 1:
+			new BattleComplete();
+			Sleep(2000);
 			phase_boss = new Confidant();
 			player_party->setTarget(phase_boss);
 			phase_boss->setTarget(player_party); 
 			break;
 		case 2:
+			new BattleComplete();
+			Sleep(2000);
 			phase_boss = new Father();
 			phase_boss->setTarget(player_party);
 			player_party->setTarget(phase_boss);
 			break;
 		case 3:
+			new BattleComplete();
+			Sleep(2000);
 			phase_boss = new Sister();
 			player_party->setTarget(phase_boss);
 			phase_boss->setTarget(player_party);
 			break;
 		case 4:
+			new BattleComplete();
+			Sleep(2000);
 			princess->setTrueRuler(true);
 			princess->setHP(80);
 
-			Announcement* sm1 = new Announcement("Sister", df::GREEN, 3, true);
-			Announcement* sm2 = new Announcement("You're no longer a baby green to be harvested...", df::GREEN, 3, true);
-			Announcement* sm3 = new Announcement("When you face him", df::GREEN, 3, true);
-			Announcement* sm4 = new Announcement("The future is made by seeds of the past and ", df::GREEN, 3, true);
+			sm1 = new Announcement("Sister", df::GREEN, 3, true);
+			sm2 = new Announcement("You're no longer a baby green to be harvested...", df::GREEN, 3, true);
+			sm3 = new Announcement("When you face him", df::GREEN, 3, true);
+			sm4 = new Announcement("The future is made by seeds of the past and... ", df::GREEN, 3, true);
 
 			phase_boss = new Regent();
 			player_party->setTarget(phase_boss);
 			phase_boss->setTarget(player_party);			
 			break;
+
+		case 5:
+			new GameOver(true);
+		break;
 		}
 	
 	return enemy_killcount;
@@ -138,11 +154,9 @@ int Phase::eventHandler(const df::Event* p_e) {
 		completeTurn();
 		if (phase_boss->getHP() == 0) {
 			enemy_killcount++;
-			if (enemy_killcount >= 5)
-				new GameOver(true);
-
-			startNextBoss();
-			Announcement* message = new Announcement("New Battle!!!", df::GREEN, 3, true);
+				startNextBoss();
+			if(enemy_killcount < 5)
+				Announcement* message = new Announcement("New Battle!!!", df::GREEN, 3, true);
 			return 1;
 		} else {
 			EventEnemyEndTurn* nextTurn = new EventEnemyEndTurn(); 

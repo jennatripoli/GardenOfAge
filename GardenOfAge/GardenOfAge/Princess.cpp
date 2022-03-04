@@ -1,4 +1,4 @@
-//#include <Windows.h>
+#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -10,7 +10,7 @@
 #include "Announcement.h"
 #include "EventDamage.h"
 
-#include <Windows.h>
+//#include <Windows.h>
 
 Princess::Princess() {
 	setHP(80);
@@ -22,6 +22,7 @@ Princess::Princess() {
 	isBraveHearty = false;
 	isOfKinderedSpirit = false;
 	isTheRightfulHeir = false; 
+	setTrueRuler(false);
 }
 
 // handle event (return 0 if ignored, else return 1)
@@ -93,7 +94,7 @@ void Princess::Caliburn() {
 	if (isBraveHearty) {
 	 dealDamage(60, getTarget());
 	 isBraveHearty = false;
-	} else dealDamage(30, getTarget()); 
+	} else dealDamage(300, getTarget()); 
 
 	if (trueRuler) {
 		Announcement* announce_move = new Announcement("TrueRuler Ability : Caliburn insreased strength");
