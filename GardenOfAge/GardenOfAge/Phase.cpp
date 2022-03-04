@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "GameManager.h"
 #include "WorldManager.h"
@@ -29,7 +29,7 @@
 #include "Announcement.h"
 #include "GameOver.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Phase::Phase(std::string phase_name) {
 	registerInterest(df::STEP_EVENT);
@@ -43,7 +43,7 @@ Phase::Phase(std::string phase_name) {
 	player_party = new Princess();  // add characters 
 	enemy_killcount = 0;
 	startNextBoss(); 
-	LM.writeLog("Phase %s created.", phase_name);
+	LM.writeLog("Phase | phase %s created.", phase_name);
 
 	end_btn = new EndTurnButton();
 	end_btn->setLocation(5,1.5);
@@ -68,20 +68,15 @@ void Phase::loadCharacterMenu() {
 
 void Phase::completeTurn() {
 	turn_queue = player_party->getCharacterMove();
-	LM.writeLog(" %d, Lyla's move after loosing");
+	LM.writeLog("Phase | %d, Lyla's move after loosing.");
 	player_party->setTarget(phase_boss); 
 	player_party->characterMoveSet(turn_queue);
-}
-
-void Phase::announcements(std::string announce) {
-	// MenuSelect* announcement (announce, df::WHITE)
 }
 
 int Phase::startNextBoss() {
 		Princess* princess = dynamic_cast <Princess*> (player_party);
 
-		if (enemy_killcount > 0)
-		{
+		if (enemy_killcount > 0) {
 			phase_boss->draw();
 			DM.swapBuffers();
 			Sleep(500);
@@ -90,7 +85,8 @@ int Phase::startNextBoss() {
 			new BattleComplete();
 			Sleep(2000);
 		}
-		LM.writeLog(" %d EnemySpawn!!!!!", enemy_killcount);
+
+		LM.writeLog("Phase | %d enemy spawn.", enemy_killcount);
 		switch (enemy_killcount) {
 		case 0:
 			phase_boss = new Knight(); 
@@ -140,24 +136,20 @@ int Phase::eventHandler(const df::Event* p_e) {
 	
 	if (p_e->getType() == END_TURN_EVENT) {
 		completeTurn();
-		if (phase_boss->getHP() == 0)
-		{	
+		if (phase_boss->getHP() == 0) {
 			enemy_killcount++;
 			if (enemy_killcount >= 5)
-				new GameOver(true); 
+				new GameOver(true);
 
 			startNextBoss();
 			Announcement* message = new Announcement("New Battle!!!", df::GREEN, 3, true);
 			return 1;
-		}
-		else
-		{
+		} else {
 			EventEnemyEndTurn* nextTurn = new EventEnemyEndTurn(); 
 			phase_boss->eventHandler(nextTurn);
 		}
-		LM.writeLog("Phase | end turn.");
 
-		
+		LM.writeLog("Phase | end turn.");
 		return 1;
 	}
 

@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -12,7 +12,7 @@
 #include "Princess.h"
 #include "Announcement.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Father::Father() {
 	registerInterest(END_ENEMY_TURN_EVENT);
@@ -28,15 +28,12 @@ int Father::eventHandler(const df::Event* p_e) {
 	if (p_e->getType() == DAMAGE_EVENT) {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		takeDamage(p_damage_event->getAmount());
-
 		setPosition(df::Vector(getPosition().getX() + 1, getPosition().getY()));
 		return 1;
 	}
 
-if (p_e->getType() == END_ENEMY_TURN_EVENT) {
-
+	if (p_e->getType() == END_ENEMY_TURN_EVENT) {
 		turnCountManage();
-
 		setCharacterMove(decideMove());
 		characterMoveSet(getCharacterMove());
 		return 1;
@@ -53,7 +50,6 @@ int Father::draw() {
 	}
 
 	if (getPosition().getX() != 60) {
-		//Sleep(500);
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 	}
 
@@ -76,7 +72,6 @@ int Father::characterMoveSet(int choice) {
 		break;
 	}
 
-
 	EventStartTurn* nextTurn = new EventStartTurn();
 	Character* the_player = getTarget();
 	the_player->eventHandler(nextTurn);
@@ -89,7 +84,7 @@ int Father::decideMove() {
 
 	if (princess->getisTheRightfulHeir()){
 		return 3; 
-		LM.writeLog("Princess | end turn.");
+		LM.writeLog("Father | end turn.");
 	}
 	
 	if (getTurnCount() % 2 == 0) return 1;
@@ -101,7 +96,6 @@ void Father::woeIsMe() {
 	Announcement* announce_move2 = new Announcement("Can a light shower groawth on me", df::CYAN);
 	int current_HP = getHP() + 30;
 	setHP(current_HP);
-
 }
 
 void Father::woeIsYou() {

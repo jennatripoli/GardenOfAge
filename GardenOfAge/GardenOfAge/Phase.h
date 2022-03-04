@@ -28,8 +28,6 @@ public:
 	void loadCharacterMenu();
 
 	void completeTurn();
-	void announcements(std::string announce);
-
 	int startNextBoss();
 	int eventHandler(const df::Event* p_e);
 };

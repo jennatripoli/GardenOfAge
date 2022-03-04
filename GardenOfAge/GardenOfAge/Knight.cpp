@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -8,12 +8,11 @@
 #include "Knight.h"
 #include "EventDamage.h"
 #include "EventEnemyTurn.h"
-#include "Explosion.h"
 #include "EventStartTurn.h"
 #include "Princess.h"
 #include "Announcement.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Knight::Knight() {
 	registerInterest(END_ENEMY_TURN_EVENT);
@@ -31,7 +30,6 @@ int Knight::eventHandler(const df::Event* p_e) {
 	if (p_e->getType() == DAMAGE_EVENT) {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		takeDamage(p_damage_event->getAmount());
-
 		setPosition(df::Vector(getPosition().getX() + 1, getPosition().getY()));
 		return 1;
 	}
@@ -54,7 +52,6 @@ int Knight::draw() {
 	}
 
 	if (getPosition().getX() != 60) {
-		//Sleep(500);
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 	}
 
@@ -100,7 +97,7 @@ int Knight::decideMove() {
 	if (getTurnCount() > 5) return 5;
 
 	else {
-		// are honorless
+		// honorless
 		if (priorMove == 1) {
 			priorMove = 0;
 			return 4;

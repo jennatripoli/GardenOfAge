@@ -52,11 +52,6 @@ MenuSelect* MenuGuide::getMenu(int select_menu) const { return menu_s_lists[sele
 // return a specific button based on index
 MenuButton* MenuGuide::getButton(int select_button) const { return menu_b_lists[select_button]; }
 
-void MenuGuide::clearMenu() {
-	//for (int s_guide_count = 0; s_guide_count < s_guide_counter; s_guide_count++) WM.markForDelete(menu_s_lists[s_guide_count]);
-	//s_guide_counter = 0;
-}
-
 // toggle the menu and all of its strings from MenuSelect (make visible and not visible when needed)
 void MenuGuide::toggleMenu() {
 	df::ObjectList s_world_list = WM.objectsOfType(MENUSELECT);
@@ -78,25 +73,10 @@ void MenuGuide::toggleMenu() {
 
 		for (int b_traverse_list = 0; b_traverse_list < b_guide_counter; b_traverse_list++) {
 			WM.markForDelete(menu_b_lists[b_traverse_list]);
-
-			/*
-			li_b->first();
-			while (!li_b->isDone()) {
-				df::Object* temp_object = li_b->currentObject();
-				MenuButton* temp_menu = dynamic_cast<MenuButton*> (temp_object);
-
-				if (temp_menu == menu_b_lists[b_traverse_list])
-					temp_menu->setActive(isToggled);
-				li_b->next();
-			}
-			*/
 		}
+
 		is_toggled = !is_toggled;
 	}
 }
 
 void MenuGuide::controlToggle(bool do_activate) { is_toggled = do_activate; }
-
-int MenuGuide::eventHandler(const df::Event* p_e) {
-	return 0;  // event ignored
-}

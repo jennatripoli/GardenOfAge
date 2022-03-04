@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
 
 	LM.setFlush(true);
 	df::splash();
-	DM.getWindow()->setMouseCursorVisible(true);  // turn on mouse cursor
+	DM.getWindow()->setMouseCursorVisible(true);
 	new df::Pause(df::Keyboard::F10);
 
 	loadResources();
@@ -73,7 +73,6 @@ void populateWorld(void) {
 
 // start the game
 void game::start(void) {
-
 	Phase* phase = new Phase("Start Lyla's Battles");
 	phase->loadCharacterMenu();
 }

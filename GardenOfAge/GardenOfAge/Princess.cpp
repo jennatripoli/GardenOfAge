@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -10,7 +10,7 @@
 #include "Announcement.h"
 #include "EventDamage.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Princess::Princess() {
 	setHP(80);
@@ -29,28 +29,20 @@ int Princess::eventHandler(const df::Event* p_e) {
 	if (p_e->getType() == DAMAGE_EVENT) {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 	
-		if (isIronfast)
-		{
+		if (isIronfast) {
 			takeDamage((p_damage_event->getAmount() / 2));
 			dealDamage((p_damage_event->getAmount()/ 3), getTarget());
 			isIronfast = false;
 			isTheRightfulHeir = false;
-		}
-		else
-		{				
-			if (isOfKinderedSpirit)
-				takeDamage(p_damage_event->getAmount() * (.9));
-			else 
-				takeDamage(p_damage_event->getAmount());
+		} else {				
+			if (isOfKinderedSpirit) takeDamage(p_damage_event->getAmount() * (.9));
+			else takeDamage(p_damage_event->getAmount());
 			isTheRightfulHeir = false;
 		}
 
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 		
-		if (getHP() <= 0) {
-			new GameOver;
-			//WM.markForDelete(this);
-		}
+		if (getHP() <= 0) new GameOver;
 		return 1;
 	}
 
@@ -65,20 +57,13 @@ int Princess::draw() {
 	}
 
 	if (getPosition().getX() != 20) {
-		//Sleep(500);
 		setPosition(df::Vector(getPosition().getX() + 1, getPosition().getY()));
 	}
 
 	return drawHP(df::YELLOW, "Princess Lyla");
 }
 
-void Princess::setTrueRuler(bool state)
-{
-	trueRuler = state; 
-}
-
-
- int Princess::characterMoveSet(int choice) {
+int Princess::characterMoveSet(int choice) {
 	switch (choice) {
 	case 1:
 		LM.writeLog("Princess | moveset 1 (caliburn) selected.");
@@ -105,8 +90,7 @@ void Princess::setTrueRuler(bool state)
 void Princess::Caliburn() {
 	Announcement* announce_move = new Announcement("Caliburn Strikes.", df::YELLOW);
 
-	if (isBraveHearty) 
-	{
+	if (isBraveHearty) {
 	 dealDamage(60, getTarget());
 	 isBraveHearty = false;
 	} else dealDamage(30, getTarget()); 
@@ -118,7 +102,6 @@ void Princess::Caliburn() {
 	}
 
 	isOfKinderedSpirit = !isOfKinderedSpirit;
-
 }
 
 // reduce incoming damage
@@ -162,3 +145,4 @@ bool Princess::getIsIronFast() const { return isIronfast; }
 bool Princess::getIsBraveHearty() const { return isBraveHearty; }
 bool Princess::getisOfKinderedSpirit() const { return isOfKinderedSpirit; }
 bool Princess::getisTheRightfulHeir() const { return isTheRightfulHeir; }
+void Princess::setTrueRuler(bool state) { trueRuler = state; }

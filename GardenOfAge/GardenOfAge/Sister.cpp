@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -8,12 +8,11 @@
 #include "Sister.h"
 #include "EventDamage.h"
 #include "EventEnemyTurn.h"
-#include "Explosion.h"
 #include "EventStartTurn.h"
 #include "Princess.h"
 #include "Announcement.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Sister::Sister() {
 	registerInterest(END_ENEMY_TURN_EVENT);
@@ -28,10 +27,9 @@ Sister::Sister() {
 
 // handle event (return 0 if ignored, else return 1)
 int Sister::eventHandler(const df::Event* p_e) {
-	if (p_e->getType() == "damage") {
+	if (p_e->getType() == DAMAGE_EVENT) {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 		takeDamage(p_damage_event->getAmount());
-
 		setPosition(df::Vector(getPosition().getX() + 1, getPosition().getY()));
 		return 1;
 	}
@@ -46,7 +44,7 @@ int Sister::eventHandler(const df::Event* p_e) {
 	return 0;  // event ignored
 }
 
-// draw Sister and its HP on screen
+// draw Sister and its hp on screen
 int Sister::draw() {
 	if (Object::draw() == -1) {
 		LM.writeLog("Sister | draw() failure.");
@@ -54,7 +52,6 @@ int Sister::draw() {
 	}
 
 	if (getPosition().getX() != 60) {
-		//Sleep(500);
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 	}
 

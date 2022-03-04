@@ -27,10 +27,8 @@ public:
 	MenuSelect* getMenu(int select_menu) const;
 	MenuButton* getButton(int select_button) const;
 
-	void clearMenu();
 	void toggleMenu();
 	void controlToggle(bool do_activate);
-	int eventHandler(const df::Event* p_e); 
 };
 
 #endif __MENU_GUIDE_H__

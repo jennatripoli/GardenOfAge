@@ -31,11 +31,6 @@ GameOver::~GameOver() {
 	for (i.first(); !i.isDone(); i.next()) {
 		df::Object* p_o = i.currentObject();
 
-		///if (p_o->getType() == "Character" || p_o->getType() == "ViewObject" || p_o->getType() == "MenuButton" || p_o->getType() == "MenuSelect") {
-		///	i.currentObject()->setActive(false);
-		///	WM.markForDelete(p_o);
-		//}
-
 		if (p_o->getType() != "GameStart") {
 			i.currentObject()->setActive(false);
 			WM.markForDelete(p_o);
@@ -45,7 +40,7 @@ GameOver::~GameOver() {
 		// if GameStart, set as active
 		if (p_o->getType() == "GameStart") {
 			p_o->setActive(true);
-			dynamic_cast <GameStart*> (p_o)->playMusic();	// resume start music
+			dynamic_cast <GameStart*> (p_o)->playMusic();  // resume start music
 		}
 	}
 }

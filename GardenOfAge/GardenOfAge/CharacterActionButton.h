@@ -16,7 +16,6 @@ private:
 
 public:
     CharacterActionButton(int action_worth, Character* ch, std::string m_string);
-    int getButtonAction();
     void callback();
 };
 

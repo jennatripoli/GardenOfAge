@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -7,16 +7,14 @@
 
 #include "EventDamage.h"
 #include "EventEnemyTurn.h"
-#include "Explosion.h"
 #include "EventStartTurn.h"
 #include "Regent.h"
 #include "Princess.h"
 #include "Announcement.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Regent::Regent() {
-	//registerInterest(END_ENEMY_TURN_EVENT);
 	setHP(300);
 	setName("Regent");
 	setSprite("regent");
@@ -48,12 +46,11 @@ int Regent::eventHandler(const df::Event* p_e) {
 // draw Princess and its hp on screen
 int Regent::draw() {
 	if (Object::draw() == -1) {
-		LM.writeLog("Confidant | draw() failure.");
+		LM.writeLog("Regent | draw() failure.");
 		return -1;
 	}
 
 	if (getPosition().getX() != 60) {
-		//Sleep(500);
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 	}
 
@@ -61,7 +58,6 @@ int Regent::draw() {
 }
 
 int Regent::characterMoveSet(int choice) {
-
 	switch (choice) {
 	case 1:
 		famineOfWeeds();

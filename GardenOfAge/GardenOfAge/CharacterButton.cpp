@@ -34,15 +34,11 @@ CharacterButton::CharacterButton(Character* character, df::Color c_highlight, df
 	std::string move_name = "";
 
 	for (int i = 0; i < 4; i++) {
-		// hardcode nanmes for functions
-		if (stored_move == 1)
-			move_name = "Caliburn";
-		if (stored_move == 2)
-			move_name = "Gilded Shield";
-		if (stored_move == 3)
-			move_name = "Honorless";
-		if (stored_move == 4)
-			move_name = "Holy Light";
+		// hardcode names for functions
+		if (stored_move == 1) move_name = "Caliburn";
+		if (stored_move == 2) move_name = "Gilded Shield";
+		if (stored_move == 3) move_name = "Honorless";
+		if (stored_move == 4) move_name = "Holy Light";
 
 		CharacterActionButton* current_button = new CharacterActionButton(stored_move, stored_character, move_name);
 		stored_move++;
@@ -64,5 +60,4 @@ void CharacterButton::setDisplayed(bool new_state) { show_display = new_state; }
 
 void CharacterButton::callback() {
 	show_display = !show_display;
-	//LM.writeLog("Character Button");
 }

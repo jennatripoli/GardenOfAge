@@ -16,10 +16,6 @@ CharacterActionButton::CharacterActionButton(int action_worth, Character* ch, st
 	action_value = action_worth;
 }
 
-int CharacterActionButton::getButtonAction() {
-	return 0;
-}
-
 void CharacterActionButton::callback() {
 	character->setCharacterMove(action_value);
 }

@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "WorldManager.h"
 #include "DisplayManager.h"
@@ -9,11 +9,10 @@
 #include "EventDamage.h"
 #include "EventEnemyTurn.h"
 #include "EventStartTurn.h"
-#include "Explosion.h"
 #include "Princess.h"
 #include "Announcement.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 
 Confidant::Confidant() {
 	registerInterest(END_ENEMY_TURN_EVENT);
@@ -52,7 +51,6 @@ int Confidant::draw() {
 	}
 
 	if (getPosition().getX() != 60) {
-		//Sleep(500);
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 	}
 
@@ -87,7 +85,7 @@ int Confidant::decideMove() {
 
 	if (princess->getIsIronFast()) {
 		return 3;
-		LM.writeLog("end turn");
+		LM.writeLog("Confidant | end turn.");
 	}
 	
 	if (getTurnCount() % 2 == 0) return 1;
@@ -102,7 +100,6 @@ void Confidant::protect() {
 void Confidant::betray() {
 	Announcement* announce_move = new Announcement("Betrayed you say, I can't believe you ", df::CYAN);
 	dealDamage(10, getTarget());
-
 }
 
 void Confidant::realizations() {
