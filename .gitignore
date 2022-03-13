@@ -3,4 +3,6 @@
 *.ncb
 *.sbr
 *.log
+*.bin
+*.obj
 GardenOfAge/.vs/GardenOfAge/v16/ipch
