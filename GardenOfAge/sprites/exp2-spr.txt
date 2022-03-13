@@ -1,52 +1,58 @@
 <HEADER>
 frames 2
-width 71
-height 20
-color green
+width 70
+height 23
+color white
 slowdown 15
 </HEADER>
 <BODY>
-Lyla has 4 abilitites she'll be using to reclaim her throne!           
-Each Ability moddifies a hidden trait that enemies are aware of.       
-Based on responses, patterns, and damge output, utilize Lyla's         
-abilitites to claim her throne once and for all.                       
-*If Lyla proves her right to her family, all her move upgrade!         
-Press your button and end your turn to continue                        
-Highlight OVER the text to click                                       
-Caliburn-     A legendary sword that does 30 damage alone. if          
-              honorless was used beforehand it does 60.                
-              *Becomes Excalibur                                       
-Honorless-    Allows for immense damage to enemies at the cost of      
-              an extra turn.                                           
-              *Pride in all Ivy                                        
-GildedShield- A mythical sheild that halves incoming damage and        
-              provides a portion of the damage back.                   
-              *Thorn Sheild of Roses                                   
-Holylight-    Grants Lyla 50 HP back as per her divine right.          
-              *Divinerule                                              
-                                                                       
-              Press 'p' to play, 'q' to quit                           
+Lyla has four abilities she can use to reclaim her throne! Use the    
+mouse to click the button corresponding to the move that you want to  
+take, and click the End Turn button to lock in your choice. Based on  
+responses, patterns, and damage output, utilize Lyla's abilities to   
+claim her throne once and for all. When the Princess is deemed the    
+True Ruler, each ability is modified to have a new trait.             
+                                                                      
+Caliburn       A legendary sword that does 20 damage alone. If        
+               Honorless was used beforehand, it deals 50 damage.     
+               True Ruler Ability: Caliburn Increased Strength        
+                                                                      
+Honorless      Allows for immense damage to enemies, at the cost      
+               of an extra turn.                                      
+               True Ruler Ability: Pride                              
+                                                                      
+Gilded Shield  A mythical shield that halves incoming damage and      
+               sends a portion of the damage back.                    
+               True Ruler Ability: Thorn Shield                       
+                                                                      
+Holy Light     Grants Lyla 50 HP back as per her divine right.        
+               True Ruler Ability: Divine Rule                        
+                                                                      
+                Press 'p' to play, 'q' to quit                        
 end
-Lyla has 4 abilitites she'll be using to reclaim her throne!           
-Each Ability moddifies a hidden trait that enemies are aware of.       
-Based on responses, patterns, and damge output, utilize Lyla's         
-abilitites to claim her throne once and for all.                       
-*If Lyla proves her right to her family, all her move upgrade!         
-Press your button and end your turn to continue                        
-Highlight OVER the text to click                                       
-Caliburn-     A legendary sword that does 30 damage alone. if          
-              honorless was used beforehand it does 60.                
-              *Becomes Excalibur                                       
-Honorless-    Allows for immense damage to enemies at the cost of      
-              an extra turn.                                           
-              *Pride in all Ivy                                        
-GildedShield- A mythical sheild that halves incoming damage and        
-              provides a portion of the damage back.                   
-              *Thorn Sheild of Roses                                   
-Holylight-    Grants Lyla 50 HP back as per her divine right.          
-              *Divinerule                                              
-                                                                       
-                                                                       
+Lyla has four abilities she can use to reclaim her throne! Use the    
+mouse to click the button corresponding to the move that you want to  
+take, and click the End Turn button to lock in your choice. Based on  
+responses, patterns, and damage output, utilize Lyla's abilities to   
+claim her throne once and for all. When the Princess is deemed the    
+True Ruler, each ability is modified to have a new trait.             
+                                                                      
+Caliburn       A legendary sword that does 20 damage alone. If        
+               Honorless was used beforehand, it deals 50 damage.     
+               True Ruler Ability: Caliburn Increased Strength        
+                                                                      
+Honorless      Allows for immense damage to enemies, at the cost      
+               of an extra turn.                                      
+               True Ruler Ability: Pride                              
+                                                                      
+Gilded Shield  A mythical shield that halves incoming damage and      
+               sends a portion of the damage back.                    
+               True Ruler Ability: Thorn Shield                       
+                                                                      
+Holy Light     Grants Lyla 50 HP back as per her divine right.        
+               True Ruler Ability: Divine Rule                        
+                                                                      
+                                                                      
 end
 </BODY>
 <FOOTER>

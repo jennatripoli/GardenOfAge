@@ -1,0 +1,36 @@
+<HEADER>
+frames 2
+width 35
+height 11
+color yellow
+slowdown 15
+</HEADER>
+<BODY>
+       vvvvvvvvv                   
+        \...../                    
+       ((('_')))                   
+|\_/\_/|))) (((                    
+|  ||  |(( v )))     /| __________ 
+|_(<>)_|  )X(  O|===|* >__________>
+\ o\/o / /   \       \|            
+ \_||_/ /     \                    
+       /       \                   
+      /         \                  
+     wWwWwWwWwWwWw                 
+end
+       vvvvvvvvv                   
+        \...../                    
+       ((('_')))                   
+        ))) (((                    
+|\_/\_/|(( v )))                   
+|  ||  |  )X(        /| __________ 
+|_(<>)_| /   \ O|===|* >__________>
+\ o\/o //     \      \|            
+ \_||_//       \                   
+      /         \                  
+     wWwWwWwWwWwWw                 
+end
+</BODY>
+<FOOTER>
+version 1
+</FOOTER>
