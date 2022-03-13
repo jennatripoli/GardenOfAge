@@ -18,17 +18,17 @@ Princess::Princess() {
 	setSprite("princess");
 	setPosition(df::Vector(20, 16));
 	
-	isIronfast = false; 
-	isBraveHearty = false;
-	isOfKinderedSpirit = false;
-	isTheRightfulHeir = false; 
+	iron_fast = false; 
+	brave_hearty = false;
+	kindered_spirit = false;
+	rightful_heir = false; 
 	setTrueRuler(false);
-	isVictor = false;
+	victor = false;
 }
 
 void Princess::setVictory(bool state)
 {
-	isVictor = state; 
+	victor = state; 
 }
 
 // handle event (return 0 if ignored, else return 1)
@@ -36,27 +36,22 @@ int Princess::eventHandler(const df::Event* p_e) {
 	if (p_e->getType() == DAMAGE_EVENT) {
 		const EventDamage* p_damage_event = dynamic_cast <const EventDamage*> (p_e);
 	
-		if (isIronfast) {
+		if (iron_fast) {
 			takeDamage((p_damage_event->getAmount() / 2));
-			dealDamage((p_damage_event->getAmount()/ 3), getTarget());
-			isIronfast = false;
-			isTheRightfulHeir = false;
+			dealDamage((p_damage_event->getAmount() / 3), getTarget());
+			iron_fast = false;
+			rightful_heir = false;
 		} else {				
-			if (isOfKinderedSpirit) takeDamage(p_damage_event->getAmount() * (.9));
+			if (kindered_spirit) takeDamage(p_damage_event->getAmount() * (.9));
 			else takeDamage(p_damage_event->getAmount());
-			isTheRightfulHeir = false;
+			rightful_heir = false;
 		}
 
 		setPosition(df::Vector(getPosition().getX() - 1, getPosition().getY()));
 		
-		if (isVictor)
-		{
-			new GameOver(true);
-			return 1;
-		}
-		
-		if (getHP() <= 0)
-				new GameOver();	
+		if (victor) new GameOver(true);
+		if (getHP() <= 0) new GameOver();	
+
 		return 1;
 	}
 
@@ -77,22 +72,22 @@ int Princess::draw() {
 	return drawHP(df::YELLOW, "Princess Lyla");
 }
 
-int Princess::characterMoveSet(int choice) {
+int Princess::moveSet(int choice) {
 	switch (choice) {
 	case 1:
-		LM.writeLog("Princess | moveset 1 (caliburn) selected.");
+		LM.writeLog("Princess | move 1 (caliburn) selected.");
 		attackCaliburn();
 		break;
 	case 2:
-		LM.writeLog("Princess | moveset 2 (gilded shield) selected.");
+		LM.writeLog("Princess | move 2 (gilded shield) selected.");
 		attackGildedShield();
 		break;
 	case 3:
-		LM.writeLog("Princess | moveset 3 (honorless) selected.");
+		LM.writeLog("Princess | move 3 (honorless) selected.");
 		attackHonorless();
 		break;
 	default:
-		LM.writeLog("Princess | moveset 4 (holy light) selected.");
+		LM.writeLog("Princess | move 4 (holy light) selected.");
 		attackHolyLight();
 		break;
 	}
@@ -102,61 +97,61 @@ int Princess::characterMoveSet(int choice) {
 
 // damage multiplier
 void Princess::attackCaliburn() {
-	Announcement* announce_move = new Announcement("Caliburn strikes", df::YELLOW);
+	Announcement* announce_move = new Announcement("Caliburn strikes the enemy.", df::YELLOW);
 
-	if (isBraveHearty) {
+	if (brave_hearty) {
 	 dealDamage(60, getTarget());
-	 isBraveHearty = false;
+	 brave_hearty = false;
 	} else dealDamage(30, getTarget()); 
 
-	if (trueRuler) {
-		Announcement* announce_move = new Announcement("True Ruler Ability : Caliburn insreased strength");
-		Announcement* announce_move2 = new Announcement("Excalibur");
+	if (true_ruler) {
+		Announcement* announce_move = new Announcement("True Ruler Ability: Caliburn Increased Strength");
 		dealDamage(30, getTarget());
 	}
 
-	isOfKinderedSpirit = !isOfKinderedSpirit;
+	kindered_spirit = !kindered_spirit;
 }
 
 // reduce incoming damage
 void Princess::attackGildedShield() {
-	Announcement* announce_move = new Announcement("Gilded sheild Pprotect");
-	isIronfast = true;
+	Announcement* announce_move = new Announcement("Protect me with the gilded shield.");
+	iron_fast = true;
 
-	if (trueRuler) {
-		Announcement* announce_move = new Announcement("True Ruler Ability : Thorn Sheild");
+	if (true_ruler) {
+		Announcement* announce_move = new Announcement("True Ruler Ability: Thorn Shield");
 		dealDamage(15, getTarget());
 	}
 }
 
 // deal 5 damage
 void Princess::attackHonorless() {
-	Announcement* announce_move = new Announcement("Honorless");
-	isBraveHearty = true;
+	Announcement* announce_move = new Announcement("You have lost your honor.");
+	brave_hearty = true;
 	dealDamage(5, getTarget());
-	if (trueRuler) {
-		Announcement* announce_move = new Announcement("True Ruler Ability: Pride in all Ivy");
-		isIronfast = true;
+
+	if (true_ruler) {
+		Announcement* announce_move = new Announcement("True Ruler Ability: Pride");
+		iron_fast = true;
 	}
 }
 
 // heal by 50 hp
 void Princess::attackHolyLight() {
-	 Announcement* announce_move = new Announcement("Holy Light");
+	 Announcement* announce_move = new Announcement("Handle the holy light!");
 	 
 	int current_HP = getHP() + 50; 
 	setHP(current_HP);
+	rightful_heir = true; 
 
-	isTheRightfulHeir = true; 
-	if (trueRuler) {
-		Announcement* announce_move = new Announcement("True Ruler Ability : Divine Rule");
+	if (true_ruler) {
+		Announcement* announce_move = new Announcement("True Ruler Ability: Divine Rule");
 		int current_HP = getHP() + 40;
 		setHP(current_HP);
 	}
 }
 
-bool Princess::getIsIronFast() const { return isIronfast; }
-bool Princess::getIsBraveHearty() const { return isBraveHearty; }
-bool Princess::getisOfKinderedSpirit() const { return isOfKinderedSpirit; }
-bool Princess::getisTheRightfulHeir() const { return isTheRightfulHeir; }
-void Princess::setTrueRuler(bool state) { trueRuler = state; }
+bool Princess::getIronFast() const { return iron_fast; }
+bool Princess::getBraveHearty() const { return brave_hearty; }
+bool Princess::getKinderedSprit() const { return kindered_spirit; }
+bool Princess::getRightfulHeir() const { return rightful_heir; }
+void Princess::setTrueRuler(bool state) { true_ruler = state; }

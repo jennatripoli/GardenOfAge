@@ -67,10 +67,10 @@ void Phase::loadCharacterMenu() {
 }
 
 void Phase::completeTurn() {
-	turn_queue = player_party->getCharacterMove();
-	LM.writeLog("Phase | %d, Lyla's move after loosing.");
+	turn_queue = player_party->getMove();
+	LM.writeLog("Phase | %d, Lyla's move after losing.");
 	player_party->setTarget(phase_boss); 
-	player_party->characterMoveSet(turn_queue);
+	player_party->moveSet(turn_queue);
 }
 
 int Phase::startNextBoss() {
@@ -79,6 +79,7 @@ int Phase::startNextBoss() {
 		Announcement* sm2;
 		Announcement* sm3;
 		Announcement* sm4;
+
 		if (enemy_killcount > 0) {
 			phase_boss->draw();
 			DM.swapBuffers();
@@ -123,16 +124,15 @@ int Phase::startNextBoss() {
 			princess->setTrueRuler(true);
 			princess->setHP(80);
 
-			sm1 = new Announcement("Sister", df::GREEN, 3, true);
-			sm2 = new Announcement("You're no longer a baby green to be harvested...", df::GREEN, 3, true);
-			sm3 = new Announcement("When you face him", df::GREEN, 3, true);
-			sm4 = new Announcement("The future is made by seeds of the past and... ", df::GREEN, 3, true);
+			sm1 = new Announcement("Sister...", df::GREEN, 3, true);
+			sm2 = new Announcement("You are no longer a child, you are not weak.", df::GREEN, 3, true);
+			sm3 = new Announcement("The future is made from seeds of the past.", df::GREEN, 3, true);
+			sm4 = new Announcement("Be strong against him.", df::GREEN, 3, true);
 
 			phase_boss = new Regent();
 			player_party->setTarget(phase_boss);
 			phase_boss->setTarget(player_party);			
 			break;
-
 		case 5:
 			princess->setVictory(true);
 			phase_boss = new Character();
@@ -156,11 +156,11 @@ int Phase::eventHandler(const df::Event* p_e) {
 		completeTurn();
 		if (phase_boss->getHP() == 0) {
 			enemy_killcount++;
-				startNextBoss();
+			startNextBoss();
 
-			if(enemy_killcount < 5)
-				Announcement* message = new Announcement("New Battle!!!", df::GREEN, 3, true);
+			if(enemy_killcount < 5) Announcement* message = new Announcement("Enemy Approaching. New Battle!", df::GREEN, 3, true);
 			return 1;
+
 		} else {
 			EventEnemyEndTurn* nextTurn = new EventEnemyEndTurn(); 
 			phase_boss->eventHandler(nextTurn);

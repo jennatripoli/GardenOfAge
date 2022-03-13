@@ -36,8 +36,8 @@ int Sister::eventHandler(const df::Event* p_e) {
 
 	if (p_e->getType() == END_ENEMY_TURN_EVENT) {
 		turnCountManage();
-		setCharacterMove(decideMove());
-		characterMoveSet(getCharacterMove());
+		setMove(decideMove());
+		moveSet(getMove());
 		return 1;
 	}
 
@@ -58,7 +58,7 @@ int Sister::draw() {
 	return drawHP(df::MAGENTA, "Raile the Magic Warrior");
 }
 
-int Sister::characterMoveSet(int choice) {
+int Sister::moveSet(int choice) {
 	switch (choice) {
 	case 1:
 		attackGatheringMagic();
@@ -83,7 +83,7 @@ int Sister::characterMoveSet(int choice) {
 int Sister::decideMove() {
 	Princess* princess = dynamic_cast <Princess*> (getTarget());
 
-	if (princess->getIsIronFast()) return 3;
+	if (princess->getIronFast()) return 3;
 	else {
 		if (power_track == true) {
 			power_track = false;
@@ -96,17 +96,17 @@ int Sister::decideMove() {
 }
 	
 void Sister::attackGatheringMagic() {
-	Announcement* announce_move1 = new Announcement("I was never treated like the flower you are", df::CYAN);
-	Announcement* announce_move3 = new Announcement("I'll use those around me and strike", df::CYAN);
-	Announcement* announce_move2 = new Announcement("Come, little sister", df::CYAN);
+	Announcement* announce_move1 = new Announcement("I was never treated like the flower you are.", df::CYAN);
+	Announcement* announce_move3 = new Announcement("I gather the magic around me and strike!", df::CYAN);
+	Announcement* announce_move2 = new Announcement("Oh, little sister...", df::CYAN);
 }
 
 void Sister::attackTaunt() {
-	Announcement* announce_move2 = new Announcement("Can you handle this, sister?!", df::CYAN);
+	Announcement* announce_move2 = new Announcement("Can you handle this attack, sister?!", df::CYAN);
 	dealDamage( (int) ((getTarget()->getHP() * .7)), getTarget());
 }
 
 void Sister::attackElusiveStrike() {
-	Announcement* announce_move2 = new Announcement("You dare trick me, me who waters your sprout!", df::CYAN);
+	Announcement* announce_move2 = new Announcement("How dare you trick me, the one who waters your garden?", df::CYAN);
 	dealDamage(20, getTarget()); 
 }

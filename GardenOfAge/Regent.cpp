@@ -35,8 +35,8 @@ int Regent::eventHandler(const df::Event* p_e) {
 
 	if (p_e->getType() == END_ENEMY_TURN_EVENT) {
 		turnCountManage();
-		setCharacterMove(decideMove());
-		characterMoveSet(getCharacterMove());
+		setMove(decideMove());
+		moveSet(getMove());
 		return 1;
 	}
 
@@ -57,7 +57,7 @@ int Regent::draw() {
 	return drawHP(df::RED, "Hallowed Regent");
 }
 
-int Regent::characterMoveSet(int choice) {
+int Regent::moveSet(int choice) {
 	switch (choice) {
 	case 1:
 		attackFamineOfWeeds();
@@ -74,7 +74,7 @@ int Regent::characterMoveSet(int choice) {
 	}
 
 	if (countdown > 0) {
-		Announcement* announce_move = new Announcement("Famine deicmate the youth", df::CYAN);
+		Announcement* announce_move = new Announcement("Famine will decimate the youth.", df::CYAN);
 		dealDamage(20, getTarget());
 		countdown--; 
 	}
@@ -89,25 +89,25 @@ int Regent::characterMoveSet(int choice) {
 int Regent::decideMove() {
 	Princess* princess = dynamic_cast <Princess*> (getTarget());
 
-	if (princess->getisTheRightfulHeir()) return 3; 
+	if (princess->getRightfulHeir()) return 3; 
 	if (getTurnCount() % 3 == 0) return 1;
-	if (princess->getIsBraveHearty()) return 2;
-	if (princess->getisOfKinderedSpirit()) return 3;
+	if (princess->getBraveHearty()) return 2;
+	if (princess->getKinderedSprit()) return 3;
 	return 0;
 }
 
 void Regent::attackFamineOfWeeds() {
-	Announcement* announce_move = new Announcement("Perpetual damage to drain the youth and aquire the crops I want", df::CYAN);
+	Announcement* announce_move = new Announcement("I damage the youth's supplies and steal their harvest.", df::CYAN);
 	countdown = 3;
 }
 
 void Regent::attackRespectMyRule() {
-	Announcement* announce_move = new Announcement("Yiled you unworthy child", df::CYAN);
+	Announcement* announce_move = new Announcement("Yield to me, you unworthy child. The power is mine!", df::CYAN);
 	dealDamage(60, getTarget()); 
 }
 
 void Regent::attackAreYouWorthy() {
-	Announcement* announce_move = new Announcement("How can you fathom what a child, fathom my power", df::CYAN);
+	Announcement* announce_move = new Announcement("You cannot fathom my power! Are you even worthy?", df::CYAN);
 	dealDamage(30, getTarget()); 
 	int heal = getHP();
 	setHP(getHP() + 40); 

@@ -7,23 +7,13 @@
 #include "ViewObject.h"
 #include "Color.h"
 
-CharacterButton::CharacterButton() {
-	setType(MENUBUTTON);
-	setBorder(false);
-	setViewString("");
-	setHighlightColor(df::WHITE);
-	setDefaultColor(df::WHITE);
-
-	show_display = false;
-	character_guide = new MenuGuide();
-}
-
 CharacterButton::CharacterButton(Character* character, df::Color c_highlight, df::Color c_default) {
 	setType(MENUBUTTON);
 	setBorder(false);
 	setViewString("");
 	setHighlightColor(c_highlight);
 	setDefaultColor(c_default);
+
 	show_display = false;
 	stored_character = character;
 	character_guide = new MenuGuide();
@@ -34,7 +24,6 @@ CharacterButton::CharacterButton(Character* character, df::Color c_highlight, df
 	std::string move_name = "";
 
 	for (int i = 0; i < 4; i++) {
-		// hardcode names for functions
 		if (stored_move == 1) move_name = "Caliburn";
 		if (stored_move == 2) move_name = "Gilded Shield";
 		if (stored_move == 3) move_name = "Honorless";
@@ -54,10 +43,10 @@ CharacterButton::CharacterButton(Character* character, df::Color c_highlight, df
 	}
 }
 
-Character* CharacterButton::getCharacter() const { return stored_character; }
-bool CharacterButton::isDisplayed() const { return show_display; }
-void CharacterButton::setDisplayed(bool new_state) { show_display = new_state; }
-
 void CharacterButton::callback() {
 	show_display = !show_display;
 }
+
+Character* CharacterButton::getCharacter() const { return stored_character; }
+bool CharacterButton::isDisplayed() const { return show_display; }
+void CharacterButton::setDisplayed(bool new_state) { show_display = new_state; }

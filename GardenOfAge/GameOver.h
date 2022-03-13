@@ -5,11 +5,12 @@
 
 class GameOver : public df::ViewObject {
 private:
+	std::string setting;
 	int time_to_live;
 	void step();
 
 public:
-	GameOver(bool isVictory = false);
+	GameOver(bool victory = false);
 	~GameOver();
 	int eventHandler(const df::Event *p_e) override;
 	int draw() override;

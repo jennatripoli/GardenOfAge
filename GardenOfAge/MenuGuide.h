@@ -1,11 +1,11 @@
 #ifndef __MENU_GUIDE_H__
 #define __MENU_GUIDE_H__
 
-#include "MenuSelect.h"
-#include "MenuButton.h"
 #include "ViewObject.h"
 #include "Object.h"
 #include "Event.h"
+#include "MenuSelect.h"
+#include "MenuButton.h"
 
 const int MAXCAPACITY = 50;
 

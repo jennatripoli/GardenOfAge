@@ -4,8 +4,8 @@
 #include "Sound.h"
 #include "ResourceManager.h"
 
-#include "EventDamage.h"
 #include "Character.h"
+#include "EventDamage.h"
 
 Character::Character() {
 	df::Object::setType("Character");
@@ -16,31 +16,13 @@ Character::Character() {
 	turn_count = 1; 
 }
 
-// these functions will be overridden
-int Character::eventHandler(const df::Event* p_e) { return 0; }
-int Character::draw() { return 0; }
-int Character::characterMoveSet(int choice) { return 0; }
-int Character::decideMove() { return 0; }
-
-
-// getters and setters for Character data
-int Character::getHP() { return hp; }
-void Character::setHP(int new_hp) { hp = new_hp; }
-void Character::startTurnCount() { turn_count = 0; }
-void Character::turnCountManage() { turn_count++; }
-int Character::getTurnCount() const { return turn_count; }
-std::string Character::getName() { return name; }
-void Character::setName(std::string new_name) { name = new_name; }
-int Character::getCharacterMove() const { return current_moveset; }
-Character* Character::getTarget() const { return target; }
-void Character::setTarget(Character* the_enemy) { target = the_enemy; }
-
-int Character::setCharacterMove(int choice) {
+// set Character's move to choice move
+int Character::setMove(int choice) {
 	current_moveset = choice;
 	return current_moveset;
 }
 
-// send parameter damage to a specific character
+// send parameter damage to a specific Character
 void Character::dealDamage(int damage, Character* recipient) {
 	EventDamage* p_damage_event = new EventDamage(damage);
 	recipient->eventHandler(p_damage_event);
@@ -67,3 +49,21 @@ int Character::drawHP(df::Color color, std::string name) {
 
 	return 0;
 }
+
+// these functions will be overridden
+int Character::eventHandler(const df::Event* p_e) { return 0; }
+int Character::draw() { return 0; }
+int Character::moveSet(int choice) { return 0; }
+int Character::decideMove() { return 0; }
+
+// getters and setters for Character data
+int Character::getHP() { return hp; }
+void Character::setHP(int new_hp) { hp = new_hp; }
+void Character::startTurnCount() { turn_count = 0; }
+void Character::turnCountManage() { turn_count++; }
+int Character::getTurnCount() const { return turn_count; }
+std::string Character::getName() { return name; }
+void Character::setName(std::string new_name) { name = new_name; }
+int Character::getMove() const { return current_moveset; }
+Character* Character::getTarget() const { return target; }
+void Character::setTarget(Character* the_enemy) { target = the_enemy; }

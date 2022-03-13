@@ -5,24 +5,24 @@
 
 class Princess : public Character {
 private:
-	bool isIronfast; 
-	bool isBraveHearty;
-	bool isOfKinderedSpirit;
-	bool isTheRightfulHeir;
-	bool trueRuler;
-	bool isVictor;
+	bool iron_fast; 
+	bool brave_hearty;
+	bool kindered_spirit;
+	bool rightful_heir;
+	bool true_ruler;
+	bool victor;
 	
 public:
 	Princess();
 	int eventHandler(const df::Event* p_e) override;
 	int draw() override;
-	int characterMoveSet(int choice) override;
+	int moveSet(int choice) override;
 	void setVictory(bool state);
 
-	bool getIsIronFast() const;
-	bool getIsBraveHearty() const;
-	bool getisOfKinderedSpirit() const; 
-	bool getisTheRightfulHeir() const;
+	bool getIronFast() const;
+	bool getBraveHearty() const;
+	bool getKinderedSprit() const; 
+	bool getRightfulHeir() const;
 	void setTrueRuler(bool state);
 
 	void attackCaliburn();

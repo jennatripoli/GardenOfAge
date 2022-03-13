@@ -7,14 +7,13 @@
 #include "GameOver.h"
 #include "GameStart.h"
 
-GameOver::GameOver(bool isVictory) {
+GameOver::GameOver(bool victory) {
 	setType("GameOver");
 	setLocation(df::CENTER_CENTER);
 	registerInterest(df::STEP_EVENT);
 
-	std::string setting;
-
-	if (isVictory) setting = "victory"; else setting = "gameover";
+	if (victory) setting = "victory";
+	else setting = "gameover";
 	
 	if (setSprite(setting) == 0) time_to_live = getAnimation().getSprite()->getFrameCount() * getAnimation().getSprite()->getSlowdown();
 	else time_to_live = 0;
@@ -31,11 +30,7 @@ GameOver::~GameOver() {
 	for (i.first(); !i.isDone(); i.next()) {
 		df::Object* p_o = i.currentObject();
 
-		if (p_o->getType() != "GameStart") {
-			i.currentObject();//->setActive(false);
-			WM.markForDelete(p_o);
-		//	WM.update();
-		}
+		if (p_o->getType() != "GameStart") WM.markForDelete(p_o);
 
 		// if GameStart, set as active
 		if (p_o->getType() == "GameStart") {

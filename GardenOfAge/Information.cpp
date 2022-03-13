@@ -20,14 +20,13 @@ Information::Information(int num) {
     num_screen = num;
 
     switch (num_screen) {
-        // story
-    case 1:
+    case 1:  // backstory
         setSprite("exp1");
         LM.writeLog("Information | exp1.");
         break;
 
-        // lyla moves
-    case 2:
+    
+    case 2:  // player's moveset
         setSprite("exp2");
         LM.writeLog("Information | exp2.");
         break;
@@ -55,7 +54,6 @@ int Information::eventHandler(const df::Event* p_e) {
                 new Information(2);
             }
             break;
-
         case df::Keyboard::P:  // play
             if (num_screen == 2) {
                 setActive(false);
@@ -66,10 +64,10 @@ int Information::eventHandler(const df::Event* p_e) {
         case df::Keyboard::Q:  // quit
             GM.setGameOver();
             break;
-
         default:
             break;
         }
+
         return 1;
     }
 

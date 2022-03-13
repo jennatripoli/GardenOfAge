@@ -17,9 +17,9 @@ public:
 	virtual int draw();
 
 	virtual int decideMove();
-	virtual int characterMoveSet(int choice);
-	virtual int setCharacterMove(int choice);
-	int getCharacterMove() const;
+	virtual int moveSet(int choice);
+	virtual int setMove(int choice);
+	int getMove() const;
 
 	int getHP();
 	void setHP(int new_hp);

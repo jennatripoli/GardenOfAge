@@ -60,7 +60,6 @@ void loadResources(void) {
 	RM.loadSound("sounds/battlecomplete.wav", "battlecomplete");
 	RM.loadSound("sounds/gameover.wav", "gameover");
 	RM.loadMusic("sounds/gamestart.wav", "gamestart");
-
 }
 
 // populate world with objects

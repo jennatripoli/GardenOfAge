@@ -17,5 +17,5 @@ CharacterActionButton::CharacterActionButton(int action_worth, Character* ch, st
 }
 
 void CharacterActionButton::callback() {
-	character->setCharacterMove(action_value);
+	character->setMove(action_value);
 }

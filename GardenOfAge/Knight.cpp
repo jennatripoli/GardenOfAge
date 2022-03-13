@@ -36,8 +36,8 @@ int Knight::eventHandler(const df::Event* p_e) {
 
 	if (p_e->getType() == END_ENEMY_TURN_EVENT) {
 		turnCountManage();
-		setCharacterMove(decideMove());
-		characterMoveSet(getCharacterMove());
+		setMove(decideMove());
+		moveSet(getMove());
 		return 1;
 	}
 
@@ -58,10 +58,10 @@ int Knight::draw() {
 	return drawHP(df::CYAN, "Little Knight");
 }
 
-int Knight::characterMoveSet(int choice) {
+int Knight::moveSet(int choice) {
 
 	LM.writeLog("Knight | EnemyTurn %d.", getTurnCount());
-	LM.writeLog("Knight | move %d.", getCharacterMove());
+	LM.writeLog("Knight | move %d.", getMove());
 
 	switch (choice) {
 	case 1:
@@ -103,7 +103,8 @@ int Knight::decideMove() {
 			return 4;
 		}
 
-		if (princess->getIsBraveHearty()) {
+		// brave hearty
+		if (princess->getBraveHearty()) {
 			priorMove = 1;
 			return 1;
 		}
@@ -115,7 +116,7 @@ int Knight::decideMove() {
 		}
 
 		// struggle
-		if (princess->getisOfKinderedSpirit()) return 2;
+		if (princess->getKinderedSprit()) return 2;
 
 		// arrows
 		if (princess->getHP() >= 10) return 1;
@@ -124,23 +125,23 @@ int Knight::decideMove() {
 }
 
 void Knight::attackArrows() {
-	Announcement* announce_move = new Announcement("Rain of arrows", df::CYAN);
+	Announcement* announce_move = new Announcement("Rain of arrows!", df::CYAN);
 	dealDamage(20, getTarget());
 }
 
 void Knight::attackStruggle() {
-	Announcement* announce_move = new Announcement("We are but children.... fighting", df::CYAN);
+	Announcement* announce_move = new Announcement("We are just children...", df::CYAN);
 	int current_HP = getHP() + 20;
 	setHP(current_HP);
 }
 
 void Knight::attackComrades() {
-	Announcement* announce_move = new Announcement("We serve the day we breathe all rulers", df::CYAN);
-	Announcement* announce_move2 = new Announcement("For all rulers higher than us sprots", df::CYAN);
+	Announcement* announce_move = new Announcement("We serve since the day we take our first breath.", df::CYAN);
+	Announcement* announce_move2 = new Announcement("For all rulers are higher than us children.", df::CYAN);
 }
 
 void Knight::attackIsHonorless() {
-	Announcement* announce_move = new Announcement("Are you honorless", df::CYAN);
+	Announcement* announce_move = new Announcement("Have you lost your honor?", df::CYAN);
 	dealDamage(getTarget()->getHP() / 4, getTarget());
 }
 

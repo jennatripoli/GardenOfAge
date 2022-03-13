@@ -15,15 +15,12 @@
 
 #include <Windows.h>
 
-bool display = false;
-
 GameStart::GameStart() {
   setType("GameStart");
   setSprite("gamestart");
   setLocation(df::CENTER_CENTER);
   registerInterest(df::KEYBOARD_EVENT);
 
-  num_screens = 2;
   music = RM.getMusic("gamestart");
   playMusic();
 }
@@ -43,32 +40,14 @@ int GameStart::eventHandler(const df::Event *p_e) {
             setActive(false);
             p_e = NULL;
             new Information(1);
-            display = true;
             break;
-
-            // traverse screens
-            /*if (num_screens == 2) {
-                setSprite("exp1");
-                LM.writeLog("GameStart | screen 2.");
-            }
-            
-            if (num_screens == 1) {
-                setSprite("exp2");
-                LM.writeLog("GameStart | screen 1.");
-            }
-
-            num_screens--; //sets iteration through screens
-            draw();
-            DM.swapBuffers(); 
-            if (num_screens == 0) start();
-            break;*/
-
         case df::Keyboard::Q:  // quit
             GM.setGameOver();
             break;
         default:
             break;
         }
+
         return 1;
     }
 
@@ -77,7 +56,6 @@ int GameStart::eventHandler(const df::Event *p_e) {
 
 void GameStart::start() {
     music->pause();    
-    //num_screens = 2;   // resets screen traversal
     setActive(false);  // when game starts, become inactive
     game::start();
 }
