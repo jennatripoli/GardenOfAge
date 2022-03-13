@@ -40,10 +40,10 @@ Cries out loud, lamenting the past. Heals self for 20 HP.
 No effects, but announces the current situation.  
 
 ### **Honorless**  
-After seeing the princess use honorless, he ask directly if she too lacks honor. Deals 25% of the Princess' HP in damage.  
+After seeing the princess use honorless, he ask if she lacks honor. Deals 25% of the Princess' HP in damage.  
 
 ### **Not a Savior**  
-Gives up hope that the Princess will save the kingdom. Deals increased damage every turn afterwards (damage = turncount * 7).  
+Gives up hope that the Princess will save the kingdom. Deals increased damage every turn afterwards, equivalent to the turn count multiplied by seven.  
 ______________________________________________________________________________________________________________________________
 
 ## **Charming Confidant (Enemy #2)**
@@ -71,7 +71,7 @@ Cries about his regrets and not being able to manage his kingdom. Heals self for
 Hurt that his daughter, the Princess, has taken over his garden. Deals 50% of the Princess' HP in damage.  
 
 ### **The End**  
-If saved by the holy light, he realizes his mistakes and accepts defeat. Sets own HP to 1 and heals the Princess to 80 HP.  
+If saved by holy light, he realizes his mistakes and accepts defeat. Sets own HP to 1 and heals the Princess to 80 HP.  
 ______________________________________________________________________________________________________________________________
 
 ## **Raille the Magic Warrior (Enemy #4)**
