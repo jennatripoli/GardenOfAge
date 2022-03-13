@@ -7,7 +7,7 @@ ________________________________________________________________________________
 
 ## **Princess Lyla (The Player)**
 
-Lyla has four abilitites she can use to reclaim her throne! Use the mouse to click the button corresponding to the move that you want to take, and click the End Turn button to lock in your choice. Based on responses, patterns, and damage output, utilize Lyla's abilitites to claim her throne once and for all. When the Princess is deemed the True Ruler, each ability is modified to have a new trait, and enemies are aware of this.
+Lyla has four abilities she can use to reclaim her throne! Use the mouse to click the button corresponding to the move that you want to take, and click the End Turn button to lock in your choice. Based on responses, patterns, and damage output, utilize Lyla's abilities to claim her throne once and for all. When the Princess is deemed the True Ruler, each ability is modified to have a new trait, and enemies are aware of this.
                                       
 ### **Caliburn**  
 A legendary sword that does 20 damage alone. If Honorless was used beforehand, it deals 50 damage.  
@@ -18,7 +18,7 @@ Allows for immense damage to enemies, at the cost of an extra turn.
 _True Ruler Ability: Pride_  
 
 ### **Gilded Shield**  
-A mythical sheild that halves incoming damage and sends a portion of the damage back.  
+A mythical shield that halves incoming damage and sends a portion of the damage back.  
 _True Ruler Ability: Thorn Shield_  
 
 ### **Holy Light**  
@@ -28,7 +28,7 @@ ________________________________________________________________________________
 
 ## **Little Knight (Enemy #1)**
 
-The knight is a young soldier of a similar age to the Princess, but is still in forced labor to the kingdom. The knight is desperate for a chance to end their servitude, yet is loyal to the crown. He checks to see if the princess is their savior, strikes when they see the Princess is honorless, and heals themselves if the Princess is a kindred spirit.
+The knight is a young soldier of a similar age to the Princess but is still in forced labor to the kingdom. The knight is desperate for a chance to end their servitude, yet is loyal to the crown. He checks to see if the princess is their savior, strikes when they see the Princess is honorless, and heals themselves if the Princess is a kindred spirit.
 
 ### **Arrows**  
 Sends a shower of arrows. Deals 20 damage.  
@@ -40,10 +40,10 @@ Cries out loud, lamenting the past. Heals self for 20 HP.
 No effects, but announces the current situation.  
 
 ### **Honorless**  
-After seeing the princess use honorless, he ask if she lacks honor. Deals 25% of the Princess' HP in damage.  
+After seeing the princess use honorless, he asks if she lacks honor. Deals 25% of the Princess' HP in damage.  
 
 ### **Not a Savior**  
-Gives up hope that the Princess will save the kingdom. Deals increased damage every turn afterwards, equivalent to the turn count multiplied by seven.  
+Gives up hope that the Princess will be able to save the kingdom. Deals increased damage every turn afterward, equivalent to the turn count multiplied by seven.  
 ______________________________________________________________________________________________________________________________
 
 ## **Charming Confidant (Enemy #2)**
@@ -76,7 +76,7 @@ ________________________________________________________________________________
 
 ## **Raille the Magic Warrior (Enemy #4)**
 
-The warrior is the estranged older sister of the Princess. She learned the ways of the regent and failing kingdom, and seesher sister as a rival up until the very end of their battle. She switches between taunting and gathering magic, and is an out-of-control character. This cycle is only stopped if the Princess shields herself.
+The warrior is the estranged older sister of the Princess. She learned the ways of the regent and failing kingdom and sees her sister as a rival up until the very end of their battle. She switches between taunting and gathering magic, and is an out-of-control character. This cycle is only stopped if the Princess shields herself.
 
 ### **Gathering Magic**  
 Threatens to use extremely powerful magic to defeat sister. No effects, but warns the Princess.  
@@ -90,13 +90,13 @@ ________________________________________________________________________________
 
 ## **Hallowed Regent	(Enemy #5)**
 
-The regent is the corrupt official who took the kingdom away from the Princess in her youth. He only sees her as a child,not realizing she has grown. Now that Lyla has returned to fight, he send harsh attacks, too blind to see the value of ayouth perspective in the kingdom. If the regent sees the Princess showing that she is worthy of the throne, he questions it.Every three turns, he calls a reminder of the famine that he can cause with his powers, in order to discourage the Princess from attacking. He flaunts his power and demands that Lyla yields to him.
+The regent is the corrupt official who took the kingdom away from the Princess in her youth. He only sees her as a child, not realizing she has grown. Now that Lyla has returned to fight, he sends harsh attacks, too blind to see the value of a youth perspective in the kingdom. If the regent sees the Princess showing that she is worthy of the throne, he questions it. Every three turns, he calls a reminder of the famine that he can cause with his powers, to discourage the Princess from attacking. He flaunts his power and demands that Lyla yields to him.
 
 ### **Famine**  
-Cruelty has lead to massive famine that the Princess feels responsible for. Deals 20 damage every turn for three turns.  
+Cruelty led to massive famine that the Princess feels responsible for. Deals 20 damage every turn for three turns.  
 
 ### **Respect**  
 Outwardly demands respect from the Princess purely because of age and power. Deals 60 damage.  
 
 ### **Not Worthy**  
-Questions the Princess' royal worthiness. Heals self by 40 HP and deals 30 damage.  
+Questions the Princess' royal worthiness. Heals himself by 40 HP and deals 30 damage.  
